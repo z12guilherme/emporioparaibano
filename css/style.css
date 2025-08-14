@@ -1,9 +1,14 @@
 body {
   background-color: #fff8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 .card {
   border: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-2px);
 }
 .bg-red { 
   background-color: #d62828; 
@@ -11,6 +16,7 @@ body {
 }
 .bg-yellow { 
   background-color: #fcbf49; 
+  color: #333;
 }
 .cart {
   position: fixed;
@@ -24,4 +30,49 @@ body {
   max-height: 400px;
   overflow-y: auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.cart-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .cart {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 50vh;
+    border-radius: 15px 15px 0 0;
+    border: none;
+    border-top: 2px solid #fcbf49;
+  }
+  
+  .container {
+    padding-bottom: 60vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .cart {
+    padding: 10px;
+  }
 }
