@@ -37,7 +37,6 @@ body {
   margin-bottom: 40px;
 }
 
-
 .btn.bg-yellow {
   background-color: #fcbf49;
   color: #333;
@@ -64,7 +63,7 @@ body {
   scroll-behavior: smooth;
 }
 .carousel::-webkit-scrollbar { height: 8px; }
-.carousel::-webkit-scrollbar-thumb { background: #d62828; border-radius: 10px; }
+.carousel::-webkit-scrollbar-thumb { background: #fcbf49; border-radius: 10px; }
 
 .carousel-btn {
   position: absolute;
@@ -94,7 +93,7 @@ body {
 .card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
 .card-img-top { border-top-left-radius: 15px; border-top-right-radius: 15px; height: 200px; object-fit: cover; }
 
-.bg-red { background-color: #d62828 !important; color: white !important; }
+.bg-red { background-color: #fcbf49 !important; color: white !important; }
 
 .cart {
   position: fixed;

@@ -9,6 +9,7 @@ const produtos = {
     { name: 'Pimenta-do-reino', desc: 'Pimenta moída na hora para dar sabor intenso.', price: 6, img: 'https://via.placeholder.com/250x200?text=Tempero+4' },
     { name: 'Alho Granulado', desc: 'Alho seco para sopas, molhos e carnes.', price: 8, img: 'https://via.placeholder.com/250x200?text=Tempero+5' },
     { name: 'Colorau', desc: 'Tempero natural para dar cor e sabor aos pratos.', price: 5, img: 'https://via.placeholder.com/250x200?text=Tempero+6' },
+	 	
   ]
 };
 

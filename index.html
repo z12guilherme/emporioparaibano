@@ -10,14 +10,13 @@
 <body>
 
   <!-- Hero Section -->
- <header class="hero text-center text-white" style="background: linear-gradient(135deg, #ff4b2b, #ff416c); height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+  <header class="hero text-center text-white" style="background: linear-gradient(135deg, #fcbf49, #ffda77); height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
     <div style="background-color: rgba(0,0,0,0.5); padding: 40px; border-radius: 15px;">
        <img src="img/logo.jpg" alt="Logo" style="max-width: 700px; height: auto;">
         <h1 class="mt-3" style="color: #fff;">Bem-vindo ao Empório Paraibano</h1>
         <p style="color: #ddd;">Os melhores temperos para você!</p>
     </div>
-</header>
-
+  </header>
 
   <!-- Cardápio -->
   <div class="container my-5" id="product-list">
@@ -37,7 +36,7 @@
     <h5>Carrinho <span id="cart-count" class="badge bg-yellow">0</span></h5>
     <ul id="cart-items" class="list-unstyled"></ul>
     <p class="fw-bold">Total: R$ <span id="cart-total">0.00</span></p>
-    <button class="btn bg-red w-100 fw-bold" onclick="sendToWhatsApp()">Finalizar Pedido</button>
+    <button class="btn" style="background-color: #fcbf49; color: #333; font-weight: bold; width: 100%;" onclick="sendToWhatsApp()">Finalizar Pedido</button>
   </div>
 
   <script src="js/script.js"></script>
