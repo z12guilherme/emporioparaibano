@@ -14,30 +14,14 @@
   </header>
 
   <div class="container my-4">
-    <div class="row" id="product-list">
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="img/anamaria.jpeg" class="card-img-top" alt="Tempero">
-          <div class="card-body">
-            <h5 class="card-title">Tempero Ana Maria (100g)</h5>
-            <p class="card-text">Tempero para arroz, frango, feijão, sopa</p>
-            <p class="fw-bold">R$ 5,00</p>
-            <button class="btn bg-yellow" onclick="addToCart('Tempero Ana Maria (100g)', 5)">Adicionar</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="img/chimichurri.jpg" class="card-img-top" alt="Tempero Chimichurri">
-          <div class="card-body">
-            <h5 class="card-title">Tempero Chimichurri (100g)</h5>
-            <p class="card-text">Mistura aromática para carnes e grelhados</p>
-            <p class="fw-bold">R$ 10,00</p>
-            <button class="btn bg-yellow" onclick="addToCart('Tempero Chimichurri (100g)', 10)">Adicionar</button>
-          </div>
-        </div>
-      </div>
+    <!-- Filtro de categorias -->
+    <div class="mb-3 text-center" id="category-buttons">
+      <button class="btn btn-sm bg-yellow me-2 active" onclick="filterCategory('Todos', this)">Todos</button>
+      <button class="btn btn-sm bg-yellow me-2" onclick="filterCategory('Temperos', this)">Temperos</button>
+      <button class="btn btn-sm bg-yellow me-2" onclick="filterCategory('Molhos', this)">Molhos</button>
     </div>
+
+    <div class="row" id="product-list"></div>
   </div>
 
   <div class="cart" id="cart">
@@ -48,7 +32,5 @@
   </div>
 
   <script src="js/script.js"></script>
-
 </body>
-
-
+</html>

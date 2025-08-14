@@ -2,6 +2,7 @@ body {
   background-color: #fff8f0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
+
 .card {
   border: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -10,14 +11,21 @@ body {
 .card:hover {
   transform: translateY(-2px);
 }
+
 .bg-red { 
   background-color: #d62828; 
   color: white; 
 }
+
 .bg-yellow { 
   background-color: #fcbf49; 
   color: #333;
 }
+
+.btn-sm.active {
+  border: 2px solid #d62828;
+}
+
 .cart {
   position: fixed;
   right: 20px;
@@ -64,15 +72,3 @@ body {
   
   .container {
     padding-bottom: 60vh;
-  }
-}
-
-@media (max-width: 576px) {
-  .card {
-    margin-bottom: 1rem;
-  }
-  
-  .cart {
-    padding: 10px;
-  }
-}
