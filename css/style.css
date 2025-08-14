@@ -1,0 +1,27 @@
+body {
+  background-color: #fff8f0;
+}
+.card {
+  border: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.bg-red { 
+  background-color: #d62828; 
+  color: white; 
+}
+.bg-yellow { 
+  background-color: #fcbf49; 
+}
+.cart {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: white;
+  border: 2px solid #fcbf49;
+  padding: 15px;
+  border-radius: 10px;
+  width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
