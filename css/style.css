@@ -72,3 +72,15 @@ body {
   
   .container {
     padding-bottom: 60vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .cart {
+    padding: 10px;
+  }
+}
