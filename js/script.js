@@ -9,13 +9,6 @@ const produtos = {
     { name: 'Pimenta-do-reino', desc: 'Pimenta moída na hora para dar sabor intenso.', price: 6, img: 'https://via.placeholder.com/250x200?text=Tempero+4' },
     { name: 'Alho Granulado', desc: 'Alho seco para sopas, molhos e carnes.', price: 8, img: 'https://via.placeholder.com/250x200?text=Tempero+5' },
     { name: 'Colorau', desc: 'Tempero natural para dar cor e sabor aos pratos.', price: 5, img: 'https://via.placeholder.com/250x200?text=Tempero+6' },
-  ],
-  molhos: [
-    { name: 'Molho Barbecue', desc: 'Molho adocicado e defumado para carnes.', price: 12, img: 'https://via.placeholder.com/250x200?text=Molho+1' },
-    { name: 'Molho Pimenta', desc: 'Molho picante ideal para carnes e petiscos.', price: 10, img: 'https://via.placeholder.com/250x200?text=Molho+2' },
-    { name: 'Molho de Alho', desc: 'Molho cremoso de alho, perfeito para churrasco.', price: 8, img: 'https://via.placeholder.com/250x200?text=Molho+3' },
-    { name: 'Molho Mostarda', desc: 'Molho à base de mostarda para sanduíches e carnes.', price: 9, img: 'https://via.placeholder.com/250x200?text=Molho+4' },
-    { name: 'Molho Chimichurri', desc: 'Molho argentino de ervas para carnes grelhadas.', price: 11, img: 'https://via.placeholder.com/250x200?text=Molho+5' },
   ]
 };
 
