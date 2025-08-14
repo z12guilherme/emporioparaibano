@@ -73,14 +73,8 @@ E-commerce simples e funcional desenvolvido para o **Empório Paraibano**, permi
 
 ## 📞 Contato
 
-📧 **Marcos Guilherme**
+🧑‍💻Programador: **Marcos Guilherme**
 🔗 [GitHub](https://github.com/z12guilherme)
 🌍 [Site](https://emporioparaibano.netlify.app)
 
 ---
-
-```
-
-Se quiser, eu já posso **adaptar esse README** com **uma imagem de preview do site** para deixar mais atrativo.  
-Quer que eu já faça isso?
-```
