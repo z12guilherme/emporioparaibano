@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const produtos = {
     temperos: [
       // itens preservados / atualizados
-      { name: 'Tempero Ana Maria (100g)', desc: 'O tempero Ana Maria é um mix de temperos popular no Brasil, como: alho, cebola, salsa, cebolinha, manjericão, orégano, pimentão, tomate, e caldo de galinha. Ideal para realçar carnes, aves, peixes, legumes, sopas, ensopados, arroz e feijão.', price: 4.99, img: 'https://via.placeholder.com/250x200?text=Tempero+Ana+Maria' },
+      { name: 'Tempero Ana Maria (100g)', desc: 'O tempero Ana Maria é um mix de temperos popular no Brasil, como: alho, cebola, salsa, cebolinha, manjericão, orégano, pimentão, tomate, e caldo de galinha. Ideal para realçar carnes, aves, peixes, legumes, sopas, ensopados, arroz e feijão.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Tempero+Ana+Maria' },
       
       { name: 'Tempero Chimichurri tradicional (100g)', desc: 'Mistura de ervas e especiarias secas (cebola, alho, salsa, orégano, manjericão, pimentão), sem pimenta. Versátil para carnes, aves, peixes, legumes e outros pratos.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Chimichurri+Tradicional' },
       
@@ -271,4 +271,5 @@ window.addEventListener('DOMContentLoaded', () => {
   cart = loadCart();
   renderProdutos();
   renderCart();
+
 });
