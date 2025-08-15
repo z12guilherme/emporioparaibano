@@ -1,44 +1,48 @@
+<!-- ...existing code... -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Empório Paraibano</title>
-  <link href="img/logo.jpg" rel="stylesheet">
+  <link rel="icon" href="img/logo.jpg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <header class="hero text-center text-white" style="background: linear-gradient(135deg, #fcbf49, #ffda77); height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-    <div style="background-color: rgba(0,0,0,0.5); padding: 40px; border-radius: 15px;">
-       <img src="img/logo.jpg" alt="Logo" style="max-width: 700px; height: auto;">
-        <h1 class="mt-3" style="color: #fff;">Bem-vindo ao Empório Paraibano</h1>
-        <p style="color: #ddd;">Os melhores temperos para você!</p>
+  <header class="hero">
+    <div class="hero-overlay">
+      <img src="img/logo.jpg" alt="Empório Paraibano" class="hero-logo" loading="lazy">
+      <h1>Bem-vindo ao Empório Paraibano</h1>
+      <p>Os melhores temperos para você!</p>
     </div>
   </header>
 
-  <!-- Cardápio -->
-  <div class="container my-5" id="product-list">
+  <main class="container" id="product-list">
+    <section>
+      <h2>Temperos</h2>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn left" aria-label="Scroll left" onclick="scrollCarousel('temperos-carousel', -300)">&lt;</button>
+        <div class="carousel" id="temperos-carousel" aria-live="polite"></div>
+        <button class="carousel-btn right" aria-label="Scroll right" onclick="scrollCarousel('temperos-carousel', 300)">&gt;</button>
+      </div>
+    </section>
+  </main>
 
-    <!-- Categoria Temperos -->
-    <h2 class="mb-3">Temperos</h2>
-    <div class="carousel-wrapper">
-      <button class="carousel-btn left" onclick="scrollCarousel('temperos-carousel', -300)">&lt;</button>
-      <div class="carousel" id="temperos-carousel"></div>
-      <button class="carousel-btn right" onclick="scrollCarousel('temperos-carousel', 300)">&gt;</button>
+  <aside class="cart" id="cart" aria-label="Carrinho de compras" role="region">
+    <div class="cart-head">
+      <h5>Carrinho <span id="cart-count" class="badge">0</span></h5>
+      <button id="cart-toggle" class="cart-pin" aria-label="Fixar/Desafixar carrinho">📌</button>
     </div>
-
-  </div>
-
-  <!-- Carrinho -->
-  <div class="cart shadow" id="cart">
-    <h5>Carrinho <span id="cart-count" class="badge bg-yellow">0</span></h5>
-    <ul id="cart-items" class="list-unstyled"></ul>
+    <ul id="cart-items" class="list-unstyled" aria-live="polite"></ul>
     <p class="fw-bold">Total: R$ <span id="cart-total">0.00</span></p>
-    <button class="btn" style="background-color: #fcbf49; color: #333; font-weight: bold; width: 100%;" onclick="sendToWhatsApp()">Finalizar Pedido</button>
-  </div>
+    <button class="btn finalize" onclick="sendToWhatsApp()">Finalizar Pedido</button>
+  </aside>
 
-  <script src="js/script.js"></script>
+  <footer class="site-footer">
+    <p>© Empório Paraibano | Desenvolvido por Marcos Guilherme</p>
+  </footer>
+
+  <script defer src="js/script.js"></script>
 </body>
 </html>
