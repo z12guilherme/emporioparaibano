@@ -1,10 +1,9 @@
-/* script.js — versão completa, corrigida e com persistência
-   - identifica itens por id (slug)
-   - previne clicks duplicados
-   - corrige incremento/decremento
-   - persiste em localStorage (emporio_cart_v1)
+// ...existing code...
+/* script.js — versão completa com lista de temperos atualizada
+   - persistência localStorage
+   - carrinho sem bug (identificação por id, delegação, proteção contra cliques duplos)
    - carrinho arrastável com pin
-   - scroll do carrossel e envio p/ WhatsApp
+   - geração automática de cards
 */
 window.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'emporio_cart_v1';
@@ -12,12 +11,54 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const produtos = {
     temperos: [
-      { name: 'Tempero Ana Maria', desc: 'Tempero para arroz, frango, feijão e sopas.', price: 5, img: 'img/anamaria.jpg' },
-      { name: 'Tempero Chimichurri', desc: 'Mistura aromática para carnes e grelhados.', price: 10, img: 'img/chimichurri.jpg' },
-      { name: 'Sal Grosso', desc: 'Sal para churrascos e temperos variados.', price: 7, img: 'https://via.placeholder.com/250x200?text=Tempero+3' },
-      { name: 'Pimenta-do-reino', desc: 'Pimenta moída na hora para dar sabor intenso.', price: 6, img: 'https://via.placeholder.com/250x200?text=Tempero+4' },
-      { name: 'Alho Granulado', desc: 'Alho seco para sopas, molhos e carnes.', price: 8, img: 'https://via.placeholder.com/250x200?text=Tempero+5' },
-      { name: 'Colorau', desc: 'Tempero natural para dar cor e sabor aos pratos.', price: 5, img: 'https://via.placeholder.com/250x200?text=Tempero+6' },
+      // itens preservados / atualizados
+      { name: 'Tempero Ana Maria (100g)', desc: 'O tempero Ana Maria é um mix de temperos popular no Brasil, como: alho, cebola, salsa, cebolinha, manjericão, orégano, pimentão, tomate, e caldo de galinha. Ideal para realçar carnes, aves, peixes, legumes, sopas, ensopados, arroz e feijão.', price: 4.99, img: 'https://via.placeholder.com/250x200?text=Tempero+Ana+Maria' },
+      
+      { name: 'Tempero Chimichurri tradicional (100g)', desc: 'Mistura de ervas e especiarias secas (cebola, alho, salsa, orégano, manjericão, pimentão), sem pimenta. Versátil para carnes, aves, peixes, legumes e outros pratos.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Chimichurri+Tradicional' },
+      
+      { name: 'Tempero Chimichurri Defumado (100g)', desc: 'Mistura de ervas e especiarias com fumaça em pó para dar toque defumado a carnes, aves, peixes e legumes.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Chimichurri+Defumado' },
+      
+      { name: 'Tempero Chimichurri com Pimenta (100g)', desc: 'Chimichurri com adição de pimenta para toque apimentado em carnes, aves, peixes e legumes.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Chimichurri+Com+Pimenta' },
+
+      { name: 'Tempero Edu Guedes tradicional (100g)', desc: 'Mistura desidratada: cebola, cenoura, pimentão, cebolinha, salsa, alho granulado e manjericão. Ideal para molhos, carnes e arroz.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Edu+Guedes+Tradicional' },
+      
+      { name: 'Tempero Edu Guedes completo (100g)', desc: 'Versão completa com açafrão e outros ingredientes desidratados para sabor e cor em molhos, carnes e arroz.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Edu+Guedes+Completo' },
+
+      { name: 'Tempero Feijãozinho (100g)', desc: 'Contém cebola, alho, salsa, proteína de soja sabor bacon, caldo de bacon e colorau. Prático para feijão, feijoada, sopas e caldos.', price: 4.99, img: 'https://via.placeholder.com/250x200?text=Tempero+Feijaozinho' },
+
+      { name: 'Tempero Pega Esposa (100g)', desc: 'Alho, cebola, pimentões, cenoura, folhas de louro e ervas desidratadas (salsa, orégano, manjericão, alecrim). Ótimo para bifes, frango, peixes e saladas.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Pega+Esposa' },
+
+      { name: 'Tempero Lemon Pepper (100g)', desc: 'Combinação de raspas de limão, sal e pimenta-do-reino moída. Excelente em carnes suínas, aves, peixes, legumes e saladas.', price: 4.99, img: 'https://via.placeholder.com/250x200?text=Lemon+Pepper' },
+
+      { name: 'Tempero Pega Marido (100g)', desc: 'Cebola desidratada, alho granulado, pimentão vermelho, tomate seco, mostarda, alecrim, cebolinha, manjericão e louro. Para arroz, refogados, carnes e sopas.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Pega+Marido' },
+
+      { name: 'Páprica Doce (100g)', desc: 'Pimentões secos moídos que adicionam cor suave e sabor delicado a carnes, aves, peixes, sopas e molhos.', price: 4.00, img: 'https://via.placeholder.com/250x200?text=Paprica+Doce' },
+      
+      { name: 'Páprica Defumada (100g)', desc: 'Pimentões defumados moídos que adicionam sabor e aroma defumado a carnes, aves, peixes e molhos.', price: 4.50, img: 'https://via.placeholder.com/250x200?text=Paprica+Defumada' },
+      
+      { name: 'Páprica Picante (100g)', desc: 'Pimentões secos com adição de pimenta, para dar toque picante e cor a pratos diversos.', price: 4.00, img: 'https://via.placeholder.com/250x200?text=Paprica+Picante' },
+
+      { name: 'Açafrão (100g)', desc: 'Também conhecido como cúrcuma, adiciona cor, sabor e propriedades benéficas. Usado em carnes, arroz, sopas e molhos.', price: 4.00, img: 'https://via.placeholder.com/250x200?text=Acafrao' },
+
+      { name: 'Colorau Paraíba (100g)', desc: 'Colorau de coloração vibrante, usado em arroz, feijão, carnes e molhos para cor e sabor suave.', price: 4.00, img: 'https://via.placeholder.com/250x200?text=Colorau+Paraiba' },
+      
+      { name: 'Colorau Tradicional (100g)', desc: 'Urucum em pó que adiciona cor avermelhada e sabor levemente terroso a pratos brasileiros.', price: 3.00, img: 'https://via.placeholder.com/250x200?text=Colorau+Tradicional' },
+
+      { name: 'Cominho Moído (100g)', desc: 'Especiaria versátil para carnes, legumes, ovos, feijão, lentilha, arroz, batatas e sopas.', price: 4.50, img: 'https://via.placeholder.com/250x200?text=Cominho' },
+
+      { name: 'Mix para Arroz (100g)', desc: 'Composto de cebola, alho e cenoura desidratados para dar sabor de refogado ao arroz e outros pratos.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Mix+para+Arroz' },
+
+      { name: 'Caldo de Galinha em Pó (menos sódio) (100g)', desc: 'Caldo em pó com menos sódio para substituir cubos, prático em sopas, cozidos e molhos.', price: 3.80, img: 'https://via.placeholder.com/250x200?text=Caldo+Galinha' },
+
+      { name: 'Tempero Tempera Tudo (100g)', desc: 'Mistura de especiarias para dar sabor a carnes, legumes, saladas, sopas e ovos.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Tempera+Tudo' },
+
+      { name: 'Fumaça em pó (100g)', desc: 'Condimento para conferir sabor defumado a carnes, molhos, sopas e até preparações doces como molho barbecue.', price: 6.00, img: 'https://via.placeholder.com/250x200?text=Fumaca+em+Po' },
+      
+      { name: 'Sal Grosso (100g)', desc: 'Sal grosso ideal para churrascos e temperos diversos.', price: 7.00, img: 'https://via.placeholder.com/250x200?text=Sal+Grosso' },
+      
+      { name: 'Pimenta-do-reino (100g)', desc: 'Pimenta do reino moída para sabor intenso.', price: 6.00, img: 'https://via.placeholder.com/250x200?text=Pimenta+do+Reino' },
+      
+      { name: 'Alho Granulado (100g)', desc: 'Alho seco para sopas, molhos e carnes.', price: 8.00, img: 'https://via.placeholder.com/250x200?text=Alho+Granulado' }
     ],
     molhos: []
   };
@@ -228,6 +269,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   /* init */
   cart = loadCart();
-  renderCart();
   renderProdutos();
+  renderCart();
 });
