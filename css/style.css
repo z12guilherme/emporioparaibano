@@ -106,18 +106,40 @@ body {
   z-index:2200;
   cursor: grab;
   user-select:none;
-  transition: transform .18s;
+  transition: transform .18s, opacity .18s, width .18s;
 }
 .cart:active{ cursor:grabbing }
 .cart-head{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px }
 .cart h5{ margin:0; color:var(--accent); font-size:1.05rem }
 .badge{ background:var(--accent-2); color:#333; padding:6px 10px; border-radius:999px; font-weight:700 }
-.cart-pin{ background:transparent; border:none; cursor:pointer; font-size:1.05rem }
+.cart-pin{ 
+  background:transparent; 
+  border:none; 
+  cursor:pointer; 
+  font-size:1.05rem;
+  min-width:44px;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 #cart-items{ max-height:220px; overflow:auto; margin:8px 0 12px; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px }
 .cart-item{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px; background:rgba(255,255,255,0.35); border-radius:8px }
 .cart-item .name{ flex:1; font-size:0.95rem; color:#222 }
 .cart-item .controls{ display:flex; gap:6px; align-items:center }
-.qty-btn{ background:transparent; border:1px solid rgba(0,0,0,0.08); padding:4px 8px; border-radius:6px; cursor:pointer }
+.qty-btn{ 
+  background:transparent; 
+  border:1px solid rgba(0,0,0,0.08); 
+  padding:8px 12px;
+  border-radius:6px; 
+  cursor:pointer;
+  min-width:44px;
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.1rem;
+}
 .item-price{ min-width:72px; text-align:right; font-weight:700 }
 
 /* Footer */
