@@ -124,8 +124,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const cartCount = document.getElementById('cart-count');
     if (!cartItems) return;
 
-    // mobile: se estiver menor que 768px, mostra só quantidade
-    const isMobile = window.innerWidth <= 768;
+    // mobile: detecta se é dispositivo móvel de forma mais confiável
+    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     cartItems.innerHTML = '';
     let total = 0;
     if(!isMobile){
