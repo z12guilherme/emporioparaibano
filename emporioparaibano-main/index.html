@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empório Paraibano</title>
+  <link rel="icon" href="img/logo.jpg">
+  <link rel="stylesheet" href="css/style-new.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-overlay">
+      <img src="img/logo.jpg" alt="Empório Paraibano" class="hero-logo" loading="lazy">
+      <h1>Bem-vindo ao Empório Paraibano</h1>
+      <p>Os melhores temperos para você!</p>
+    </div>
+  </header>
+
+  <main class="container" id="product-list">
+    <section>
+      <h2>Temperos</h2>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn left" aria-label="Scroll left" onclick="scrollCarousel('temperos-carousel', -300)"><</button>
+        <div class="carousel" id="temperos-carousel" aria-live="polite"></div>
+        <button class="carousel-btn right" aria-label="Scroll right" onclick="scrollCarousel('temperos-carousel', 300)">></button>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart" id="cart" aria-label="Carrinho de compras" role="region">
+    <div class="cart-head">
+      <h5>
+        Carrinho 
+        <span id="cart-count" class="badge">0</span>
+      </h5>
+      <button id="cart-toggle" class="cart-pin" aria-label="Abrir/Fechar carrinho">📌</button>
+    </div>
+    <ul id="cart-items" class="list-unstyled" aria-live="polite"></ul>
+    <p class="fw-bold">Total: R$ <span id="cart-total">0.00</span></p>
+    <button class="btn finalize" onclick="sendToWhatsApp()">Finalizar Pedido</button>
+  </aside>
+
+  <footer class="site-footer">
+    <p>© Empório Paraibano | Desenvolvido por Marcos Guilherme</p>
+  </footer>
+
+  <script>
+    // Botão mobile: abre e fecha o carrinho
+    document.addEventListener('DOMContentLoaded', () => {
+      const cart = document.getElementById('cart');
+      const toggleBtn = document.getElementById('cart-toggle');
+      if (!cart || !toggleBtn) return;
+
+      toggleBtn.addEventListener('click', () => {
+        cart.classList.toggle('open');
+      });
+    });
+  </script>
+
+  <script defer src="js/script.js"></script>
+</body>
+</html>
