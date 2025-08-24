@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Orégano (100g)', desc: 'Erva aromática clássica para massas, pizzas, carnes e molhos.', price: 5.99, img: 'img/oregano.jpg' },
       { name: 'Tempero Cebola, Alho e Salsa (100g)', desc: 'Combinação versátil para carnes, aves, arroz, feijão e sopas.', price: 4.99, img: 'img/alho_salsa_cebola.jpg' },
       { name: 'Salsa Desidratada (100g)', desc: 'Prática para sopas, molhos, carnes, saladas e peixes.', price: 4.00, img: 'img/salsa_desidratada.jpg' },
-      { name: 'Alho Frito Granulado (100g)', desc: 'Adiciona crocância e sabor em pratos, ótimo para finalizar receitas.', price: 5.00, img: 'img/alho_frito_granulado.jpg' }
+      { name: 'Alho Frito Granulado (100g)', desc: 'Adiciona crocância e sabor em pratos, ótimo para finalizar receitas.', price: 5.00, img: 'img/alho_frito_granulado.jpg' },
     ],
     molhos: []
   };
@@ -64,32 +64,14 @@ window.addEventListener('DOMContentLoaded', () => {
       if (!raw) return [];
       const parsed = JSON.parse(raw);
       if (!Array.isArray(parsed)) return [];
-      return parsed.map(i => ({
-        id: String(i.id || ''),
-        name: String(i.name || ''),
-        price: Number(i.price) || 0,
-        qty: Math.max(0, Math.floor(Number(i.qty) || 0))
-      })).filter(i => i.qty > 0);
-    } catch (e) {
-      console.warn('Erro ao carregar carrinho', e);
-      return [];
-    }
+      return parsed.map(i => ({ id: String(i.id || ''), name: String(i.name || ''), price: Number(i.price) || 0, qty: Math.max(0, Math.floor(Number(i.qty) || 0)) })).filter(i => i.qty > 0);
+    } catch (e) { console.warn('Erro ao carregar carrinho', e); return []; }
   }
-  function saveCart() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
-    catch (e) { console.warn('Erro ao salvar carrinho', e); }
-  }
+  function saveCart() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); } catch (e) { console.warn('Erro ao salvar carrinho', e); } }
 
   /* utils */
-  function slugify(str) {
-    return String(str || '')
-      .toLowerCase()
-      .normalize?.('NFD').replace(/\p{Diacritic}/gu, '') // remove acentos quando suportado
-      .replace(/[^\w\s-]/g, '')
-      .trim()
-      .replace(/\s+/g, '-');
-  }
-  function esc(s){ return String(s).replace(/"/g, '&quot;'); }
+  function slugify(str) { return String(str||'').toLowerCase().normalize?.('NFD').replace(/\p{Diacritic}/gu,'').replace(/[^\w\s-]/g,'').trim().replace(/\s+/g,'-'); }
+  function esc(s){ return String(s).replace(/"/g,'&quot;'); }
 
   /* render produtos */
   function gerarCard(prod) {
@@ -125,15 +107,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const cartEl = document.getElementById('cart');
     if (!cartItems || !cartEl) return;
 
-    // mobile: detecta se é dispositivo móvel de forma mais confiável
     const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-    
     cartItems.innerHTML = '';
     let total = 0;
-    
-    if(!isMobile){
-      // Modo desktop - mostrar todos os itens com controles
+
+    if (!isMobile || cartEl.classList.contains('open')) {
+      // Modo desktop ou mobile expandido
       cart.forEach(item => {
         const li = document.createElement('li');
         li.className = 'cart-item';
@@ -150,25 +130,10 @@ window.addEventListener('DOMContentLoaded', () => {
         total += item.price * item.qty;
       });
     } else {
-      // Modo mobile - comportamento diferente baseado no estado do carrinho
-      if (cartEl.classList.contains('open')) {
-        // Carrinho aberto em mobile - mostrar todos os itens
-        cart.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'cart-item';
-        li.innerHTML = `
-          <div class="name">${esc(item.name)}</div>
-          <div class="controls" aria-hidden="false">
-            <button class="qty-btn" data-action="dec" data-id="${item.id}" aria-label="Diminuir">−</button>
-            <div style="min-width:28px;text-align:center;" data-qty-for="${item.id}">${item.qty}</div>
-            <button class="qty-btn" data-action="inc" data-id="${item.id}" aria-label="Aumentar">+</button>
-          </div>
-          <div class="item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
-        `;
-        cartItems.appendChild(li);
-        total += item.price * item.qty;
-        });
-      }
+      // Mobile fechado: mostrar apenas resumo
+      const li = document.createElement('li');
+      li.textContent = `${cart.reduce((acc,i)=>acc+i.qty,0)} itens no carrinho`;
+      cartItems.appendChild(li);
     }
 
     if (cartTotal) cartTotal.textContent = total.toFixed(2);
@@ -183,7 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
     else cart.push({ id, name, price: Number(price), qty: 1 });
     renderCart();
   }
-  window.addToCart = addToCart; // compatibilidade
+  window.addToCart = addToCart;
 
   function changeQty(id, delta) {
     const idx = cart.findIndex(i => i.id === id);
@@ -219,13 +184,12 @@ window.addEventListener('DOMContentLoaded', () => {
   function setupCartDrag() {
     const cartEl = document.getElementById('cart');
     if (!cartEl) return;
-    
+
     let isDragging = false;
     let startX, startY, initialX, initialY;
-    
+
     cartEl.addEventListener('mousedown', (e) => {
-      if (window.innerWidth <= 768) return; // Não arrastar em mobile
-      
+      if (window.innerWidth <= 768) return;
       isDragging = true;
       startX = e.clientX;
       startY = e.clientY;
@@ -234,72 +198,32 @@ window.addEventListener('DOMContentLoaded', () => {
       cartEl.style.cursor = 'grabbing';
       e.preventDefault();
     });
-    
+
     document.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
-      
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
-      
       cartEl.style.left = `${initialX + dx}px`;
       cartEl.style.top = `${initialY + dy}px`;
       cartEl.style.right = 'auto';
       cartEl.style.bottom = 'auto';
     });
-    
+
     document.addEventListener('mouseup', () => {
-      if (isDragging) {
-        isDragging = false;
-        cartEl.style.cursor = 'grab';
-      }
-    });
-    
-    // Touch events para mobile
-    cartEl.addEventListener('touchstart', (e) => {
-      if (window.innerWidth > 768) return; // Só arrastar em mobile se não for modo desktop
-      
-      isDragging = true;
-      const touch = e.touches[0];
-      startX = touch.clientX;
-      startY = touch.clientY;
-      initialX = cartEl.offsetLeft;
-      initialY = cartEl.offsetTop;
-      e.preventDefault();
-    });
-    
-    document.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      
-      const touch = e.touches[0];
-      const dx = touch.clientX - startX;
-      const dy = touch.clientY - startY;
-      
-      cartEl.style.left = `${initialX + dx}px`;
-      cartEl.style.top = `${initialY + dy}px`;
-      cartEl.style.right = 'auto';
-      cartEl.style.bottom = 'auto';
-    });
-    
-    document.addEventListener('touchend', () => {
-      isDragging = false;
+      if (isDragging) { isDragging = false; cartEl.style.cursor = 'grab'; }
     });
   }
+  setupCartDrag();
 
   /* cart toggle mobile */
   const cartToggle = document.getElementById('cart-toggle');
   if (cartToggle){
     cartToggle.addEventListener('click', ()=>{
       const cartEl = document.getElementById('cart');
-      console.log('Carrinho toggle clicado. Estado atual:', cartEl.classList.contains('open'));
-      if (!cartEl) return;
       cartEl.classList.toggle('open');
-      // Re-renderizar o carrinho para atualizar a visualização mobile
       renderCart();
     });
   }
-  
-  // Initialize cart drag
-  setupCartDrag();
 
   /* send to WhatsApp */
   window.sendToWhatsApp = function(){
