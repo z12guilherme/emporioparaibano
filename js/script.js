@@ -46,61 +46,59 @@ window.addEventListener('DOMContentLoaded', () => {
 
       { name: 'Cominho Moído (100g)', desc: 'Especiaria versátil para carnes, legumes, ovos, feijão, lentilha, arroz, batatas e sopas.', price: 4.50, img: 'img/cominho_moido.jpg' },
 
-      { name: 'Mix para Arroz (100g)', desc: 'Composto de cebola, alho e cenoura desidratados para dar sabor de refogado ao arroz e outros pratos.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Mix+para+Arroz' },
+      { name: 'Mix para Arroz (100g)', desc: 'Composto de cebola, alho e cenoura desidratados para dar sabor de refogado ao arroz e outros pratos.', price: 5.00, img: 'img/mix+para_arroz.jpg' },
 
       { name: 'Caldo de Galinha em Pó (menos sódio) (100g)', desc: 'Caldo em pó com menos sódio para substituir cubos, prático em sopas, cozidos e molhos.', price: 3.80, img: 'img/caldo_de_galinha.jpg' },
 
-      { name: 'Tempero Tempera Tudo (100g)', desc: 'Mistura de especiarias para dar sabor a carnes, legumes, saladas, sopas e ovos.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Tempera+Tudo' },
+      { name: 'Tempero Tempera Tudo (100g)', desc: 'Mistura de especiarias para dar sabor a carnes, legumes, saladas, sopas e ovos.', price: 5.00, img: 'img/tempera_tudo.jpg' },
 
-      { name: 'Fumaça em pó (100g)', desc: 'Condimento para conferir sabor defumado a carnes, molhos, sopas e até preparações doces como molho barbecue.', price: 6.00, img: 'https://via.placeholder.com/250x200?text=Fumaca+em+Po' },
+      { name: 'Fumaça em pó (100g)', desc: 'Condimento para conferir sabor defumado a carnes, molhos, sopas e até preparações doces como molho barbecue.', price: 6.00, img: 'img/fumaca.jpg' },
       
-      { name: 'Sal Grosso (100g)', desc: 'Sal grosso ideal para churrascos e temperos diversos.', price: 7.00, img: 'https://via.placeholder.com/250x200?text=Sal+Grosso' },
+      { name: 'Pimenta-do-reino Moída (100g)', desc: 'Pimenta do reino moída para sabor intenso.', price: 6.00, img: 'img/pimenta_do_reino_moida.jpg' },
       
-      { name: 'Pimenta-do-reino (100g)', desc: 'Pimenta do reino moída para sabor intenso.', price: 6.00, img: 'https://via.placeholder.com/250x200?text=Pimenta+do+Reino' },
-      
-      { name: 'Alho Granulado (100g)', desc: 'Alho seco para sopas, molhos e carnes.', price: 8.00, img: 'https://via.placeholder.com/250x200?text=Alho+Granulado' },
+      { name: 'Alho Granulado (100g)', desc: 'Alho seco para sopas, molhos e carnes.', price: 5.00, img: 'img/alho_granulado' },
 	  
-	  { name: 'Alho Desidratado (100g)', desc: 'Indicado em todas as preparações culinárias em substituição ao alho cru. Refogados em geral, legumes, temperos para caldos, sopas e molhos.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Alho+Desidratado' },
+	  { name: 'Alho Desidratado (100g)', desc: 'Indicado em todas as preparações culinárias em substituição ao alho cru. Refogados em geral, legumes, temperos para caldos, sopas e molhos.', price: 5.00, img: 'img/alho_desidratado.jpg' },
       
-	  { name: 'Cebola em Flocos Desidratada (100g)', desc: 'Ingrediente versátil que pode ser usado em diversas receitas, tanto para sabor quanto para textura.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Cebola+Flocos' },
+	  { name: 'Cebola em Flocos Desidratada (100g)', desc: 'Ingrediente versátil que pode ser usado em diversas receitas, tanto para sabor quanto para textura.', price: 5.50, img: 'img/cebola_em_flocos_desidratada.jpg' },
       
-	  { name: 'Pimenta Calabresa (100g)', desc: 'Muito usada para adicionar sabor picante e aroma em carnes, peixes, sopas e molhos.', price: 5.99, img: 'https://via.placeholder.com/250x200?text=Pimenta+Calabresa' },
+	  { name: 'Pimenta Calabresa (100g)', desc: 'Muito usada para adicionar sabor picante e aroma em carnes, peixes, sopas e molhos.', price: 5.99, img: 'img/pimenta_calabresa.jpg' },
       
-	  { name: 'Sal Rosa Fino do Himalaia (100g)', desc: 'Sal puro e rico em minerais, ideal para uso diário e finalização gourmet.', price: 2.00, img: 'https://via.placeholder.com/250x200?text=Sal+Rosa+Fino' },
+	  { name: 'Sal Rosa Fino do Himalaia (100g)', desc: 'Sal puro e rico em minerais, ideal para uso diário e finalização gourmet.', price: 2.00, img: 'img/sal_rosa_fino_do_himalaia.jpg' },
       
-	  { name: 'Sal Rosa Grosso do Himalaia (100g)', desc: 'Perfeito para churrascos, substituto saudável do sal grosso comum.', price: 2.00, img: 'https://via.placeholder.com/250x200?text=Sal+Rosa+Grosso' },
+	  { name: 'Sal Rosa Grosso do Himalaia (100g)', desc: 'Perfeito para churrascos, substituto saudável do sal grosso comum.', price: 2.00, img: 'img/sal_rosa_grosso_do_himalaia.jpg' },
       
-	  { name: 'Sal Marinho (100g)', desc: 'Extraído da evaporação da água do mar, preserva minerais e nutrientes.', price: 2.00, img: 'https://via.placeholder.com/250x200?text=Sal+Marinho' },
+	  { name: 'Sal Marinho (100g)', desc: 'Extraído da evaporação da água do mar, preserva minerais e nutrientes.', price: 2.00, img: 'img/sal_marinho.jpg' },
       
-	  { name: 'Tempero Fit Frango (100g)', desc: 'Mix sem sódio com páprica, alho, cebola, cúrcuma, ervas e especiarias.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Fit+Frango' },
+	  { name: 'Tempero Fit Frango (100g)', desc: 'Mix sem sódio com páprica, alho, cebola, cúrcuma, ervas e especiarias.', price: 5.00, img: 'img/tempero_fit_frango.jpg' },
       
-	  { name: 'Tempero Fit Completo (100g)', desc: 'Mix saudável sem conservantes, ideal para carnes, legumes, peixes e sopas.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Fit+Completo' },
+	  { name: 'Tempero Fit Completo (100g)', desc: 'Mix saudável sem conservantes, ideal para carnes, legumes, peixes e sopas.', price: 5.00, img: 'img/tempero_fit_completo.jpg' },
       
-	  { name: 'Tempero Realce (100g)', desc: 'Ideal para carnes, arroz, legumes e ensopados.', price: 4.50, img: 'https://via.placeholder.com/250x200?text=Tempero+Realce' },
+	  { name: 'Tempero Realce (100g)', desc: 'Ideal para carnes, arroz, legumes e ensopados.', price: 4.50, img: 'img/tempero_realce.jpg' },
       
-	  { name: 'Caldo de Carne em Pó (100g)', desc: 'Prático e saboroso, substitui o caldo em cubos em sopas e carnes.', price: 3.00, img: 'https://via.placeholder.com/250x200?text=Caldo+Carne' },
+	  { name: 'Caldo de Carne em Pó (100g)', desc: 'Prático e saboroso, substitui o caldo em cubos em sopas e carnes.', price: 3.00, img: 'img/caldo_de_carne_em_po.jpg' },
       
-	  { name: 'Caldo de Costela em Pó (100g)', desc: 'Versátil para sopas, caldos, molhos e carnes.', price: 3.00, img: 'https://via.placeholder.com/250x200?text=Caldo+Costela' },
+	  { name: 'Caldo de Costela em Pó (100g)', desc: 'Versátil para sopas, caldos, molhos e carnes.', price: 3.00, img: 'img/caldo_de_costela_em_po.jpg' },
       
-	  { name: 'Bacon Desidratado (100g)', desc: 'Sabor defumado autêntico, ótimo em feijão, sopas, farofas e hambúrgueres.', price: 5.50, img: 'https://via.placeholder.com/250x200?text=Bacon+Desidratado' },
+	  { name: 'Bacon Desidratado (100g)', desc: 'Sabor defumado autêntico, ótimo em feijão, sopas, farofas e hambúrgueres.', price: 5.50, img: 'img/bacon_desidratado.jpg' },
       
-	  { name: 'Pimenta do Reino Preta em Grãos (100g)', desc: 'Grãos inteiros com aroma intenso, ideal para moer na hora.', price: 8.00, img: 'https://via.placeholder.com/250x200?text=Pimenta+Graos' },
+	  { name: 'Pimenta do Reino Preta em Grãos (100g)', desc: 'Grãos inteiros com aroma intenso, ideal para moer na hora.', price: 8.00, img: 'img/pimenta_do_reino_graos.jpg' },
       
-	  { name: 'Pimenta do Reino Preta Moída (100g)', desc: 'Versátil, dá toque picante e marcante em carnes, molhos e sopas.', price: 8.00, img: 'https://via.placeholder.com/250x200?text=Pimenta+Moida' },
+	  { name: 'Pimenta do Reino Preta Moída (100g)', desc: 'Versátil, dá toque picante e marcante em carnes, molhos e sopas.', price: 8.00, img: 'img/pimenta_do_reino_preta_moida.jpg' },
       
-	  { name: 'Mostarda em Grãos (100g)', desc: 'Sementes amarelas com sabor marcante, usadas em molhos, carnes e chás.', price: 7.00, img: 'https://via.placeholder.com/250x200?text=Mostarda+Graos' },
+	  { name: 'Mostarda em Grãos (100g)', desc: 'Sementes amarelas com sabor marcante, usadas em molhos, carnes e chás.', price: 7.00, img: 'img/mostarda_em_graos.jpg' },
       
-	  { name: 'Tempero Master Chef (100g)', desc: 'Seleção de especiarias para sabor intenso e gourmet.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Master+Chef' },
+	  { name: 'Tempero Master Chef (100g)', desc: 'Seleção de especiarias para sabor intenso e gourmet.', price: 5.00, img: 'img/masterchef.jpg' },
       
-	  { name: 'Tempero Molho Tártaro (100g)', desc: 'Blend com cebola, cenoura, pimentão e ervas, ótimo para molhos e peixes.', price: 4.50, img: 'https://via.placeholder.com/250x200?text=Molho+Tartaro' },
+	  { name: 'Tempero Molho Tártaro (100g)', desc: 'Blend com cebola, cenoura, pimentão e ervas, ótimo para molhos e peixes.', price: 4.50, img: 'img/molho_tartaro.jpg' },
       
-	  { name: 'Orégano (100g)', desc: 'Erva aromática clássica para massas, pizzas, carnes e molhos.', price: 5.99, img: 'https://via.placeholder.com/250x200?text=Oregano' },
+	  { name: 'Orégano (100g)', desc: 'Erva aromática clássica para massas, pizzas, carnes e molhos.', price: 5.99, img: 'img/oregano.jpg' },
       
-	  { name: 'Tempero Cebola, Alho e Salsa (100g)', desc: 'Combinação versátil para carnes, aves, arroz, feijão e sopas.', price: 4.99, img: 'https://via.placeholder.com/250x200?text=Cebola+Alho+Salsa' },
+	  { name: 'Tempero Cebola, Alho e Salsa (100g)', desc: 'Combinação versátil para carnes, aves, arroz, feijão e sopas.', price: 4.99, img: 'img/alho_salsa_cebola.jpg' },
       
-	  { name: 'Salsa Desidratada (100g)', desc: 'Prática para sopas, molhos, carnes, saladas e peixes.', price: 4.00, img: 'https://via.placeholder.com/250x200?text=Salsa' },
+	  { name: 'Salsa Desidratada (100g)', desc: 'Prática para sopas, molhos, carnes, saladas e peixes.', price: 4.00, img: 'img/salsa_desidratada.jpg' },
       
-	  { name: 'Alho Frito Granulado (100g)', desc: 'Adiciona crocância e sabor em pratos, ótimo para finalizar receitas.', price: 5.00, img: 'https://via.placeholder.com/250x200?text=Alho+Frito' }
+	  { name: 'Alho Frito Granulado (100g)', desc: 'Adiciona crocância e sabor em pratos, ótimo para finalizar receitas.', price: 5.00, img: 'img/alho_frito_granulado.jpg' }
 	  
     ],
     molhos: []
