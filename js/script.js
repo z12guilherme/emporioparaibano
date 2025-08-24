@@ -127,7 +127,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // mobile: detecta se é dispositivo móvel de forma mais confiável
     const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    console.log('Detecção mobile:', isMobile, 'Largura:', window.innerWidth, 'Carrinho:', cart);
+
     
     cartItems.innerHTML = '';
     let total = 0;
@@ -154,19 +154,19 @@ window.addEventListener('DOMContentLoaded', () => {
       if (cartEl.classList.contains('open')) {
         // Carrinho aberto em mobile - mostrar todos os itens
         cart.forEach(item => {
-          const li = document.createElement('li');
-          li.className = 'cart-item';
-          li.innerHTML = `
-            <div class="name">${esc(item.name)}</div>
-            <div class="controls" aria-hidden="false">
-              <button class="qty-btn" data-action="dec" data-id="${item.id}" aria-label="Diminuir">−</button>
-              <div style="min-width:28px;text-align:center;" data-qty-for="${item.id}">${item.qty}</div>
-              <button class="qty-btn" data-action="inc" data-id="${item.id}" aria-label="Aumentar">+</button>
-            </div>
-            <div class="item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
-          `;
-          cartItems.appendChild(li);
-          total += item.price * item.qty;
+        const li = document.createElement('li');
+        li.className = 'cart-item';
+        li.innerHTML = `
+          <div class="name">${esc(item.name)}</div>
+          <div class="controls" aria-hidden="false">
+            <button class="qty-btn" data-action="dec" data-id="${item.id}" aria-label="Diminuir">−</button>
+            <div style="min-width:28px;text-align:center;" data-qty-for="${item.id}">${item.qty}</div>
+            <button class="qty-btn" data-action="inc" data-id="${item.id}" aria-label="Aumentar">+</button>
+          </div>
+          <div class="item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
+        `;
+        cartItems.appendChild(li);
+        total += item.price * item.qty;
         });
       }
     }
