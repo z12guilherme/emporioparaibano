@@ -122,14 +122,18 @@ window.addEventListener('DOMContentLoaded', () => {
     const cartItems = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     const cartCount = document.getElementById('cart-count');
-    if (!cartItems) return;
+    const cartEl = document.getElementById('cart');
+    if (!cartItems || !cartEl) return;
 
     // mobile: detecta se é dispositivo móvel de forma mais confiável
     const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     console.log('Detecção mobile:', isMobile, 'Largura:', window.innerWidth, 'Carrinho:', cart);
+    
     cartItems.innerHTML = '';
     let total = 0;
+    
     if(!isMobile){
+      // Modo desktop - mostrar todos os itens com controles
       cart.forEach(item => {
         const li = document.createElement('li');
         li.className = 'cart-item';
@@ -146,13 +150,33 @@ window.addEventListener('DOMContentLoaded', () => {
         total += item.price * item.qty;
       });
     } else {
-      // mobile: apenas total de itens
-      const li = document.createElement('li');
-      li.className = 'cart-item';
-      const totalQty = cart.reduce((acc,i)=>acc+i.qty,0);
-      li.innerHTML = `<div>${totalQty} itens no carrinho</div>`;
-      cartItems.appendChild(li);
-      total = cart.reduce((acc,i)=>acc+i.price*i.qty,0);
+      // Modo mobile - comportamento diferente baseado no estado do carrinho
+      if (cartEl.classList.contains('open')) {
+        // Carrinho aberto em mobile - mostrar todos os itens
+        cart.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'cart-item';
+          li.innerHTML = `
+            <div class="name">${esc(item.name)}</div>
+            <div class="controls" aria-hidden="false">
+              <button class="qty-btn" data-action="dec" data-id="${item.id}" aria-label="Diminuir">−</button>
+              <div style="min-width:28px;text-align:center;" data-qty-for="${item.id}">${item.qty}</div>
+              <button class="qty-btn" data-action="inc" data-id="${item.id}" aria-label="Aumentar">+</button>
+            </div>
+            <div class="item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
+          `;
+          cartItems.appendChild(li);
+          total += item.price * item.qty;
+        });
+      } else {
+        // Carrinho fechado em mobile - mostrar apenas contagem
+        const li = document.createElement('li');
+        li.className = 'cart-item';
+        const totalQty = cart.reduce((acc,i)=>acc+i.qty,0);
+        li.innerHTML = `<div>${totalQty} itens no carrinho</div>`;
+        cartItems.appendChild(li);
+        total = cart.reduce((acc,i)=>acc+i.price*i.qty,0);
+      }
     }
 
     if (cartTotal) cartTotal.textContent = total.toFixed(2);
@@ -277,6 +301,8 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log('Carrinho toggle clicado. Estado atual:', cartEl.classList.contains('open'));
       if (!cartEl) return;
       cartEl.classList.toggle('open');
+      // Re-renderizar o carrinho para atualizar a visualização mobile
+      renderCart();
     });
   }
   
