@@ -219,6 +219,7 @@ body {
     cursor:pointer;
     transform: none;
     overflow:hidden;
+    background: var(--accent);
   }
   
   .cart .cart-head,

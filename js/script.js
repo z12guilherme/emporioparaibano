@@ -126,6 +126,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // mobile: detecta se é dispositivo móvel de forma mais confiável
     const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    console.log('Detecção mobile:', isMobile, 'Largura:', window.innerWidth, 'Carrinho:', cart);
     cartItems.innerHTML = '';
     let total = 0;
     if(!isMobile){
@@ -198,15 +199,89 @@ window.addEventListener('DOMContentLoaded', () => {
     el.scrollBy({ left: delta, behavior: 'smooth' });
   }
 
+  /* cart drag functionality */
+  function setupCartDrag() {
+    const cartEl = document.getElementById('cart');
+    if (!cartEl) return;
+    
+    let isDragging = false;
+    let startX, startY, initialX, initialY;
+    
+    cartEl.addEventListener('mousedown', (e) => {
+      if (window.innerWidth <= 768) return; // Não arrastar em mobile
+      
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      initialX = cartEl.offsetLeft;
+      initialY = cartEl.offsetTop;
+      cartEl.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+    
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      
+      cartEl.style.left = `${initialX + dx}px`;
+      cartEl.style.top = `${initialY + dy}px`;
+      cartEl.style.right = 'auto';
+      cartEl.style.bottom = 'auto';
+    });
+    
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        cartEl.style.cursor = 'grab';
+      }
+    });
+    
+    // Touch events para mobile
+    cartEl.addEventListener('touchstart', (e) => {
+      if (window.innerWidth > 768) return; // Só arrastar em mobile se não for modo desktop
+      
+      isDragging = true;
+      const touch = e.touches[0];
+      startX = touch.clientX;
+      startY = touch.clientY;
+      initialX = cartEl.offsetLeft;
+      initialY = cartEl.offsetTop;
+      e.preventDefault();
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      
+      const touch = e.touches[0];
+      const dx = touch.clientX - startX;
+      const dy = touch.clientY - startY;
+      
+      cartEl.style.left = `${initialX + dx}px`;
+      cartEl.style.top = `${initialY + dy}px`;
+      cartEl.style.right = 'auto';
+      cartEl.style.bottom = 'auto';
+    });
+    
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  }
+
   /* cart toggle mobile */
   const cartToggle = document.getElementById('cart-toggle');
   if (cartToggle){
     cartToggle.addEventListener('click', ()=>{
       const cartEl = document.getElementById('cart');
+      console.log('Carrinho toggle clicado. Estado atual:', cartEl.classList.contains('open'));
       if (!cartEl) return;
       cartEl.classList.toggle('open');
     });
   }
+  
+  // Initialize cart drag
+  setupCartDrag();
 
   /* send to WhatsApp */
   window.sendToWhatsApp = function(){
