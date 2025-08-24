@@ -168,23 +168,10 @@ window.addEventListener('DOMContentLoaded', () => {
           cartItems.appendChild(li);
           total += item.price * item.qty;
         });
-      } else {
-        // Carrinho fechado em mobile - mostrar apenas contagem
-        const li = document.createElement('li');
-        li.className = 'cart-item';
-        const totalQty = cart.reduce((acc,i)=>acc+i.qty,0);
-        li.innerHTML = `<div>${totalQty} itens no carrinho</div>`;
-        cartItems.appendChild(li);
-        total = cart.reduce((acc,i)=>acc+i.price*i.qty,0);
       }
     }
 
-    // SEMPRE atualizar o total, independentemente do modo ou estado do carrinho
-    if (cartTotal) {
-      cartTotal.textContent = total.toFixed(2);
-      console.log('Total atualizado para:', total.toFixed(2));
-    }
-    
+    if (cartTotal) cartTotal.textContent = total.toFixed(2);
     if (cartCount) cartCount.textContent = cart.reduce((acc,i)=>acc+i.qty,0);
     saveCart();
   }
