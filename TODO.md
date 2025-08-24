@@ -1,28 +1,22 @@
-# TODO - Adaptação do Carrinho para Mobile
+# Correções para Problema do Carrinho Mobile
 
-## Prioridade: Carrinho Mobile Discreto ✅ CONCLUÍDO
+## Problema identificado
+O carrinho não está mostrando o valor total (apenas "Total: R$") em dispositivos móveis
 
-### Fase 1: Melhorias no Carrinho (CSS) ✅
-- [x] Ajustar posicionamento do carrinho para mobile
-- [x] Reduzir tamanho para ser mais discreto
-- [x] Melhorar toggle/visualização mobile
-- [x] Otimizar espaçamentos internos
-- [x] Garantir boa usabilidade em touch
+## Passos para correção
 
-### Fase 2: Refinamentos (CSS/JS)
-- [ ] Melhorar animações e transições
-- [ ] Otimizar para diferentes tamanhos de tela
-- [ ] Testar em dispositivos móveis
+### [ ] 1. Corrigir função renderCart() no js/script.js
+- Garantir que o elemento #cart-total seja sempre atualizado
+- Remover a lógica condicional que impede a atualização do total em mobile
+- Adicionar verificações de segurança
 
-### Fase 3: Outras Melhorias Mobile (se necessário)
-- [ ] Ajustar carousel para mobile
-- [ ] Otimizar hero section
-- [ ] Melhorar tipografia mobile
+### [ ] 2. Verificar CSS se necessário
+- Se ainda houver problemas de exibição após a correção JS, ajustar o CSS
 
-## Resumo das Alterações Realizadas:
-- ✅ Criado novo arquivo CSS otimizado para mobile (`style-new.css`)
-- ✅ Carrinho agora é discreto em mobile (ícone redondo pequeno)
-- ✅ Botões com tamanho mínimo de 44px para melhor toque
-- ✅ Transições suaves para abrir/fechar carrinho
-- ✅ Layout responsivo para diferentes breakpoints
-- ✅ Removido CSS inline desnecessário
+### [ ] 3. Testar a solução
+- Testar em diferentes tamanhos de tela
+- Verificar funcionamento do carrinho aberto/fechado
+- Testar adição/remoção de itens
+
+## Status
+Correção em andamento

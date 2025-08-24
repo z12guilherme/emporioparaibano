@@ -179,7 +179,12 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (cartTotal) cartTotal.textContent = total.toFixed(2);
+    // SEMPRE atualizar o total, independentemente do modo ou estado do carrinho
+    if (cartTotal) {
+      cartTotal.textContent = total.toFixed(2);
+      console.log('Total atualizado para:', total.toFixed(2));
+    }
+    
     if (cartCount) cartCount.textContent = cart.reduce((acc,i)=>acc+i.qty,0);
     saveCart();
   }
