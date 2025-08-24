@@ -7,6 +7,26 @@
   <title>Empório Paraibano</title>
   <link rel="icon" href="img/logo.jpg">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Mobile-friendly carrinho */
+    @media (max-width: 768px) {
+      #cart-items,
+      #cart-total,
+      .finalize {
+        display: none; /* esconde detalhes no mobile */
+      }
+      #cart-toggle {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+      #cart.open #cart-items,
+      #cart.open #cart-total,
+      #cart.open .finalize {
+        display: block; /* mostra quando aberto */
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -31,8 +51,11 @@
 
   <aside class="cart" id="cart" aria-label="Carrinho de compras" role="region">
     <div class="cart-head">
-      <h5>Carrinho <span id="cart-count" class="badge">0</span></h5>
-      <button id="cart-toggle" class="cart-pin" aria-label="Fixar/Desafixar carrinho">📌</button>
+      <h5>
+        Carrinho 
+        <span id="cart-count" class="badge">0</span>
+      </h5>
+      <button id="cart-toggle" class="cart-pin" aria-label="Abrir/Fechar carrinho">📌</button>
     </div>
     <ul id="cart-items" class="list-unstyled" aria-live="polite"></ul>
     <p class="fw-bold">Total: R$ <span id="cart-total">0.00</span></p>
@@ -42,6 +65,19 @@
   <footer class="site-footer">
     <p>© Empório Paraibano | Desenvolvido por Marcos Guilherme</p>
   </footer>
+
+  <script>
+    // Botão mobile: abre e fecha o carrinho
+    document.addEventListener('DOMContentLoaded', () => {
+      const cart = document.getElementById('cart');
+      const toggleBtn = document.getElementById('cart-toggle');
+      if (!cart || !toggleBtn) return;
+
+      toggleBtn.addEventListener('click', () => {
+        cart.classList.toggle('open');
+      });
+    });
+  </script>
 
   <script defer src="js/script.js"></script>
 </body>
