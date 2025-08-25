@@ -52,6 +52,8 @@ body {
   background: rgba(255,255,255,0.6);
   border-radius:12px;
   backdrop-filter: blur(6px);
+  flex-wrap: wrap; /* permite quebrar linha no mobile */
+  justify-content: center;
 }
 .carousel::-webkit-scrollbar{ height:8px }
 .carousel::-webkit-scrollbar-thumb{ background:var(--accent); border-radius:10px; }
@@ -69,7 +71,7 @@ body {
 
 /* Card */
 .card{
-  min-width: 260px;
+  flex: 1 1 100%;
   max-width: 260px;
   background:#fff;
   border-radius:14px;
@@ -100,7 +102,7 @@ body {
 .btn.bg-yellow{ background: linear-gradient(90deg,var(--accent) 50%, var(--accent-2) 100%); color:var(--text); }
 .btn.finalize{ width:100%; background: linear-gradient(90deg,var(--accent) 60%,var(--accent-2) 100%); padding:14px; border-radius:10px; font-size:1rem; }
 
-/* Cart - glass look, draggable */
+/* Cart */
 .cart{
   position:fixed;
   top:40px;
@@ -162,133 +164,36 @@ body {
   margin: 0;
 }
 
-/* Responsive */
+/* Responsividade */
 @media (max-width:900px){
-  .carousel{ gap:14px; padding:14px }
-  .card{ min-width:220px; max-width:220px }
+  .card{ flex: 1 1 calc(50% - 16px); max-width: calc(50% - 16px); }
   .cart{ width:320px; right:16px; top:24px }
 }
 
 @media (max-width:768px){
-  .cart{
-    width:300px;
-    right:12px;
-    top:20px;
-    transform: translateX(0);
-    opacity: 0.95;
-  }
-  
-  .cart.minimized{
-    width:60px;
-    height:60px;
-    padding:8px;
-    border-radius:50%;
-    overflow:hidden;
-  }
-  
+  .cart{ width:300px; right:12px; top:20px; }
+  .cart.minimized{ width:60px; height:60px; padding:8px; border-radius:50%; overflow:hidden; }
   .cart.minimized .cart-head,
   .cart.minimized #cart-items,
   .cart.minimized #cart-total,
-  .cart.minimized .finalize{
-    display:none;
-  }
-  
-  .cart.minimized .cart-pin{
-    width:100%;
-    height:100%;
-    font-size:1.5rem;
-  }
+  .cart.minimized .finalize{ display:none; }
+  .cart.minimized .cart-pin{ width:100%; height:100%; font-size:1.5rem; }
 }
 
 @media (max-width:576px){
+  .carousel{ flex-direction: column; align-items:center; }
+  .card{ flex: 1 1 100%; max-width:100%; }
   .hero{ height:38vh }
   .hero-overlay{ padding:14px }
   .container{ margin-top:18px }
-  .carousel{ padding:10px }
-  
-  /* Carrinho mobile discreto */
-  .cart{
-    left:auto;
-    right:12px;
-    bottom:12px;
-    top:auto;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    padding:8px;
-    cursor:pointer;
-    transform: none;
-    overflow:hidden;
-    background: var(--accent);
-  }
-  
-  .cart .cart-head,
-  .cart #cart-items,
-  .cart #cart-total,
-  .cart .finalize{
-    display:none;
-  }
-  
-  .cart.open{
-    left:0;
-    right:0;
-    bottom:0;
-    top:auto;
-    width:100%;
-    height:auto;
-    border-radius:12px 12px 0 0;
-    padding:12px;
-    cursor:default;
-  }
-  
-  .cart.open .cart-head,
-  .cart.open #cart-items,
-  .cart.open #cart-total,
-  .cart.open .finalize{
-    display:block;
-  }
-  
-  .cart.open .cart-pin{
-    font-size:1.05rem;
-    min-width:44px;
-    min-height:44px;
-  }
-  
-  .cart-pin{
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.5rem;
-    margin:0;
-  }
+  .cart{ right:12px; bottom:12px; top:auto; width:60px; height:60px; border-radius:50%; padding:8px; }
+  .cart .cart-head, .cart #cart-items, .cart #cart-total, .cart .finalize{ display:none; }
+  .cart.open{ left:0; right:0; bottom:0; top:auto; width:100%; height:auto; border-radius:12px 12px 0 0; padding:12px; }
+  .cart.open .cart-head, .cart.open #cart-items, .cart.open #cart-total, .cart.open .finalize{ display:block; }
 }
 
 @media (max-width:480px){
-  .cart{
-    right:8px;
-    bottom:8px;
-    width:56px;
-    height:56px;
-  }
-  
-  .cart.open{
-    padding:10px;
-  }
-  
-  .carousel{
-    gap:12px;
-    padding:10px 8px;
-  }
-  
-  .card{
-    min-width:200px;
-    max-width:200px;
-  }
-  
-  .btn{
-    padding:10px 14px;
-    font-size:0.9rem;
-  }
+  .cart{ right:8px; bottom:8px; width:56px; height:56px; }
+  .card{ max-width:100%; }
+  .btn{ padding:10px 14px; font-size:0.9rem; }
 }
