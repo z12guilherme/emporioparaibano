@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Tempero Tempera Tudo (100g)', desc: 'Mistura de especiarias para dar sabor a carnes, legumes, saladas, sopas e ovos.', price: 5.00, img: 'img/tempera_tudo.jpg' },
       { name: 'Fumaça em pó (100g)', desc: 'Condimento para conferir sabor defumado a carnes, molhos, sopas e até preparações doces como molho barbecue.', price: 6.00, img: 'img/fumaca.jpg' },
       { name: 'Pimenta-do-reino Moída (100g)', desc: 'Pimenta do reino moída para sabor intenso.', price: 6.00, img: 'img/pimenta_do_reino_moida.jpg' },
-      { name: 'Alho Granulado (100g)', desc: 'Alho seco para sopas, molhos e carnes.', price: 5.00, img: 'img/alho_granulado' },
+      { name: 'Alho Granulado (100g)', desc: 'Alho seco para sopas, molhos e carnes.', price: 5.00, img: 'img/alho_granulado.jpg' },
       { name: 'Alho Desidratado (100g)', desc: 'Indicado em todas as preparações culinárias em substituição ao alho cru. Refogados em geral, legumes, temperos para caldos, sopas e molhos.', price: 5.00, img: 'img/alho_desidratado.jpg' },
       { name: 'Cebola em Flocos Desidratada (100g)', desc: 'Ingrediente versátil que pode ser usado em diversas receitas, tanto para sabor quanto para textura.', price: 5.50, img: 'img/cebola_em_flocos_desidratada.jpg' },
       { name: 'Pimenta Calabresa (100g)', desc: 'Muito usada para adicionar sabor picante e aroma em carnes, peixes, sopas e molhos.', price: 5.99, img: 'img/pimenta_calabresa.jpg' },
