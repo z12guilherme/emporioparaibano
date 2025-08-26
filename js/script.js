@@ -10,13 +10,13 @@ window.addEventListener('DOMContentLoaded', () => {
   const produtos = {
     temperos: [
       { name: 'Tempero Ana Maria (100g)', desc: 'O tempero Ana Maria é um mix de temperos popular no Brasil, como: alho, cebola, salsa, cebolinha, manjericão, orégano, pimentão, tomate, e caldo de galinha. Ideal para realçar carnes, aves, peixes, legumes, sopas, ensopados, arroz e feijão.', price: 5.00, img: 'img/anamaria.jpg' },
-      { name: 'Tempero Chimichurri tradicional (100g)', desc: 'Mistura de ervas e especiarias secas (cebola, alho, salsa, orégano, manjericão, pimentão), sem pimenta. Versátil para carnes, aves, peixes, legumes e outros pratos.', price: 5.50, img: 'img/chimichurri.jpg' },
-      { name: 'Tempero Chimichurri Defumado (100g)', desc: 'Mistura de ervas e especiarias com fumaça em pó para dar toque defumado a carnes, aves, peixes e legumes.', price: 5.50, img: 'img/chimichurri_defumado.jpg' },
+      { name: 'Tempero Chimichurri tradicional (100g)', desc: 'Mistura de chas e especiarias secas (cebola, alho, salsa, orégano, manjericão, pimentão), sem pimenta. Versátil para carnes, aves, peixes, legumes e outros pratos.', price: 5.50, img: 'img/chimichurri.jpg' },
+      { name: 'Tempero Chimichurri Defumado (100g)', desc: 'Mistura de chas e especiarias com fumaça em pó para dar toque defumado a carnes, aves, peixes e legumes.', price: 5.50, img: 'img/chimichurri_defumado.jpg' },
       { name: 'Tempero Chimichurri com Pimenta (100g)', desc: 'Chimichurri com adição de pimenta para toque apimentado em carnes, aves, peixes e legumes.', price: 5.50, img: 'img/chimichurri_com_pimenta.jpg' },
       { name: 'Tempero Edu Guedes tradicional (100g)', desc: 'Mistura desidratada: cebola, cenoura, pimentão, cebolinha, salsa, alho granulado e manjericão. Ideal para molhos, carnes e arroz.', price: 5.50, img: 'img/edu_guedes_tradicional.jpg' },
       { name: 'Tempero Edu Guedes completo (100g)', desc: 'Versão completa com açafrão e outros ingredientes desidratados para sabor e cor em molhos, carnes e arroz.', price: 5.50, img: 'img/edu_guedes_completo.jpg' },
       { name: 'Tempero Feijãozinho (100g)', desc: 'Contém cebola, alho, salsa, proteína de soja sabor bacon, caldo de bacon e colorau. Prático para feijão, feijoada, sopas e caldos.', price: 4.99, img: 'img/feijaozinho.jpg' },
-      { name: 'Tempero Pega Esposa (100g)', desc: 'Alho, cebola, pimentões, cenoura, folhas de louro e ervas desidratadas (salsa, orégano, manjericão, alecrim). Ótimo para bifes, frango, peixes e saladas.', price: 5.50, img: 'img/pega_esposa.jpg' },
+      { name: 'Tempero Pega Esposa (100g)', desc: 'Alho, cebola, pimentões, cenoura, folhas de louro e chas desidratadas (salsa, orégano, manjericão, alecrim). Ótimo para bifes, frango, peixes e saladas.', price: 5.50, img: 'img/pega_esposa.jpg' },
       { name: 'Tempero Lemon Pepper (100g)', desc: 'Combinação de raspas de limão, sal e pimenta-do-reino moída. Excelente em carnes suínas, aves, peixes, legumes e saladas.', price: 4.99, img: 'img/lemon_pepper.jpg' },
       { name: 'Tempero Pega Marido (100g)', desc: 'Cebola desidratada, alho granulado, pimentão vermelho, tomate seco, mostarda, alecrim, cebolinha, manjericão e louro. Para arroz, refogados, carnes e sopas.', price: 5.50, img: 'img/pega_marido.jpg' },
       { name: 'Páprica Doce (100g)', desc: 'Pimentões secos moídos que adicionam cor suave e sabor delicado a carnes, aves, peixes, sopas e molhos.', price: 4.00, img: 'img/paprica_doce.jpg' },
@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Sal Rosa Fino do Himalaia (100g)', desc: 'Sal puro e rico em minerais, ideal para uso diário e finalização gourmet.', price: 2.00, img: 'img/sal_rosa_fino_do_himalaia.jpg' },
       { name: 'Sal Rosa Grosso do Himalaia (100g)', desc: 'Perfeito para churrascos, substituto saudável do sal grosso comum.', price: 2.00, img: 'img/sal_rosa_grosso_do_himalaia.jpg' },
       { name: 'Sal Marinho (100g)', desc: 'Extraído da evaporação da água do mar, preserva minerais e nutrientes.', price: 2.00, img: 'img/sal_marinho.jpg' },
-      { name: 'Tempero Fit Frango (100g)', desc: 'Mix sem sódio com páprica, alho, cebola, cúrcuma, ervas e especiarias.', price: 5.00, img: 'img/tempero_fit_frango.jpg' },
+      { name: 'Tempero Fit Frango (100g)', desc: 'Mix sem sódio com páprica, alho, cebola, cúrcuma, chas e especiarias.', price: 5.00, img: 'img/tempero_fit_frango.jpg' },
       { name: 'Tempero Fit Completo (100g)', desc: 'Mix saudável sem conservantes, ideal para carnes, legumes, peixes e sopas.', price: 5.00, img: 'img/tempero_fit_completo.jpg' },
       { name: 'Tempero Realce (100g)', desc: 'Ideal para carnes, arroz, legumes e ensopados.', price: 4.50, img: 'img/tempero_realce.jpg' },
       { name: 'Caldo de Carne em Pó (100g)', desc: 'Prático e saboroso, substitui o caldo em cubos em sopas e carnes.', price: 3.00, img: 'img/caldo_de_carne_em_po.jpg' },
@@ -47,15 +47,67 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Pimenta do Reino Preta Moída (100g)', desc: 'Versátil, dá toque picante e marcante em carnes, molhos e sopas.', price: 8.00, img: 'img/pimenta_do_reino_preta_moida.jpg' },
       { name: 'Mostarda em Grãos (100g)', desc: 'Sementes amarelas com sabor marcante, usadas em molhos, carnes e chás.', price: 7.00, img: 'img/mostarda_em_graos.jpg' },
       { name: 'Tempero Master Chef (100g)', desc: 'Seleção de especiarias para sabor intenso e gourmet.', price: 5.00, img: 'img/masterchef.jpg' },
-      { name: 'Tempero Molho Tártaro (100g)', desc: 'Blend com cebola, cenoura, pimentão e ervas, ótimo para molhos e peixes.', price: 4.50, img: 'img/molho_tartaro.jpg' },
+      { name: 'Tempero Molho Tártaro (100g)', desc: 'Blend com cebola, cenoura, pimentão e chas, ótimo para molhos e peixes.', price: 4.50, img: 'img/molho_tartaro.jpg' },
       { name: 'Orégano (100g)', desc: 'Erva aromática clássica para massas, pizzas, carnes e molhos.', price: 5.99, img: 'img/oregano.jpg' },
       { name: 'Tempero Cebola, Alho e Salsa (100g)', desc: 'Combinação versátil para carnes, aves, arroz, feijão e sopas.', price: 4.99, img: 'img/alho_salsa_cebola.jpg' },
       { name: 'Salsa Desidratada (100g)', desc: 'Prática para sopas, molhos, carnes, saladas e peixes.', price: 4.00, img: 'img/salsa_desidratada.jpg' },
       { name: 'Alho Frito Granulado (100g)', desc: 'Adiciona crocância e sabor em pratos, ótimo para finalizar receitas.', price: 5.00, img: 'img/alho_frito_granulado.jpg' },
     ],
 
-    ervas: [
-      { name: 'Erva Doce', desc: 'É conhecida por suas propriedades digestivas, antiespasmódicas e carminativas, ajudando a aliviar gases, cólicas e prisão de ventre. Também tem efeitos calmantes e antioxidantes, sendo utilizada em chás, sopas e saladas. ', price: 4.50, img: 'img/erva-doce.jpg' },
+    chas: [
+      { name: 'Alcachofra (50g)', desc: 'A alcachofra auxilia na melhora da digestão, auxilia na regulação do colesterol, atua como diurético e fonte de fibras, também é tradicionalmente usada como hepatoprotetor.', price: 3.50, img: 'img/placeholder-cha-alcachofra.jpg' },
+      { name: 'Alecrim (50g)', desc: 'O alecrim serve para temperar alimentos, atuar como repelente de insetos, além de ter benefícios para a saúde, como melhorar a digestão e a memória, aliviar dores de cabeça, ter ação antioxidante e ajudar a reduzir inflamações e gases.', price: 2.50, img: 'img/placeholder-cha-alecrim.jpg' },
+      { name: 'Alfazema (50g)', desc: 'A alfazema (ou lavanda) ajuda a acalmar a mente, reduzir a ansiedade e a insônia, e aliviar dores e tensões musculares devido às suas propriedades relaxantes, sedativas, analgésicas e anti-inflamatórias.', price: 4.00, img: 'img/placeholder-cha-alfazema.jpg' },
+      { name: 'Amora Folhas (50g)', desc: 'A folha de amora é utilizada para auxiliar a regular as taxas hormonais, combater os sintomas da menopausa e TPM, fortalecer o sistema imunológico, melhorar a saúde digestiva e da pele, e ajudar no controle do peso corporal.', price: 3.00, img: 'img/placeholder-cha-amora.jpg' },
+      { name: 'Anis-Estrelado (50g)', desc: 'O anis-estrelado serve para diversas finalidades: é usado na culinária como especiaria e para aromatizar alimentos e bebidas, como chás, licores e gin; na medicina popular, tem propriedades digestivas, expectorantes e antibacterianas.', price: 5.00, img: 'img/placeholder-cha-anis-estrelado.jpg' },
+      { name: 'Aroeira Casca (50g)', desc: 'A aroeira é usada na medicina popular pelas suas propriedades anti-inflamatórias, antimicrobianas e cicatrizantes, sendo indicada para tratar problemas urinários (como cistite), inflamações gerais e reumatismo.', price: 3.50, img: 'img/placeholder-cha-aroeira.jpg' },
+      { name: 'Barbatimão Rasurado (50g)', desc: 'O barbatimão é muito utilizado para acelerar a cicatrização de feridas, cortes, queimaduras, e úlceras na pele devido às suas propriedades cicatrizantes, adstringentes, antibacterianas e anti-inflamatórias.', price: 3.00, img: 'img/placeholder-cha-barbatimao.jpg' },
+      { name: 'Boldo (50g)', desc: 'O chá de Boldo auxilia na melhora da digestão, no tratamento de problemas hepáticos, ajuda o funcionamento adequado do fígado e alivia desconfortos gastrointestinais, reduzindo sintomas como inchaço abdominal, gases e azia.', price: 4.50, img: 'img/placeholder-cha-boldo.jpg' },
+      { name: 'Camomila (50g)', desc: 'A camomila ajuda a acalmar, melhorar o sono e aliviar a ansiedade, devido aos seus efeitos sedativos e ansiolíticos. Também é usada para reduzir a inflamação e aliviar sintomas digestivos como indigestão e cólicas.', price: 4.00, img: 'img/placeholder-cha-camomila.jpg' },
+      { name: 'Canela em Pau (50g)', desc: 'A canela em pau serve como um ingrediente saboroso e versátil na culinária, sendo adicionada a doces, pães, bolos, café, chás e até a pratos salgados, para realçar o sabor.', price: 4.80, img: 'img/placeholder-cha-canela-pau.jpg' },
+      { name: 'Canela-de-Velho (50g)', desc: 'A canela-de-velho é uma planta medicinal usada para aliviar dores nas articulações, como artrite e artrose, devido às suas propriedades anti-inflamatórias e analgésicas.', price: 2.50, img: 'img/placeholder-cha-canela-velho.jpg' },
+      { name: 'Capim-Limão (50g)', desc: 'O Capim-santo, também conhecido como capim-limão ou capim-cidreira, é uma planta medicinal com propriedades calmantes, digestivas, antioxidantes e antimicrobianas.', price: 3.50, img: 'img/placeholder-cha-capim-limao.jpg' },
+      { name: 'Cardo-Mariano (50g)', desc: 'O cardo mariano é uma planta de flores roxas cujo principal componente ativo é a silimarina, um poderoso antioxidante e hepatoprotetor.', price: 3.50, img: 'img/placeholder-cha-cardo-mariano.jpg' },
+      { name: 'Carqueja (50g)', desc: 'A carqueja é muito utilizada para auxiliar em problemas de digestão e do fígado, como azia e gastrite, além de atuar como diurético, ajudando a reduzir a retenção de líquidos.', price: 2.50, img: 'img/placeholder-cha-carqueja.jpg' },
+      { name: 'Cavalinha (50g)', desc: 'A cavalinha serve como um agente diurético natural, ajudando o corpo a eliminar o excesso de líquidos e combatendo o inchaço, e é um excelente remineralizante.', price: 4.00, img: 'img/placeholder-cha-cavalinha.jpg' },
+      { name: 'Chá Mate (50g)', desc: 'O chá mate verde serve para dar mais energia e melhorar o foco devido à sua cafeína e outras substâncias stimulantes, além de ser um potente diurético e antioxidante.', price: 2.50, img: 'img/placeholder-cha-mate.jpg' },
+      { name: 'Chá Preto (50g)', desc: 'O chá preto serve para aumentar a energia e o foco, graças à cafeína e à L-teanina, além de contribuir para a saúde do coração e do cérebro por ser rico em antioxidantes.', price: 3.50, img: 'img/placeholder-cha-preto.jpg' },
+      { name: 'Chá-Seca-Barriga (50g)', desc: 'O chá "seca barriga", refere-se a misturas de ervas comumente associadas à perda de peso e redução da gordura abdominal.', price: 3.50, img: 'img/placeholder-cha-seca-barriga.jpg' },
+      { name: 'Chá Verde (50g)', desc: 'O chá verde oferece uma variedade de benefícios para a saúde, como sua ação antioxidante, que combate o envelhecimento precoce, ele também pode ajudar no processo de emagrecimento ao acelerar o metabolismo.', price: 3.00, img: 'img/placeholder-cha-verde.jpg' },
+      { name: 'Chambá (50g)', desc: 'O Chambá é uma planta medicinal popularmente utilizada como expectorante, broncodilatador, antitussígeno e para tratar problemas respiratórios como asma, bronquite, tosse e chiado no peito.', price: 3.00, img: 'img/placeholder-cha-chamba.jpg' },
+      { name: 'Chapéu-de-Couro (50g)', desc: 'O chapéu-de-couro pode auxiliar no tratamento de problemas no sistema urinário, como infecções, devido às suas propriedades diuréticas, anti-inflamatórias e depurativas.', price: 3.50, img: 'img/placeholder-cha-chapeu-couro.jpg' },
+      { name: 'Cravo-da-India (50g)', desc: 'O cravo-da-índia, além de muito utilizado na culinária para a preparação de diversos pratos, também possui ação antioxidante, anti-inflamatória e antimicrobiana.', price: 6.00, img: 'img/placeholder-cha-cravo-india.jpg' },
+      { name: 'Dente-de-Leão (50g)', desc: 'O dente-de-leão é usado para diversas finalidades na medicina popular e pode ser consumido como chá, devido às suas propriedades diuréticas, depurativas e hepatoprotetoras.', price: 4.00, img: 'img/placeholder-cha-dente-leao.jpg' },
+      { name: 'Desinchá (50g)', desc: 'O chá Desinchá é utilizado para auxiliar na redução do inchaço corporal, promover a saciedade, dar mais energia e acelerar o metabolismo, contribuindo para um processo de emagrecimento saudável.', price: 3.50, img: 'img/placeholder-cha-desincha.jpg' },
+      { name: 'Endro (50g)', desc: 'O endro oferece vários benefícios, principalmente por suas propriedades digestivas, ajudando a aliviar gases, inchaço, cólicas, constipação e náuseas.', price: 2.50, img: 'img/placeholder-cha-endro.jpg' },
+      { name: 'Erva-Baleeira (50g)', desc: 'A Erva-baleeira é muito utilizada para aliviar dores e inflamações, sendo recomendada para condições como artrite, reumatismo, dores musculares e na coluna, contusões e torções.', price: 3.50, img: 'img/placeholder-cha-erva-baleeira.jpg' },
+      { name: 'Erva-Cidreira (50g)', desc: 'A Erva-cidreira é muito utilizada para acalmar, reduzir a ansiedade e melhorar o sono, atuando como um calmante natural no sistema nervoso central.', price: 3.50, img: 'img/placeholder-cha-erva-cidreira.jpg' },
+      { name: 'Erva-Doce Argentina (50g)', desc: 'A Erva-doce argentina serve para diversos fins, principalmente para a melhora da digestão, alívio de gases e cólicas, mas também tem propriedades que a tornam benéfica para a saúde dos fígado.', price: 4.00, img: 'img/placeholder-cha-erva-doce-argentina.jpg' },
+      { name: 'Erva-Doce Tradicional (50g)', desc: 'A Erva-doce tradicional é muito utilizada na culinária e na medicina popular devido ao seu sabor adocicado e propriedades digestivas e anti-inflamatórias.', price: 2.50, img: 'img/erva-doce.jpg' },
+      { name: 'Espinheira-Santa (50g)', desc: 'A Espinheira-santa é utilizada para aliviar problemas digestivos, como gastrite, úlceras, azia, má digestão e gases, atuando como protetor da mucosa gástrica e redutor da acidez estomacal.', price: 3.80, img: 'img/placeholder-cha-espinheira-santa.jpg' },
+      { name: 'Eucalipto (50g)', desc: 'O eucalipto oferece uma variedade de benefícios, para a saúde com suas propriedades expectorantes e descongestionantes ajudam a aliviar problemas respiratórios como gripes, resfriados e sinusites.', price: 2.50, img: 'img/placeholder-cha-eucalipto.jpg' },
+      { name: 'Folha de Abacateiro (50g)', desc: 'A folha de abacate serve para preparar um chá com propriedades diuréticas, antioxidantes e anti-inflamatórias, que podem auxiliar no controle da diabetes e da pressão alta.', price: 3.00, img: 'img/placeholder-cha-folha-abacate.jpg' },
+      { name: 'Ginkgo-Biloba (50g)', desc: 'O Ginkgo Biloba é uma planta comumente usada para melhorar a memória e outras funções cognitivas, além de auxiliar na circulação sanguínea e no tratamento de zumbidos e vertigens.', price: 4.00, img: 'img/placeholder-cha-ginkgo.jpg' },
+      { name: 'Graviola Folhas (50g)', desc: 'As folhas da graviola possuem diversas propriedades benéficas à saúde, incluindo ação antioxidante, anti-inflamatória e antimicrobiana, além de auxiliar no controle da diabetes e na saúde digestiva.', price: 3.50, img: 'img/placeholder-cha-graviola.jpg' },
+      { name: 'Hibisco (50g)', desc: 'O Chá de Hibisco, pode oferecer vários benefícios para a saúde, incluindo a melhora da saúde cardiovascular, ajudando a controlar a pressão arterial e o colesterol.', price: 3.50, img: 'img/placeholder-cha-hibisco.jpg' },
+      { name: 'Hortelã (50g)', desc: 'O Chá de Hortelã pode auxiliar na melhora da digestão, aliviar cólicas e gases intestinais, reduzir náuseas, aliviar dores de cabeça e musculares, combater sintomas de gripe e resfriados.', price: 3.00, img: 'img/placeholder-cha-hortela.jpg' },
+      { name: 'Ipê-Roxo (50g)', desc: 'O Ipê-Roxo pode oferecer múltiplos benefícios à saúde, como ação anti-inflamatória, antibiótica e antifúngica, além de ser um potente antioxidante.', price: 3.00, img: 'img/placeholder-cha-ipe-roxo.jpg' },
+      { name: 'Jatobá Casca (50g)', desc: 'O jatobá possui propriedades anti-inflamatórias, antioxidantes, antiespasmódicas e expectorantes, que podem ser usadas para ajudar no tratamento de feridas, dor de estômago, diarreia ou inflamação na garganta.', price: 3.00, img: 'img/placeholder-cha-jatoba.jpg' },
+      { name: 'Louro Folhas (40g)', desc: 'A folha de louro serve para melhorar a digestão, aliviar dores musculares e cólicas, combater o estresse, reduzir a retenção de líquidos e ajudar no controle do colesterol e da diabetes.', price: 3.00, img: 'img/placeholder-cha-louro.jpg' },
+      { name: 'Melissa (50g)', desc: 'O chá de melissa, também conhecido como erva-cidreira, oferece diversos benefícios como a ação calmante para combater a ansiedade e a insónia, propriedades digestivas, anti-inflamatórias, antioxidantes e antivirais.', price: 3.50, img: 'img/placeholder-cha-melissa.jpg' },
+      { name: 'Mulungu (30g)', desc: 'O Mulungu, conhecido por suas propriedades calmantes e sedativas, é tradicionalmente utilizado como um remédio natural para ansiedade, estresse e insônia, auxiliando no relaxamento muscular.', price: 3.00, img: 'img/placeholder-cha-mulungu.jpg' },
+      { name: 'Passiflora (50g)', desc: 'A Passiflora, também conhecida como flor-do-maracujá, oferece diversos benefícios à saúde, principalmente devido às suas propriedades calmantes e ansiolíticas.', price: 3.00, img: 'img/placeholder-cha-passiflora.jpg' },
+      { name: 'Pata-de-Vaca (50g)', desc: 'A Pata-de-Vaca tem como principais benefícios o auxílio no controle do diabetes (ação hipoglicemiante), a ação diurética, que ajuda na eliminação de líquidos, e propriedades antioxidantes e anti-inflamatórias.', price: 3.00, img: 'img/placeholder-cha-pata-vaca.jpg' },
+      { name: 'Pau-Tenente (50g)', desc: 'O Pau-Tenente, também conhecido como pau amargo, quina ou quassia, é uma planta medicinal muito usada para problemas digestivos, falta de apetite, diabetes e parasitas intestinais.', price: 3.50, img: 'img/placeholder-cha-pau-tenente.jpg' },
+      { name: 'Pedra-Hume (50g)', desc: 'A pedra hume serve para estancar pequenos sangramentos (como os de depilação ou barbear), cicatrizar feridas superficiais, reduzir a transpiração e o mau cheiro nas axilas.', price: 3.00, img: 'img/placeholder-cha-pedra-hume.jpg' },
+      { name: 'Picão-Preto (50g)', desc: 'O Chá de Picão-preto tem vários benefícios, incluindo ação anti-inflamatória, hepatoprotetora, diurética e antioxidante.', price: 3.00, img: 'img/placeholder-cha-picao-preto.jpg' },
+      { name: 'Porangaba (50g)', desc: 'O chá de Porangaba é utilizado principalmente como diurético para evitar a retenção de líquidos, termogênico e também como inibidor de apetite.', price: 3.00, img: 'img/placeholder-cha-porangaba.jpg' },
+      { name: 'Quixaba (50g)', desc: 'O Chá de Quixaba é muito usado para aliviar inflamações no útero e cistos ovarianos, tratar diabetes, auxiliar na cicatrização de feridas na pele e como anti-inflamatório em geral.', price: 3.50, img: 'img/placeholder-cha-quixaba.jpg' },
+      { name: 'Quebra-Pedra (50g)', desc: 'O Chá de Quebra-pedra é tradicionalmente usado para ajudar na prevenção e no tratamento de pedras nos rins e problemas do trato urinário.', price: 4.00, img: 'img/placeholder-cha-quebra-pedra.jpg' },
+      { name: 'Sene (30g)', desc: 'O chá de sene oferece benefícios como alívio da prisão de ventre, através das suas propriedades laxativas, a planta auxilia na eliminação de gases e evita a retenção de líquidos.', price: 2.00, img: 'img/placeholder-cha-sene.jpg' },
+      { name: 'Sucupira Semente (50g)', desc: 'A Semente da Sucupira, de árvores nativas do Brasil, é tradicionalmente usada na medicina popular por suas propriedades anti-inflamatórias, analgésicas e antioxidantes.', price: 8.00, img: 'img/placeholder-cha-sucupira.jpg' },
+      { name: 'Unha de Gato (50g)', desc: 'A unha de gato é usada popularmente para tratar condições inflamatórias como artrite, reumatismo e sinusite, e para fortalecer o sistema imunológico.', price: 3.50, img: 'img/placeholder-cha-unha-gato.jpg' },
+      { name: 'Uxi Amarelo (50g)', desc: 'Uxi amarelo é uma planta medicinal muito usada para auxiliar no tratamento de inflamações do útero, infecção urinária ou artrite, pois tem propriedades anti-inflamatórias, antioxidantes, diuréticas.', price: 3.00, img: 'img/placeholder-cha-uxi-amarelo.jpg' },
     ],
   };
 
@@ -92,7 +144,7 @@ window.addEventListener('DOMContentLoaded', () => {
       </div>`;
   }
   function renderProdutos() {
-    ['temperos','ervas'].forEach(cat => {
+    ['temperos','chas'].forEach(cat => {
       const carousel = document.getElementById(`${cat}-carousel`);
       if (!carousel) return;
       carousel.innerHTML = '';
@@ -231,15 +283,15 @@ window.addEventListener('DOMContentLoaded', () => {
   window.sendToWhatsApp = function(){
     if (!cart.length) return alert('Carrinho vazio!');
     
-    // Separar ervas de temperos
-    const ervas = [];
+    // Separar chas de temperos
+    const chas = [];
     const temperos = [];
     
     cart.forEach(item => {
       // Verificar se é uma erva (baseado no nome ou categoria)
       if (item.name.toLowerCase().includes('erva') || 
-          produtos.ervas.some(erva => erva.name === item.name)) {
-        ervas.push(item);
+          produtos.chas.some(erva => erva.name === item.name)) {
+        chas.push(item);
       } else {
         temperos.push(item);
       }
@@ -257,14 +309,14 @@ window.addEventListener('DOMContentLoaded', () => {
       msg += `Subtotal Temperos: R$ ${subtotalTemperos}%0A%0A`;
     }
     
-    // Adicionar ervas
-    if (ervas.length > 0) {
-      msg += '🌿 ERVAS:%0A';
-      ervas.forEach(item => {
+    // Adicionar chas
+    if (chas.length > 0) {
+      msg += '🌿 CHÁS:%0A';
+      chas.forEach(item => {
         msg += `- ${item.name} x${item.qty} = R$ ${(item.price * item.qty).toFixed(2)}%0A`;
       });
-      const subtotalErvas = ervas.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
-      msg += `Subtotal Ervas: R$ ${subtotalErvas}%0A%0A`;
+      const subtotalchas = chas.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
+      msg += `Subtotal chas: R$ ${subtotalchas}%0A%0A`;
     }
     
     // Total geral

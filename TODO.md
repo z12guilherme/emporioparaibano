@@ -79,8 +79,61 @@ emporioparaibano-main/
 5. Tempero Edu Guedes tradicional (100g) - R$ 5.50
 6. ... [lista completa no script.js]
 
-### Ervas (1 produto)
-1. Camomila (50g) - R$ 4.00
+### Chás (58 produtos)
+1. Alcachofra (50g) - R$ 3.50
+2. Alecrim (50g) - R$ 2.50
+3. Alfazema (50g) - R$ 4.00
+4. Amora Folhas (50g) - R$ 3.00
+5. Anis-Estrelado (50g) - R$ 5.00
+6. Aroeira Casca (50g) - R$ 3.50
+7. Barbatimão Rasurado (50g) - R$ 3.00
+8. Boldo (50g) - R$ 4.50
+9. Camomila (50g) - R$ 4.00
+10. Canela em Pau (50g) - R$ 4.80
+11. Canela-de-Velho (50g) - R$ 2.50
+12. Capim-Limão (50g) - R$ 3.50
+13. Cardo-Mariano (50g) - R$ 3.50
+14. Carqueja (50g) - R$ 2.50
+15. Cavalinha (50g) - R$ 4.00
+16. Chá Mate (50g) - R$ 2.50
+17. Chá Preto (50g) - R$ 3.50
+18. Chá-Seca-Barriga (50g) - R$ 3.50
+19. Chá Verde (50g) - R$ 3.00
+20. Chambá (50g) - R$ 3.00
+21. Chapéu-de-Couro (50g) - R$ 3.50
+22. Cravo-da-India (50g) - R$ 6.00
+23. Dente-de-Leão (50g) - R$ 4.00
+24. Desinchá (50g) - R$ 3.50
+25. Endro (50g) - R$ 2.50
+26. Erva-Baleeira (50g) - R$ 3.50
+27. Erva-Cidreira (50g) - R$ 3.50
+28. Erva-Doce Argentina (50g) - R$ 4.00
+29. Erva-Doce Tradicional (50g) - R$ 2.50
+30. Espinheira-Santa (50g) - R$ 3.80
+31. Eucalipto (50g) - R$ 2.50
+32. Folha de Abacateiro (50g) - R$ 3.00
+33. Ginkgo-Biloba (50g) - R$ 4.00
+34. Graviola Folhas (50g) - R$ 3.50
+35. Hibisco (50g) - R$ 3.50
+36. Hortelã (50g) - R$ 3.00
+37. Ipê-Roxo (50g) - R$ 3.00
+38. Jatobá Casca (50g) - R$ 3.00
+39. Louro Folhas (40g) - R$ 3.00
+40. Melissa (50g) - R$ 3.50
+41. Mulungu (30g) - R$ 3.00
+42. Passiflora (50g) - R$ 3.00
+43. Pata-de-Vaca (50g) - R$ 3.00
+44. Pau-Tenente (50g) - R$ 3.50
+45. Pedra-Hume (50g) - R$ 3.00
+46. Picão-Preto (50g) - R$ 3.00
+47. Porangaba (50g) - R$ 3.00
+48. Quixaba (50g) - R$ 3.50
+49. Quebra-Pedra (50g) - R$ 4.00
+50. Sene (30g) - R$ 2.00
+51. Sucupira Semente (50g) - R$ 8.00
+52. Unha de Gato (50g) - R$ 3.50
+53. Uxi Amarelo (50g) - R$ 3.00
+... [lista completa no script.js]
 
 ## 🔧 Funcionalidades Técnicas
 
@@ -102,6 +155,13 @@ emporioparaibano-main/
 ## ✅ Status Atual
 **PROJETO COMPLETO E FUNCIONAL**
 
+### Modificações Realizadas
+- [x] Categoria "Ervas" renomeada para "Chás"
+- [x] Adicionados 58 produtos de chás com placeholders
+- [x] Todos os produtos formatados seguindo padrão existente
+- [x] Descrições detalhadas com benefícios medicinais
+- [x] Preços conforme especificações fornecidas
+
 ### Problemas Resolvidos
 - [x] Correção do carrinho mobile (valor total não aparecia)
 - [x] Verificação completa da responsividade
@@ -110,7 +170,7 @@ emporioparaibano-main/
 ## 🚀 Próximas Possíveis Melhorias
 
 ### Prioridade Alta
-- [ ] Adicionar mais produtos na categoria "Ervas"
+- [x] Adicionar mais produtos na categoria "Chás" ✅
 - [ ] Implementar busca/filtro de produtos
 - [ ] Adicionar página de detalhes do produto
 
@@ -134,7 +194,7 @@ emporioparaibano-main/
 3. Verificar integração com WhatsApp
 
 ## 📊 Métricas de Performance
-- **Produtos**: 41 itens catalogados
+**Produtos**: 98 itens catalogados (40 temperos + 58 chás)
 - **Imagens**: Todas otimizadas e carregamento lazy
 - **Código**: JavaScript bem estruturado e comentado
 - **CSS**: Organizado com metodologia modular
