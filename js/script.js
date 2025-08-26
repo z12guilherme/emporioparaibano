@@ -53,7 +53,10 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Salsa Desidratada (100g)', desc: 'Prática para sopas, molhos, carnes, saladas e peixes.', price: 4.00, img: 'img/salsa_desidratada.jpg' },
       { name: 'Alho Frito Granulado (100g)', desc: 'Adiciona crocância e sabor em pratos, ótimo para finalizar receitas.', price: 5.00, img: 'img/alho_frito_granulado.jpg' },
     ],
-    molhos: []
+
+    ervas: [
+      { name: 'Erva Doce', desc: 'É conhecida por suas propriedades digestivas, antiespasmódicas e carminativas, ajudando a aliviar gases, cólicas e prisão de ventre. Também tem efeitos calmantes e antioxidantes, sendo utilizada em chás, sopas e saladas. ', price: 4.50, img: 'img/erva-doce.jpg' },
+    ],
   };
 
   /* persistence */
@@ -89,7 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
       </div>`;
   }
   function renderProdutos() {
-    ['temperos','molhos'].forEach(cat => {
+    ['temperos','ervas'].forEach(cat => {
       const carousel = document.getElementById(`${cat}-carousel`);
       if (!carousel) return;
       carousel.innerHTML = '';
@@ -227,14 +230,49 @@ window.addEventListener('DOMContentLoaded', () => {
   /* send to WhatsApp */
   window.sendToWhatsApp = function(){
     if (!cart.length) return alert('Carrinho vazio!');
-    let msg = 'Olá, gostaria de fazer o pedido:%0A';
-    cart.forEach(i=>{
-      msg += `- ${i.name} x${i.qty} = R$ ${(i.price*i.qty).toFixed(2)}%0A`;
+    
+    // Separar ervas de temperos
+    const ervas = [];
+    const temperos = [];
+    
+    cart.forEach(item => {
+      // Verificar se é uma erva (baseado no nome ou categoria)
+      if (item.name.toLowerCase().includes('erva') || 
+          produtos.ervas.some(erva => erva.name === item.name)) {
+        ervas.push(item);
+      } else {
+        temperos.push(item);
+      }
     });
-    const total = cart.reduce((acc,i)=>acc+i.price*i.qty,0).toFixed(2);
-    msg += `Total: R$ ${total}`;
+    
+    let msg = 'Olá, gostaria de fazer o pedido:%0A%0A';
+    
+    // Adicionar temperos
+    if (temperos.length > 0) {
+      msg += '🌶️ TEMPEROS: %0A';
+      temperos.forEach(item => {
+        msg += `- ${item.name} x${item.qty} = R$ ${(item.price * item.qty).toFixed(2)}%0A`;
+      });
+      const subtotalTemperos = temperos.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
+      msg += `Subtotal Temperos: R$ ${subtotalTemperos}%0A%0A`;
+    }
+    
+    // Adicionar ervas
+    if (ervas.length > 0) {
+      msg += '🌿 ERVAS:%0A';
+      ervas.forEach(item => {
+        msg += `- ${item.name} x${item.qty} = R$ ${(item.price * item.qty).toFixed(2)}%0A`;
+      });
+      const subtotalErvas = ervas.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
+      msg += `Subtotal Ervas: R$ ${subtotalErvas}%0A%0A`;
+    }
+    
+    // Total geral
+    const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
+    msg += `*TOTAL: R$ ${total}*`;
+    
     const url = `https://wa.me/+5581991889242?text=${msg}`;
-    window.open(url,'_blank');
+    window.open(url, '_blank');
   }
 });
 
