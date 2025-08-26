@@ -21,7 +21,9 @@ emporioparaibano-main/
 │   └── style-new.css   # Estilos CSS
 ├── js/
 │   └── script.js       # Lógica JavaScript
-├── img/               # Imagens dos produtos (40+ arquivos)
+├── img/               # Imagens dos produtos (100+ arquivos)
+│   ├── temperos/      # Pasta para imagens de temperos (40+ produtos)
+│   └── chas/          # Pasta para imagens de chás/ervas (58 produtos)
 └── TODO.md            # Documentação do projeto
 ```
 
