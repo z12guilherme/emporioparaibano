@@ -1,111 +1,44 @@
-# TODO - Adicionar Carrossel Funcionais
+# TODO - Adicionar Novos Produtos à Categoria "Sementes e Grãos"
 
 ## ✅ Completed
-- [x] Analyze existing code structure
-- [x] Understand carousel implementation pattern
-- [x] Add HTML section for "Funcionais" carousel in index.html
-- [x] Add "funcionais" category to produtos object in js/script.js
-- [x] Add functional products with placeholder images (40+ produtos funcionais adicionados)
-- [x] Update renderProdutos() function to include new category
-- [x] Update WhatsApp integration to handle functional products
+- [x] Analyze existing "Sementes e Grãos" category in js/script.js
+- [x] Verify that the category and carousel already exist in index.html
+- [x] Confirm that the provided products are already present in the sementesEgraos array
+- [x] No additional edits needed as products are already implemented
 
-## 📋 To Do - Images
-- [ ] Add real product images for functional products (currently using placeholders)
-- [ ] Create proper image files for each functional product:
-  - [ ] Açaí em Pó
-  - [ ] Aveia em Flocos Finos
-  - [ ] Gérmen de trigo
-  - [ ] Aveia em Flocos Grossos
-  - [ ] Cacau em Pó 100%
-  - [ ] Canela em Pó
-  - [ ] Catuaba em Pó
-  - [ ] Colágeno em Pó Hidrolisado
-  - [ ] Creatina Monohidratada
-  - [ ] Dolomita
-  - [ ] Extrato de Soja em pó
-  - [ ] Farelo de Aveia
-  - [ ] Farinha da Felicidade
-  - [ ] Farinha de Amêndoas
-  - [ ] Farinha de Amendoim
-  - [ ] Farinha de Arroz
-  - [ ] Farinha de Aveia
-  - [ ] Farinha de Banana Verde
-  - [ ] Farinha de Batata Doce
-  - [ ] Farinha de Berinjela
-  - [ ] Farinha de Beterraba
-  - [ ] Farinha de Castanha de Caju
-  - [ ] Farinha de Chia
-  - [ ] Farinha de Coco Branca
-  - [ ] Farinha de Linhaça Dourada
-  - [ ] Farinha de Linhaça Marrom
-  - [ ] Farinha de Maracujá
-  - [ ] Farinha de Uva Roxa
-  - [ ] Feno-Grego Granulado
-  - [ ] Fibra de Maçã
-  - [ ] Gengibre em Pó
-  - [ ] Ginseng em Pó
-  - [ ] Guaraná em Pó
-  - [ ] Leite de Coco em Pó
-  - [ ] Levedo de Cerveja em Pó
-  - [ ] Maca Peruana
-  - [ ] Marapuama em Pó
-  - [ ] Moringa em Pó
-  - [ ] Multimistura
-  - [ ] Psyllium
-  - [ ] Tribulus Terrestris
+## 📋 To Do
+- [ ] If new products are needed, provide details for addition
+- [ ] Update product images if placeholders are used (currently 'img/placeholder.jpg')
 
 ## 🧪 Testing
-- [ ] Test carousel functionality for "Funcionais" section
-- [ ] Test add-to-cart functionality for functional products
-- [ ] Test WhatsApp integration with functional products
+- [ ] Test carousel functionality for "Sementes e Grãos" section
+- [ ] Test add-to-cart functionality for existing products
+- [ ] Test WhatsApp integration with "Sementes e Grãos" products
 - [ ] Verify mobile responsiveness
-- [ ] Test cart persistence with functional products
-
-## 🎯 Functional Products Added (40+ produtos)
-- Açaí em Pó (100g)
-- Aveia em Flocos Finos (100g)
-- Gérmen de trigo (100g)
-- Aveia em Flocos Grossos (100g)
-- Cacau em Pó 100% (100g)
-- Canela em Pó (100g)
-- Catuaba em Pó (100g)
-- Colágeno em Pó Hidrolisado (100g)
-- Creatina Monohidratada (100g)
-- Dolomita (100g)
-- Extrato de Soja em pó (100g)
-- Farelo de Aveia (100g)
-- Farinha da Felicidade (100g)
-- Farinha de Amêndoas (100g)
-- Farinha de Amendoim (100g)
-- Farinha de Arroz (100g)
-- Farinha de Aveia (100g)
-- Farinha de Banana Verde (100g)
-- Farinha de Batata Doce (100g)
-- Farinha de Berinjela (100g)
-- Farinha de Beterraba (100g)
-- Farinha de Castanha de Caju (100g)
-- Farinha de Chia (100g)
-- Farinha de Coco Branca (100g)
-- Farinha de Linhaça Dourada (100g)
-- Farinha de Linhaça Marrom (100g)
-- Farinha de Maracujá (100g)
-- Farinha de Uva Roxa (100g)
-- Feno-Grego Granulado (100g)
-- Fibra de Maçã (100g)
-- Gengibre em Pó (100g)
-- Ginseng em Pó (100g)
-- Guaraná em Pó (100g)
-- Leite de Coco em Pó (100g)
-- Levedo de Cerveja em Pó (100g)
-- Maca Peruana (100g)
-- Marapuama em Pó (100g)
-- Moringa em Pó (100g)
-- Multimistura (Pote 150g)
-- Psyllium (100g)
-- Tribulus Terrestris (100g)
 
 ## 📝 Notes
-- All functional products currently use placeholder images: 'img/funcionais/placeholder-cha-verde-funcional.jpg'
-- The implementation is complete from a coding perspective
-- Next priority: Add real product images for better user experience
-- WhatsApp integration has been updated to categorize functional products separately in the message
+- The category "Sementes e Grãos" already exists with the following products:
+  - Chia (100g)
+  - Gergelim Branco (100g)
+  - Gergelim Preto (100g)
+  - Granola Diet a granel (100g)
+  - Granola Tradicional a granel (100g)
+  - Granola Banana a granel (100g)
+  - Granola Sabor da Terra 250g (Sabor Banana)
+  - Granola Sabor da Terra 250g (Sabor Cacau 70%)
+  - Granola Sabor da Terra 250g (Sabor Tradicional)
+  - Granola Salgada (100g)
+  - Grão-de-Bico (100g)
+  - Lentilha (100g)
+  - Linhaça Dourada (100g)
+  - Linhaça Marrom (100g)
+  - Mix de Quinoa em grãos (100g)
+  - Pepita de Girassol (100g)
+  - Semente de Abóbora (100g)
+  - Semente de Girassol - com casca (100g)
+  - Soja em Grãos (100g)
+- All products use placeholder images: 'img/placeholder.jpg'
+- The implementation is complete as the products are already added
+
+## 📅 Timeline
+Task completed - no further action needed unless new products are requested.
