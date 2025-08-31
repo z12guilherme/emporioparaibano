@@ -373,29 +373,34 @@ window.addEventListener('DOMContentLoaded', () => {
   /* send to WhatsApp */
   window.sendToWhatsApp = function(){
     if (!cart.length) return alert('Carrinho vazio!');
-    
+
     // Separar produtos por categoria
     const chas = [];
     const temperos = [];
     const funcionais = [];
-    
+    const sementesEgraos = [];
+
     cart.forEach(item => {
       // Verificar se é um chá
       if (produtos.chas.some(cha => cha.name === item.name)) {
         chas.push(item);
-      } 
+      }
       // Verificar se é um produto funcional
       else if (produtos.funcionais.some(funcional => funcional.name === item.name)) {
         funcionais.push(item);
       }
-      // Se não for chá nem funcional, é tempero
+      // Verificar se é sementes e grãos
+      else if (produtos.sementesEgraos.some(semente => semente.name === item.name)) {
+        sementesEgraos.push(item);
+      }
+      // Se não for nenhuma das acima, é tempero
       else {
         temperos.push(item);
       }
     });
-    
+
     let msg = 'Olá, gostaria de fazer o pedido:%0A%0A';
-    
+
     // Adicionar temperos
     if (temperos.length > 0) {
       msg += '🌶️ TEMPEROS: %0A';
@@ -405,7 +410,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const subtotalTemperos = temperos.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
       msg += `Subtotal Temperos: R$ ${subtotalTemperos}%0A%0A`;
     }
-    
+
     // Adicionar chas
     if (chas.length > 0) {
       msg += '🌿 CHÁS:%0A';
@@ -415,7 +420,7 @@ window.addEventListener('DOMContentLoaded', () => {
       const subtotalchas = chas.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
       msg += `Subtotal chas: R$ ${subtotalchas}%0A%0A`;
     }
-    
+
     // Adicionar produtos funcionais
     if (funcionais.length > 0) {
       msg += '💊 PRODUTOS FUNCIONAIS:%0A';
@@ -425,11 +430,21 @@ window.addEventListener('DOMContentLoaded', () => {
       const subtotalFuncionais = funcionais.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
       msg += `Subtotal Funcionais: R$ ${subtotalFuncionais}%0A%0A`;
     }
-    
+
+    // Adicionar sementes e grãos
+    if (sementesEgraos.length > 0) {
+      msg += '🌱 SEMENTES E GRÃOS:%0A';
+      sementesEgraos.forEach(item => {
+        msg += `- ${item.name} x${item.qty} = R$ ${(item.price * item.qty).toFixed(2)}%0A`;
+      });
+      const subtotalSementes = sementesEgraos.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
+      msg += `Subtotal Sementes e Grãos: R$ ${subtotalSementes}%0A%0A`;
+    }
+
     // Total geral
     const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
     msg += `*TOTAL: R$ ${total}*`;
-    
+
     const url = `https://wa.me/+5581991889242?text=${msg}`;
     window.open(url, '_blank');
   }
