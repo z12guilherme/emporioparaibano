@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Páprica Doce (100g)', desc: 'Pimentões secos moídos que adicionam cor suave e sabor delicado a carnes, aves, peixes, sopas e molhos.', price: 3.50, img: 'img/temperos/paprica_doce.jpg' },
       { name: 'Páprica Defumada (100g)', desc: 'Pimentões defumados moídos que adicionam sabor e aroma defumado a carnes, aves, peixes e molhos.', price: 3.50, img: 'img/temperos/paprica_defumada.jpg' },
       { name: 'Páprica Picante (100g)', desc: 'Pimentões secos com adição de pimenta, para dar toque picante e cor a pratos diversos.', price: 3.50, img: 'img/temperos/paprica_picante.jpg' },
-      { name: 'Açafrão (100g)', desc: 'Também conhecido como cúrcuma, adiciona cor, sabor e propriedades benéficas. Usado em carnes, arroz, sopas e molhos.', price: 4.00, img: 'img/temperos/acafrao.jpg' },
+      { name: 'Açafrão (100g)', desc: 'Também conhecido como cúrcuma, adiciona cor, sabor e propriedades benéficas. Usado em carnes, arroz, sopas e molhos.', price: 3.50, img: 'img/temperos/acafrao.jpg' },
       { name: 'Colorau Paraíba (100g)', desc: 'Colorau de coloração vibrante, usado em arroz, feijão, carnes e molhos para cor e sabor suave.', price: 4.00, img: 'img/temperos/colorau_paraiba.jpg' },
       { name: 'Colorau Tradicional (100g)', desc: 'Urucum em pó que adiciona cor avermelhada e sabor levemente terroso a pratos brasileiros.', price: 3.00, img: 'img/temperos/colorau_tradicional.jpg' },
       { name: 'Cominho Moído (100g)', desc: 'Especiaria versátil para carnes, legumes, ovos, feijão, lentilha, arroz, batatas e sopas.', price: 4.50, img: 'img/temperos/cominho_moido.jpg' },
@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Tempero Tempera Tudo (100g)', desc: 'Mistura de especiarias para dar sabor a carnes, legumes, saladas, sopas e ovos.', price: 5.00, img: 'img/temperos/tempera_tudo.jpg' },
       { name: 'Fumaça em pó (100g)', desc: 'Condimento para conferir sabor defumado a carnes, molhos, sopas e até preparações doces como molho barbecue.', price: 6.00, img: 'img/temperos/fumaca.jpg' },
       { name: 'Alho Desidratado (100g)', desc: 'Indicado em todas as preparações culinárias em substituição ao alho cru. Refogados em geral, legumes, temperos para caldos, sopas e molhos.', price: 5.00, img: 'img/temperos/alho_desidratado.jpg' },
-      { name: 'Cebola em Flocos Desidratada (100g)', desc: 'Ingrediente versátil que pode ser usado em diversas receitas, tanto para sabor quanto para textura.', price: 5.50, img: 'img/temperos/cebola_em_flocos_desidratada.jpg' },
+      { name: 'Cebola Frita Desidratada (100g)', desc: 'Ingrediente versátil que pode ser usado em diversas receitas, tanto para sabor quanto para textura.', price: 5.50, img: 'img/temperos/cebola_em_flocos_desidratada.jpg' },
       { name: 'Pimenta Calabresa (100g)', desc: 'Muito usada para adicionar sabor picante e aroma em carnes, peixes, sopas e molhos.', price: 5.00, img: 'img/temperos/pimenta_calabresa.jpg' },
       { name: 'Sal Rosa Fino do Himalaia (100g)', desc: 'Sal puro e rico em minerais, ideal para uso diário e finalização gourmet.', price: 2.00, img: 'img/temperos/sal_rosa_fino_do_himalaia.jpg' },
       { name: 'Sal Rosa Grosso do Himalaia (100g)', desc: 'Perfeito para churrascos, substituto saudável do sal grosso comum.', price: 2.00, img: 'img/temperos/sal_rosa_grosso_do_himalaia.jpg' },
@@ -449,5 +449,6 @@ window.addEventListener('DOMContentLoaded', () => {
     window.open(url, '_blank');
   }
 });
+
 
 
