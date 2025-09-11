@@ -411,6 +411,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const temperos = [];
     const funcionais = [];
     const sementesEgraos = [];
+    const diversos = [];
 
     cart.forEach(item => {
       // Verificar se é um chá
@@ -424,6 +425,10 @@ window.addEventListener('DOMContentLoaded', () => {
       // Verificar se é sementes e grãos
       else if (produtos.sementesEgraos.some(semente => semente.name === item.name)) {
         sementesEgraos.push(item);
+      }
+      // Verificar se é diversos
+      else if (produtos.diversos.some(diverso => diverso.name === item.name)) {
+        diversos.push(item);
       }
       // Se não for nenhuma das acima, é tempero
       else {
@@ -471,6 +476,16 @@ window.addEventListener('DOMContentLoaded', () => {
       });
       const subtotalSementes = sementesEgraos.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
       msg += `Subtotal Sementes e Grãos: R$ ${subtotalSementes}%0A%0A`;
+    }
+
+    // Adicionar diversos
+    if (diversos.length > 0) {
+      msg += '🛒 DIVERSOS:%0A';
+      diversos.forEach(item => {
+        msg += `- ${item.name} x${item.qty} = R$ ${(item.price * item.qty).toFixed(2)}%0A`;
+      });
+      const subtotalDiversos = diversos.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
+      msg += `Subtotal Diversos: R$ ${subtotalDiversos}%0A%0A`;
     }
 
     // Total geral
