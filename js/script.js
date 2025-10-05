@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Páprica Doce (100g)', desc: 'Pimentões secos moídos que adicionam cor suave e sabor delicado a carnes, aves, peixes, sopas e molhos.', price: 3.50, img: 'img/temperos/paprica_doce.jpg' },
       { name: 'Páprica Defumada (100g)', desc: 'Pimentões defumados moídos que adicionam sabor e aroma defumado a carnes, aves, peixes e molhos.', price: 3.50, img: 'img/temperos/paprica_defumada.jpg' },
       { name: 'Páprica Picante (100g)', desc: 'Pimentões secos com adição de pimenta, para dar toque picante e cor a pratos diversos.', price: 3.50, img: 'img/temperos/paprica_picante.jpg' },
-      { name: 'Açafrão (100g)', desc: 'Também conhecido como cúrcuma, adiciona cor, sabor e propriedades benéficas. Usado em carnes, arroz, sopas e molhos.', price: 4.00, img: 'img/temperos/acafrao.jpg' },
+      { name: 'Açafrão (100g)', desc: 'Também conhecido como cúrcuma, adiciona cor, sabor e propriedades benéficas. Usado em carnes, arroz, sopas e molhos.', price: 3.50, img: 'img/temperos/acafrao.jpg' },
       { name: 'Colorau Paraíba (100g)', desc: 'Colorau de coloração vibrante, usado em arroz, feijão, carnes e molhos para cor e sabor suave.', price: 4.00, img: 'img/temperos/colorau_paraiba.jpg' },
       { name: 'Colorau Tradicional (100g)', desc: 'Urucum em pó que adiciona cor avermelhada e sabor levemente terroso a pratos brasileiros.', price: 3.00, img: 'img/temperos/colorau_tradicional.jpg' },
       { name: 'Cominho Moído (100g)', desc: 'Especiaria versátil para carnes, legumes, ovos, feijão, lentilha, arroz, batatas e sopas.', price: 4.50, img: 'img/temperos/cominho_moido.jpg' },
@@ -496,5 +496,6 @@ window.addEventListener('DOMContentLoaded', () => {
     window.open(url, '_blank');
   }
 });
+
 
 
