@@ -149,6 +149,25 @@
 
   <div id="toast-container"></div>
 
+  <button id="roulette-trigger" class="floating-btn" aria-label="Gire a roleta e ganhe um prêmio!">🎁</button>
+
+  <div id="roulette-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-panel roulette-panel">
+      <div class="modal-header">
+        <h2>Roleta de Prêmios!</h2>
+        <button id="close-roulette-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-content">
+        <div class="roulette-container">
+          <div class="roulette-pointer"></div>
+          <div class="roulette-wheel" id="roulette-wheel"></div>
+        </div>
+        <button id="spin-button" class="btn bg-yellow">Girar a Roleta!</button>
+        <p id="roulette-result" class="roulette-result-text"></p>
+      </div>
+    </div>
+  </div>
+
   <div id="favorites-modal" class="modal-overlay" style="display: none;">
     <div class="modal-panel">
       <div class="modal-header">
@@ -164,4 +183,3 @@
   <script defer src="js/script.js"></script>
 </body>
 </html>
-

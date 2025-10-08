@@ -1034,4 +1034,128 @@ setupKitBuilder();
   favorites = loadFavorites();
   updateFavoriteButtons();
   setupFavoritesModal();
+
+  /* Roulette Functionality */
+  function setupRoulette() {
+    const modal = document.getElementById('roulette-modal');
+    const trigger = document.getElementById('roulette-trigger');
+    const closeBtn = document.getElementById('close-roulette-modal');
+    const spinBtn = document.getElementById('spin-button');
+    const wheel = document.getElementById('roulette-wheel');
+    const resultText = document.getElementById('roulette-result');
+
+    if (!modal || !trigger || !closeBtn || !spinBtn || !wheel) return;
+
+    const prizes = [
+      { text: '5% OFF', type: 'discount', value: 0.05 },
+      { text: 'Tente de Novo', type: 'lose' },
+      { text: '10% OFF', type: 'discount', value: 0.10 },
+      { text: 'Tente de Novo', type: 'lose' },
+      { text: 'Brinde Surpresa', type: 'product', value: 'Canela em Pó (100g)' },
+      { text: 'Tente de Novo', type: 'lose' }
+    ];
+
+    const segmentCount = prizes.length;
+    const segmentAngle = 360 / segmentCount;
+    const colors = ['#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', '#a0c4ff', '#bdb2ff'];
+
+    prizes.forEach((prize, i) => {
+      const segment = document.createElement('div');
+      segment.className = 'roulette-segment';
+      segment.style.transform = `rotate(${i * segmentAngle}deg)`;
+      segment.style.backgroundColor = colors[i % colors.length];
+      segment.innerHTML = `<span>${prize.text}</span>`;
+      wheel.appendChild(segment);
+    });
+
+    function showRoulette() {
+      const lastSpin = localStorage.getItem('lastSpin');
+      const now = new Date().getTime();
+      // Permitir girar a cada 24 horas (86400000 ms)
+      if (lastSpin && (now - parseInt(lastSpin)) < 86400000) {
+        showToast('Você já girou a roleta hoje. Volte amanhã!', 'info');
+        return;
+      }
+      modal.style.display = 'flex';
+      spinBtn.disabled = false;
+      resultText.textContent = '';
+    }
+
+    function spin() {
+      spinBtn.disabled = true;
+      resultText.textContent = 'Girando...';
+
+      const randomIndex = Math.floor(Math.random() * segmentCount);
+      const prize = prizes[randomIndex];
+
+      // Calculate rotation
+      const baseRotation = 360 * 5; // 5 full spins
+      const prizeAngle = randomIndex * segmentAngle;
+      const randomOffset = Math.random() * (segmentAngle - 10) + 5; // To not land on the line
+      const finalAngle = baseRotation - prizeAngle - randomOffset;
+
+      wheel.style.transform = `rotate(${finalAngle}deg)`;
+
+      setTimeout(() => {
+        handlePrize(prize);
+        localStorage.setItem('lastSpin', new Date().getTime().toString());
+      }, 5500); // After animation
+    }
+
+    function handlePrize(prize) {
+      resultText.textContent = `Você ganhou: ${prize.text}!`;
+
+      if (prize.type === 'discount') {
+        const discountId = `desconto-roleta-${prize.value * 100}`;
+        const existingDiscount = cart.find(item => item.id.startsWith('desconto-roleta'));
+        if (existingDiscount) {
+          showToast('Você já tem um desconto da roleta no carrinho.', 'warning');
+          return;
+        }
+
+        const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
+        if (total > 0) {
+          const discountValue = total * prize.value;
+          cart.push({
+            id: discountId,
+            name: `Desconto Roleta (${prize.value * 100}%)`,
+            price: -discountValue,
+            qty: 1
+          });
+          showToast(`Desconto de ${prize.value * 100}% aplicado!`, 'success');
+          renderCart();
+        } else {
+          showToast('Adicione itens ao carrinho para usar seu desconto.', 'info');
+        }
+      } else if (prize.type === 'product') {
+        const total = cart.reduce((acc, i) => acc + i.price * i.qty, 0);
+        if (total > 20) {
+          const product = Object.values(produtos).flat().find(p => p.name === prize.value);
+          if (product) {
+            addToCart(slugify(product.name), product.name, 0); // Add as free
+            showToast(`Um brinde foi adicionado ao seu carrinho!`, 'success');
+          }
+        } else {
+          showToast('Você ganhou um brinde! Adicione mais de R$ 20,00 em compras para resgatá-lo.', 'info');
+        }
+      }
+
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 2000);
+    }
+
+    trigger.addEventListener('click', showRoulette);
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+    spinBtn.addEventListener('click', spin);
+
+    // Ocultar o botão se o usuário já jogou hoje
+    const lastSpin = localStorage.getItem('lastSpin');
+    if (lastSpin && (new Date().getTime() - parseInt(lastSpin)) < 86400000) {
+      trigger.classList.add('hidden');
+    }
+  }
+
+  setupRoulette();
 });
