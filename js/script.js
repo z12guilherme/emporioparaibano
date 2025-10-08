@@ -316,6 +316,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (cartTotal) cartTotal.textContent = total.toFixed(2);
     if (cartCount) cartCount.textContent = cart.reduce((acc,i)=>acc+i.qty,0);
     saveCart();
+    document.getElementById('nav-cart-count').textContent = cart.reduce((acc,i)=>acc+i.qty,0);
   }
 
   function addToCart(id, name, price) {
@@ -396,6 +397,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const cartToggle = document.getElementById('cart-toggle');
   if (cartToggle){
     cartToggle.addEventListener('click', ()=>{
+      const cartEl = document.getElementById('cart');
+      cartEl.classList.toggle('open');
+      renderCart();
+    });
+  }
+  const navCartButton = document.getElementById('nav-cart-button');
+  if (navCartButton) {
+    navCartButton.addEventListener('click', () => {
       const cartEl = document.getElementById('cart');
       cartEl.classList.toggle('open');
       renderCart();
@@ -495,7 +504,341 @@ window.addEventListener('DOMContentLoaded', () => {
     const url = `https://wa.me/+5581991889242?text=${msg}`;
     window.open(url, '_blank');
   }
+
+  /* search functionality */
+  function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      const sections = document.querySelectorAll('#product-list > section');
+
+      sections.forEach(section => {
+        const cards = section.querySelectorAll('.card');
+        let hasVisibleCards = false;
+
+        cards.forEach(card => {
+          const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
+          const desc = card.querySelector('.card-text')?.textContent.toLowerCase() || '';
+          const matches = title.includes(searchTerm) || desc.includes(searchTerm);
+
+          if (matches) {
+            card.style.display = 'flex';
+            hasVisibleCards = true;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Esconde a seção inteira (título + carrossel) se não houver produtos correspondentes
+        section.style.display = hasVisibleCards ? 'block' : 'none';
+      });
+    });
+  }
+  setupSearch();
+
+  /* smart input functionality */
+  function setupSmartInput() {
+    const smartInput = document.getElementById('smart-input');
+    const smartAddBtn = document.getElementById('smart-add-btn');
+    if (!smartInput || !smartAddBtn) return;
+
+    const processInput = () => {
+      const text = smartInput.value.trim();
+      if (!text) return;
+
+      // 1. Flatten all products into a single array for easier searching
+      const allProducts = Object.values(produtos).flat();
+
+      // 2. Split user input by "e" or ","
+      const requests = text.toLowerCase().split(/\s+e\s+|\s*,\s*/);
+      
+      let itemsAddedCount = 0;
+      let notFound = [];
+
+      requests.forEach(request => {
+        // 3. Use regex to find quantity and product name
+        const match = request.trim().match(/^(\d+)?\s*(.*)/);
+        if (!match) return;
+
+        let qty = parseInt(match[1], 10) || 1;
+        const nameQuery = match[2].trim();
+
+        if (!nameQuery) return;
+
+        // 4. Find the best product match
+        let bestMatch = null;
+        let highestScore = 0;
+
+        allProducts.forEach(product => {
+          const productName = product.name.toLowerCase();
+          if (productName.includes(nameQuery)) {
+            // Simple scoring: exact match is best, otherwise prefer shorter product names
+            const score = productName === nameQuery ? 100 : 100 - (productName.length - nameQuery.length);
+            if (score > highestScore) {
+              highestScore = score;
+              bestMatch = product;
+            }
+          }
+        });
+
+        // 5. If a match is found, add it to the cart
+        if (bestMatch) {
+          const existingItem = cart.find(item => item.id === slugify(bestMatch.name));
+          if (existingItem) {
+            existingItem.qty += qty;
+          } else {
+            cart.push({ id: slugify(bestMatch.name), name: bestMatch.name, price: bestMatch.price, qty: qty });
+          }
+          itemsAddedCount += qty;
+        } else {
+          notFound.push(nameQuery);
+        }
+      });
+
+      // 6. Provide feedback to the user
+      renderCart();
+      smartInput.value = '';
+
+      if (notFound.length > 0) {
+        alert(`Não encontramos os seguintes itens: "${notFound.join('", "')}". Os outros itens foram adicionados.`);
+      } else if (itemsAddedCount > 0) {
+        alert(`${itemsAddedCount} ite${itemsAddedCount > 1 ? 'ns' : 'm'} adicionado${itemsAddedCount > 1 ? 's' : ''} ao carrinho!`);
+      }
+    };
+
+    smartAddBtn.addEventListener('click', processInput);
+    smartInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        processInput();
+      }
+    });
+  }
+  setupSmartInput();
+
+  /* Kit Builder Functionality */
+function setupKitBuilder() {
+  const selectionScreen = document.getElementById('kit-selection-screen');
+  const builderUI = document.getElementById('kit-builder-ui');
+  const allProducts = Object.values(produtos).flat();
+
+  const kitDefinitions = {
+    churrasco: {
+      title: '🔥 Monte seu Kit Churrasco!',
+      products: ['Sal de Parrilla (100g)', 'Tempero Chimichurri tradicional (100g)', 'Fumaça em pó (100g)', 'Pimenta Calabresa (100g)', 'Alho Frito Granulado (100g)', 'Tempero para Churrasco sem Pimenta (100g)', 'Sal Rosa Grosso do Himalaia (100g)', 'Tempero Beef Ribs (100g)']
+    },
+    essenciais: {
+      title: '🌿 Monte seu Kit de Temperos Essenciais!',
+      products: ['Tempero Ana Maria (100g)', 'Tempero Edu Guedes tradicional (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Cominho Moído (100g)', 'Orégano (100g)', 'Tempero Cebola, Alho e Salsa (100g)', 'Pimenta do Reino Preta Moída (100g)']
+    },
+    ia: {
+      title: '🤖 Kit Inteligente',
+      keywords: {
+        'carnes': ['Sal de Parrilla (100g)', 'Tempero Chimichurri tradicional (100g)', 'Fumaça em pó (100g)', 'Pimenta do Reino Preta Moída (100g)', 'Tempero Beef Ribs (100g)'],
+        'aves': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
+        'frango': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
+        'peixes': ['Lemon Pepper (100g)', 'Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Endro (50g)', 'Gengibre em Pó (100g)'],
+        'saladas': ['Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Gergelim Branco (100g)', 'Pepita de Girassol (100g)', 'Azeite de Dendê Bahia (500ml)'],
+        'feijão': ['Tempero Feijãozinho (100g)', 'Cominho Moído (100g)', 'Louro Folhas (40g)', 'Bacon Desidratado (100g)'],
+        'massas': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
+        'molhos': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
+      }
+    }
+  };
+
+  function showSelectionScreen() {
+    selectionScreen.style.display = 'block';
+    builderUI.style.display = 'none';
+    builderUI.innerHTML = '';
+  }
+
+  function renderKitBuilder(kitName, productNames) {
+    selectionScreen.style.display = 'none';
+    builderUI.style.display = 'block';
+
+    const kitProducts = allProducts.filter(p => productNames.includes(p.name));
+    
+    builderUI.innerHTML = `
+      <button class="kit-builder-back-btn" id="back-to-kits">← Voltar para seleção de kits</button>
+      <div class="kit-builder-header">
+        <h2>${kitDefinitions[kitName].title}</h2>
+        <p>Selecione os itens e ganhe <strong>5% de desconto</strong> no valor do kit!</p>
+      </div>
+      <div id="kit-items-container" class="kit-items-grid"></div>
+      <div id="kit-summary-container" class="kit-summary"></div>
+    `;
+
+    const kitItemsContainer = document.getElementById('kit-items-container');
+    kitProducts.forEach(product => {
+      const itemEl = document.createElement('div');
+      itemEl.className = 'kit-item';
+      itemEl.dataset.id = slugify(product.name);
+      itemEl.dataset.price = product.price;
+      itemEl.dataset.name = product.name;
+      itemEl.innerHTML = `
+        <img src="${product.img}" alt="${esc(product.name)}" class="kit-item-img" loading="lazy">
+        <p class="kit-item-name">${esc(product.name)}</p>
+        <p class="fw-bold">R$ ${product.price.toFixed(2)}</p>
+      `;
+      itemEl.addEventListener('click', () => {
+        itemEl.classList.toggle('selected');
+        updateKitSummary(kitName);
+      });
+      kitItemsContainer.appendChild(itemEl);
+    });
+
+    document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
+  }
+
+  function updateKitSummary(kitName) {
+    const kitSummaryContainer = document.getElementById('kit-summary-container');
+    const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
+    let total = 0;
+    selectedItems.forEach(item => total += parseFloat(item.dataset.price));
+
+    if (total === 0) {
+      kitSummaryContainer.innerHTML = '';
+      return;
+    }
+
+    const discount = total * 0.05;
+    const finalTotal = total - discount;
+
+    kitSummaryContainer.innerHTML = `
+      <p>Total dos itens: R$ ${total.toFixed(2)}</p>
+      <p class="discount">Desconto (5%): - R$ ${discount.toFixed(2)}</p>
+      <p class="fw-bold">Total do Kit: R$ ${finalTotal.toFixed(2)}</p>
+      <button id="add-kit-btn" class="btn bg-yellow" style="margin-top: 16px;">Adicionar Kit ao Carrinho</button>
+    `;
+
+    document.getElementById('add-kit-btn').addEventListener('click', () => addKitToCart(kitName));
+  }
+
+  function addKitToCart(kitName) {
+    const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
+    if (selectedItems.length === 0) return alert('Selecione pelo menos um item para o seu kit!');
+
+    let kitTotal = 0;
+    selectedItems.forEach(item => {
+      const { id, name, price } = item.dataset;
+      addToCart(id, name, parseFloat(price));
+      kitTotal += parseFloat(price);
+    });
+
+    const discountValue = kitTotal * 0.05;
+    cart.push({
+      id: `desconto-kit-${slugify(kitName)}`,
+      name: `Desconto Kit (${kitDefinitions[kitName].title.split('!')[0]})`,
+      price: -discountValue,
+      qty: 1
+    });
+
+    renderCart();
+    alert('Kit adicionado ao carrinho com sucesso!');
+    showSelectionScreen();
+  }
+
+  function renderIaBuilder() {
+    selectionScreen.style.display = 'none';
+    builderUI.style.display = 'block';
+    builderUI.innerHTML = `
+      <button class="kit-builder-back-btn" id="back-to-kits">← Voltar para seleção de kits</button>
+      <div class="kit-builder-header">
+        <h2>${kitDefinitions.ia.title}</h2>
+        <p>Diga para o que você vai cozinhar e nós sugerimos um kit!</p>
+      </div>
+      <div class="smart-input-container">
+        <input type="text" id="ia-kit-input" placeholder="Ex: carnes, feijão, saladas..." aria-label="Descreva sua necessidade">
+        <button id="ia-kit-btn" class="btn bg-yellow">Sugerir Kit</button>
+      </div>
+      <div id="ia-results-container"></div>
+    `;
+
+    document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
+    document.getElementById('ia-kit-btn').addEventListener('click', generateIaKit);
+    document.getElementById('ia-kit-input').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            generateIaKit();
+        }
+    });
+  }
+
+  function generateIaKit() {
+    const input = document.getElementById('ia-kit-input').value.toLowerCase().trim();
+    const resultsContainer = document.getElementById('ia-results-container');
+    
+    const keywords = Object.keys(kitDefinitions.ia.keywords);
+    const foundKeyword = keywords.find(kw => input.includes(kw));
+
+    if (!foundKeyword) {
+      resultsContainer.innerHTML = `<p style="text-align:center;">Não encontramos uma sugestão para "${esc(input)}". Tente palavras como: carnes, aves, peixes, saladas, feijão, massas.</p>`;
+      return;
+    }
+
+    const productNames = kitDefinitions.ia.keywords[foundKeyword];
+    const kitProducts = allProducts.filter(p => productNames.includes(p.name));
+
+    resultsContainer.innerHTML = `
+      <div class="kit-builder-header" style="margin-top: 24px;">
+        <h4>Sugestão para "${foundKeyword}":</h4>
+      </div>
+      <div id="kit-items-container" class="kit-items-grid"></div>
+      <div id="kit-summary-container" class="kit-summary"></div>
+    `;
+
+    const kitItemsContainer = document.getElementById('kit-items-container');
+    kitProducts.forEach(product => {
+      const itemEl = document.createElement('div');
+      itemEl.className = 'kit-item';
+      itemEl.dataset.id = slugify(product.name);
+      itemEl.dataset.price = product.price;
+      itemEl.dataset.name = product.name;
+      itemEl.innerHTML = `
+        <img src="${product.img}" alt="${esc(product.name)}" class="kit-item-img" loading="lazy">
+        <p class="kit-item-name">${esc(product.name)}</p>
+        <p class="fw-bold">R$ ${product.price.toFixed(2)}</p>
+      `;
+      itemEl.addEventListener('click', () => {
+        itemEl.classList.toggle('selected');
+        updateKitSummary('ia');
+      });
+      kitItemsContainer.appendChild(itemEl);
+    });
+  }
+
+  document.querySelectorAll('.kit-option-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const kitName = card.dataset.kit;
+      if (kitName === 'ia') {
+        renderIaBuilder();
+      } else {
+        renderKitBuilder(kitName, kitDefinitions[kitName].products);
+      }
+    });
+  });
+}
+setupKitBuilder();
+
+  /* Tabs Functionality */
+  function setupTabs() {
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const tabId = link.dataset.tab;
+
+        tabLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        tabPanels.forEach(panel => {
+          panel.classList.toggle('active', panel.id === tabId);
+        });
+      });
+    });
+  }
+  setupTabs();
 });
-
-
-
