@@ -720,7 +720,7 @@ function setupKitBuilder() {
       products: ['Chia (100g)', 'Linhaça Dourada (100g)', 'Gergelim Branco (100g)', 'Semente de Abóbora (100g)', 'Pepita de Girassol (100g)', 'Granola Tradicional a granel (100g)', 'Aveia em Flocos Finos (100g)', 'Grão-de-Bico (100g)']
     },
     diversos: {
-      title: ' snacking Monte seu Kit de Snacks e Doces!',
+      title: '🍩 snacking Monte seu Kit de Snacks e Doces!',
       products: [
         'Açúcar Mascavo (100g)',
         'Ameixa Seca sem Caroço (100g)',
@@ -1184,3 +1184,4 @@ setupKitBuilder();
 
   setupRoulette();
 });
+
