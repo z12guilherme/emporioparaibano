@@ -413,7 +413,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   /* send to WhatsApp */
   window.sendToWhatsApp = function(){
-    if (!cart.length) return alert('Carrinho vazio!');
+    if (!cart.length) return showToast('Seu carrinho está vazio!', 'warning');
 
     // Separar produtos por categoria
     const chas = [];
@@ -538,6 +538,29 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   setupSearch();
 
+  /* Toast Notification Functionality */
+  function showToast(message, type = 'info') {
+    const toastContainer = document.getElementById('toast-container');
+    if (!toastContainer) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+
+    const icons = {
+      success: '✅',
+      warning: '⚠️',
+      info: 'ℹ️'
+    };
+
+    toast.innerHTML = `
+      <div class="toast-icon">${icons[type] || icons.info}</div>
+      <div class="toast-message">${esc(message)}</div>
+    `;
+
+    toastContainer.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+  }
+
   /* smart input functionality */
   function setupSmartInput() {
     const smartInput = document.getElementById('smart-input');
@@ -602,9 +625,9 @@ window.addEventListener('DOMContentLoaded', () => {
       smartInput.value = '';
 
       if (notFound.length > 0) {
-        alert(`Não encontramos os seguintes itens: "${notFound.join('", "')}". Os outros itens foram adicionados.`);
+        showToast(`Não encontramos: "${notFound.join('", "')}". Os outros foram adicionados.`, 'warning');
       } else if (itemsAddedCount > 0) {
-        alert(`${itemsAddedCount} ite${itemsAddedCount > 1 ? 'ns' : 'm'} adicionado${itemsAddedCount > 1 ? 's' : ''} ao carrinho!`);
+        showToast(`${itemsAddedCount} ite${itemsAddedCount > 1 ? 'ns' : 'm'} adicionado${itemsAddedCount > 1 ? 's' : ''} com sucesso!`, 'success');
       }
     };
 
@@ -718,7 +741,7 @@ function setupKitBuilder() {
 
   function addKitToCart(kitName) {
     const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
-    if (selectedItems.length === 0) return alert('Selecione pelo menos um item para o seu kit!');
+    if (selectedItems.length === 0) return showToast('Selecione pelo menos um item para o seu kit!', 'warning');
 
     let kitTotal = 0;
     selectedItems.forEach(item => {
@@ -736,7 +759,7 @@ function setupKitBuilder() {
     });
 
     renderCart();
-    alert('Kit adicionado ao carrinho com sucesso!');
+    showToast('Kit adicionado ao carrinho com sucesso!', 'success');
     showSelectionScreen();
   }
 
@@ -774,7 +797,7 @@ function setupKitBuilder() {
     const foundKeyword = keywords.find(kw => input.includes(kw));
 
     if (!foundKeyword) {
-      resultsContainer.innerHTML = `<p style="text-align:center;">Não encontramos uma sugestão para "${esc(input)}". Tente palavras como: carnes, aves, peixes, saladas, feijão, massas.</p>`;
+      showToast(`Não encontramos sugestão para "${esc(input)}". Tente outras palavras.`, 'warning');
       return;
     }
 
