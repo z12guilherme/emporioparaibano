@@ -707,6 +707,31 @@ function setupKitBuilder() {
       title: '🌿 Monte seu Kit de Temperos Essenciais!',
       products: ['Tempero Ana Maria (100g)', 'Tempero Edu Guedes tradicional (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Cominho Moído (100g)', 'Orégano (100g)', 'Tempero Cebola, Alho e Salsa (100g)', 'Pimenta do Reino Preta Moída (100g)']
     },
+    chas: {
+      title: '🍵 Monte seu Kit de Chás!',
+      products: ['Camomila (50g)', 'Erva-Doce Tradicional (50g)', 'Hortelã (50g)', 'Capim-Limão (50g)', 'Chá Verde (50g)', 'Hibisco (50g)', 'Erva-Cidreira (50g)', 'Boldo (50g)']
+    },
+    funcionais: {
+      title: '💪 Monte seu Kit Funcional!',
+      products: ['Maca Peruana (100g)', 'Psyllium (100g)', 'Creatina Monohidratada (100g)', 'Colágeno em Pó Hidrolisado (100g)', 'Farinha de Linhaça Dourada (100g)', 'Cacau em Pó 100% (100g)', 'Gengibre em Pó (100g)', 'Guaraná em Pó (100g)']
+    },
+    sementes: {
+      title: '🌱 Monte seu Kit de Sementes e Grãos!',
+      products: ['Chia (100g)', 'Linhaça Dourada (100g)', 'Gergelim Branco (100g)', 'Semente de Abóbora (100g)', 'Pepita de Girassol (100g)', 'Granola Tradicional a granel (100g)', 'Aveia em Flocos Finos (100g)', 'Grão-de-Bico (100g)']
+    },
+    diversos: {
+      title: ' snacking Monte seu Kit de Snacks e Doces!',
+      products: [
+        'Açúcar Mascavo (100g)',
+        'Ameixa Seca sem Caroço (100g)',
+        'Uva Passa Preta (100g)',
+        'Damasco (100g)',
+        'Tâmara sem Caroço (100g)',
+        'Milho Torrado Mostarda e Mel (100g)',
+        'Chips de Batata Doce e Lemon Pepper (100g)',
+        'Biscoito de Arroz sabor Queijo (100g)'
+      ]
+    },
     ia: {
       title: '🤖 Kit Inteligente',
       keywords: {
