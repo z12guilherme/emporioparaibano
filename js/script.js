@@ -2,6 +2,7 @@
 // persistência localStorage
 // carrinho sem bug (identificação por id, delegação, proteção contra cliques duplos)
 // carrinho arrastável com pin
+// Lista de Favoritos com persistência
 // geração automática de cards
 window.addEventListener('DOMContentLoaded', () => {
   const STORAGE_KEY = 'emporio_cart_v1';
@@ -254,14 +255,17 @@ window.addEventListener('DOMContentLoaded', () => {
   function gerarCard(prod) {
     const id = slugify(prod.name);
     return `
-      <div class="card" role="article" data-id="${id}">
+      <div class="card" role="article" data-product-id="${id}">
         <img src="${prod.img}" class="card-img-top" alt="${esc(prod.name)}" loading="lazy">
         <div class="card-body">
           <h5 class="card-title">${esc(prod.name)}</h5>
           <p class="card-text">${esc(prod.desc)}</p>
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+          <div class="card-actions">
             <p class="fw-bold">R$ ${Number(prod.price).toFixed(2)}</p>
-            <button class="btn bg-yellow" type="button" data-id="${id}" data-name="${esc(prod.name)}" data-price="${Number(prod.price)}">Adicionar</button>
+            <div>
+              <button class="favorite-btn" data-action="favorite" data-id="${id}" aria-label="Adicionar aos Favoritos"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+              <button class="btn bg-yellow" type="button" data-action="add" data-id="${id}" data-name="${esc(prod.name)}" data-price="${Number(prod.price)}">Adicionar</button>
+            </div>
           </div>
         </div>
       </div>`;
@@ -272,6 +276,7 @@ window.addEventListener('DOMContentLoaded', () => {
       if (!carousel) return;
       carousel.innerHTML = '';
       const list = produtos[cat] || [];
+      updateFavoriteButtons();
       list.forEach(p => carousel.insertAdjacentHTML('beforeend', gerarCard(p)));
     });
   }
@@ -372,12 +377,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
   /* attach product buttons */
   document.addEventListener('click', e => {
-    const btn = e.target.closest('button[data-id]');
+    const btn = e.target.closest('button[data-action]');
     if (!btn) return;
     const { id, name, price, action } = btn.dataset;
     if (action==='inc') changeQty(id,1);
     else if (action==='dec') changeQty(id,-1);
-    else {
+    else if (action==='favorite') {
+      toggleFavorite(id);
+    }
+    else if (action==='add') {
       addToCart(id, name, Number(price));
       const cardImage = btn.closest('.card')?.querySelector('.card-img-top');
       if (cardImage) {
@@ -387,6 +395,9 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   /* persist cart */
+  const FAVORITES_KEY = 'emporio_favorites_v1';
+  let favorites = [];
+
   cart = loadCart();
   renderProdutos();
   renderCart();
@@ -932,4 +943,95 @@ setupKitBuilder();
   }
   setupParallax();
 
+  /* Favorites Functionality */
+  function loadFavorites() {
+    try {
+      const raw = localStorage.getItem(FAVORITES_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      console.warn('Erro ao carregar favoritos', e);
+      return [];
+    }
+  }
+
+  function saveFavorites() {
+    try {
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+    } catch (e) {
+      console.warn('Erro ao salvar favoritos', e);
+    }
+  }
+
+  function toggleFavorite(productId) {
+    const allProducts = Object.values(produtos).flat();
+    const product = allProducts.find(p => slugify(p.name) === productId);
+    if (!product) return;
+
+    const favIndex = favorites.findIndex(fav => fav.id === productId);
+
+    if (favIndex > -1) {
+      favorites.splice(favIndex, 1);
+      showToast(`${product.name} removido dos favoritos.`, 'info');
+    } else {
+      favorites.push({ id: productId, name: product.name, price: product.price, img: product.img });
+      showToast(`${product.name} adicionado aos favoritos!`, 'success');
+    }
+
+    saveFavorites();
+    updateFavoriteButtons();
+    renderFavorites();
+  }
+
+  function updateFavoriteButtons() {
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+      const productId = btn.dataset.id;
+      if (favorites.some(fav => fav.id === productId)) {
+        btn.classList.add('active');
+        btn.querySelector('svg').style.fill = '#ef4444';
+      } else {
+        btn.classList.remove('active');
+        btn.querySelector('svg').style.fill = 'none';
+      }
+    });
+    document.getElementById('nav-favorites-count').textContent = favorites.length;
+  }
+
+  function renderFavorites() {
+    const modalList = document.getElementById('favorites-list');
+    if (!modalList) return;
+
+    if (favorites.length === 0) {
+      modalList.innerHTML = '<p style="text-align:center; color:#888;">Sua lista de favoritos está vazia.</p>';
+      return;
+    }
+
+    modalList.innerHTML = '';
+    favorites.forEach(fav => {
+      const itemEl = document.createElement('div');
+      itemEl.className = 'favorite-item';
+      itemEl.innerHTML = `
+        <img src="${fav.img}" alt="${esc(fav.name)}" loading="lazy">
+        <div class="favorite-item-info">
+          <h5 class="card-title">${esc(fav.name)}</h5>
+          <p class="fw-bold">R$ ${fav.price.toFixed(2)}</p>
+        </div>
+        <button class="btn bg-yellow" data-action="add" data-id="${fav.id}" data-name="${esc(fav.name)}" data-price="${fav.price}">Adicionar</button>
+      `;
+      modalList.appendChild(itemEl);
+    });
+  }
+
+  function setupFavoritesModal() {
+    const modal = document.getElementById('favorites-modal');
+    const openBtn = document.getElementById('nav-favorites-button');
+    const closeBtn = document.getElementById('close-favorites-modal');
+
+    openBtn.addEventListener('click', () => { renderFavorites(); modal.style.display = 'flex'; });
+    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+  }
+
+  favorites = loadFavorites();
+  updateFavoriteButtons();
+  setupFavoritesModal();
 });
