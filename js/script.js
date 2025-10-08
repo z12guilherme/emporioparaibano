@@ -336,6 +336,40 @@ window.addEventListener('DOMContentLoaded', () => {
     renderCart();
   }
 
+  /* Fly to cart animation */
+  function flyToCartAnimation(sourceElement) {
+    const targetElement = document.getElementById('nav-cart-button');
+    if (!sourceElement || !targetElement) return;
+
+    const flyingImage = sourceElement.cloneNode(true);
+    flyingImage.classList.add('flying-image');
+
+    const startRect = sourceElement.getBoundingClientRect();
+    const endRect = targetElement.getBoundingClientRect();
+
+    document.body.appendChild(flyingImage);
+
+    // Set initial position
+    flyingImage.style.left = `${startRect.left}px`;
+    flyingImage.style.top = `${startRect.top}px`;
+    flyingImage.style.width = `${startRect.width}px`;
+    flyingImage.style.height = `${startRect.height}px`;
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+      flyingImage.style.left = `${endRect.left + endRect.width / 2}px`;
+      flyingImage.style.top = `${endRect.top + endRect.height / 2}px`;
+      flyingImage.style.width = '0px';
+      flyingImage.style.height = '0px';
+      flyingImage.style.opacity = '0';
+    });
+
+    // Remove element after animation
+    setTimeout(() => {
+      flyingImage.remove();
+    }, 800); // Must match CSS transition duration
+  }
+
   /* attach product buttons */
   document.addEventListener('click', e => {
     const btn = e.target.closest('button[data-id]');
@@ -343,7 +377,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const { id, name, price, action } = btn.dataset;
     if (action==='inc') changeQty(id,1);
     else if (action==='dec') changeQty(id,-1);
-    else addToCart(id,name,Number(price));
+    else {
+      addToCart(id, name, Number(price));
+      const cardImage = btn.closest('.card')?.querySelector('.card-img-top');
+      if (cardImage) {
+        flyToCartAnimation(cardImage);
+      }
+    }
   });
 
   /* persist cart */
@@ -663,10 +703,14 @@ function setupKitBuilder() {
         'aves': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
         'frango': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
         'peixes': ['Lemon Pepper (100g)', 'Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Endro (50g)', 'Gengibre em Pó (100g)'],
-        'saladas': ['Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Gergelim Branco (100g)', 'Pepita de Girassol (100g)', 'Azeite de Dendê Bahia (500ml)'],
+        'saladas': ['Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Gergelim Branco (100g)', 'Pepita de Girassol (100g)'],
         'feijão': ['Tempero Feijãozinho (100g)', 'Cominho Moído (100g)', 'Louro Folhas (40g)', 'Bacon Desidratado (100g)'],
         'massas': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
         'molhos': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
+        'sopas': ['Caldo de Legumes em Pó (100g)', 'Caldo de Galinha em Pó (menos sódio) (100g)', 'Creme de Cebola (100g)', 'Mix para Arroz (100g)'],
+        'legumes': ['Tempero Edu Guedes tradicional (100g)', 'Tempero Limão e Ervas Finas (100g)', 'Orégano (100g)', 'Alho Frito Granulado (100g)'],
+        'doces': ['Canela em Pó (100g)', 'Cravo-da-India (50g)', 'Anis-Estrelado (50g)', 'Nozes Moscada Inteiro (und)', 'Açúcar Mascavo (100g)'],
+        'saudável': ['Tempero Fit Completo (100g)', 'Sal Rosa Fino do Himalaia (100g)', 'Chia (100g)', 'Farinha de Linhaça Dourada (100g)', 'Psyllium (100g)']
       }
     }
   };
@@ -687,7 +731,7 @@ function setupKitBuilder() {
       <button class="kit-builder-back-btn" id="back-to-kits">← Voltar para seleção de kits</button>
       <div class="kit-builder-header">
         <h2>${kitDefinitions[kitName].title}</h2>
-        <p>Selecione os itens e ganhe <strong>5% de desconto</strong> no valor do kit!</p>
+        <p>Selecione todos os itens e ganhe <strong>10% de desconto</strong> no valor do kit!</p>
       </div>
       <div id="kit-items-container" class="kit-items-grid"></div>
       <div id="kit-summary-container" class="kit-summary"></div>
@@ -717,6 +761,7 @@ function setupKitBuilder() {
 
   function updateKitSummary(kitName) {
     const kitSummaryContainer = document.getElementById('kit-summary-container');
+    const allKitItems = builderUI.querySelectorAll('.kit-item');
     const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
     let total = 0;
     selectedItems.forEach(item => total += parseFloat(item.dataset.price));
@@ -725,16 +770,23 @@ function setupKitBuilder() {
       kitSummaryContainer.innerHTML = '';
       return;
     }
+    
+    const isCompleteKit = selectedItems.length === allKitItems.length && allKitItems.length > 0;
+    let summaryHTML = `<p>Total dos itens: R$ ${total.toFixed(2)}</p>`;
 
-    const discount = total * 0.05;
-    const finalTotal = total - discount;
+    if (isCompleteKit) {
+      const discount = total * 0.10;
+      const finalTotal = total - discount;
+      summaryHTML += `
+        <p class="discount">Desconto Kit Completo (10%): - R$ ${discount.toFixed(2)}</p>
+        <p class="fw-bold">Total do Kit: R$ ${finalTotal.toFixed(2)}</p>
+      `;
+    } else {
+      summaryHTML += `<p style="font-size: 0.85rem; color: #555;">Selecione todos os itens para ganhar 10% de desconto!</p>`;
+    }
 
-    kitSummaryContainer.innerHTML = `
-      <p>Total dos itens: R$ ${total.toFixed(2)}</p>
-      <p class="discount">Desconto (5%): - R$ ${discount.toFixed(2)}</p>
-      <p class="fw-bold">Total do Kit: R$ ${finalTotal.toFixed(2)}</p>
-      <button id="add-kit-btn" class="btn bg-yellow" style="margin-top: 16px;">Adicionar Kit ao Carrinho</button>
-    `;
+    summaryHTML += `<button id="add-kit-btn" class="btn bg-yellow" style="margin-top: 16px;">Adicionar Itens ao Carrinho</button>`;
+    kitSummaryContainer.innerHTML = summaryHTML;
 
     document.getElementById('add-kit-btn').addEventListener('click', () => addKitToCart(kitName));
   }
@@ -742,6 +794,7 @@ function setupKitBuilder() {
   function addKitToCart(kitName) {
     const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
     if (selectedItems.length === 0) return showToast('Selecione pelo menos um item para o seu kit!', 'warning');
+    const allKitItems = builderUI.querySelectorAll('.kit-item');
 
     let kitTotal = 0;
     selectedItems.forEach(item => {
@@ -750,16 +803,19 @@ function setupKitBuilder() {
       kitTotal += parseFloat(price);
     });
 
-    const discountValue = kitTotal * 0.05;
-    cart.push({
-      id: `desconto-kit-${slugify(kitName)}`,
-      name: `Desconto Kit (${kitDefinitions[kitName].title.split('!')[0]})`,
-      price: -discountValue,
-      qty: 1
-    });
+    const isCompleteKit = selectedItems.length === allKitItems.length && allKitItems.length > 0;
+    if (isCompleteKit) {
+      const discountValue = kitTotal * 0.10;
+      cart.push({
+        id: `desconto-kit-${slugify(kitName)}`,
+        name: `Desconto Kit Completo (10%)`,
+        price: -discountValue,
+        qty: 1
+      });
+    }
 
     renderCart();
-    showToast('Kit adicionado ao carrinho com sucesso!', 'success');
+    showToast(`${selectedItems.length} ite${selectedItems.length > 1 ? 'ns' : 'm'} adicionado${selectedItems.length > 1 ? 's' : ''} ao carrinho!`, 'success');
     showSelectionScreen();
   }
 
@@ -770,43 +826,41 @@ function setupKitBuilder() {
       <button class="kit-builder-back-btn" id="back-to-kits">← Voltar para seleção de kits</button>
       <div class="kit-builder-header">
         <h2>${kitDefinitions.ia.title}</h2>
-        <p>Diga para o que você vai cozinhar e nós sugerimos um kit!</p>
+        <p>Clique em uma categoria abaixo e nós sugerimos um kit para você!</p>
       </div>
-      <div class="smart-input-container">
-        <input type="text" id="ia-kit-input" placeholder="Ex: carnes, feijão, saladas..." aria-label="Descreva sua necessidade">
-        <button id="ia-kit-btn" class="btn bg-yellow">Sugerir Kit</button>
+      <div class="ia-keywords-container" id="ia-keywords-container">
+        <!-- Tags de palavras-chave serão inseridas aqui -->
       </div>
       <div id="ia-results-container"></div>
     `;
 
-    document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
-    document.getElementById('ia-kit-btn').addEventListener('click', generateIaKit);
-    document.getElementById('ia-kit-input').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            generateIaKit();
-        }
+    const keywordsContainer = document.getElementById('ia-keywords-container');
+    const keywords = Object.keys(kitDefinitions.ia.keywords);
+    keywords.forEach(kw => {
+      const tag = document.createElement('button');
+      tag.className = 'ia-keyword-tag';
+      tag.textContent = kw.charAt(0).toUpperCase() + kw.slice(1); // Capitalize
+      tag.dataset.keyword = kw;
+      tag.addEventListener('click', () => generateIaKit(kw));
+      keywordsContainer.appendChild(tag);
     });
+
+    document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
   }
 
-  function generateIaKit() {
-    const input = document.getElementById('ia-kit-input').value.toLowerCase().trim();
+  function generateIaKit(keyword) {
     const resultsContainer = document.getElementById('ia-results-container');
-    
-    const keywords = Object.keys(kitDefinitions.ia.keywords);
-    const foundKeyword = keywords.find(kw => input.includes(kw));
-
-    if (!foundKeyword) {
-      showToast(`Não encontramos sugestão para "${esc(input)}". Tente outras palavras.`, 'warning');
+    if (!keyword) {
+      showToast(`Categoria inválida.`, 'warning');
       return;
     }
 
-    const productNames = kitDefinitions.ia.keywords[foundKeyword];
+    const productNames = kitDefinitions.ia.keywords[keyword];
     const kitProducts = allProducts.filter(p => productNames.includes(p.name));
 
     resultsContainer.innerHTML = `
       <div class="kit-builder-header" style="margin-top: 24px;">
-        <h4>Sugestão para "${foundKeyword}":</h4>
+        <h4>Sugestão para "${keyword.charAt(0).toUpperCase() + keyword.slice(1)}":</h4>
       </div>
       <div id="kit-items-container" class="kit-items-grid"></div>
       <div id="kit-summary-container" class="kit-summary"></div>
@@ -864,4 +918,18 @@ setupKitBuilder();
     });
   }
   setupTabs();
+
+  /* Parallax Effect on Hero */
+  function setupParallax() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    window.addEventListener('scroll', () => {
+      const offset = window.pageYOffset;
+      // Move o background na metade da velocidade do scroll
+      hero.style.backgroundPositionY = offset * 0.5 + 'px';
+    });
+  }
+  setupParallax();
+
 });

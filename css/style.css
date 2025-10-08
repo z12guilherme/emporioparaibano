@@ -113,8 +113,8 @@ body {
 
 /* Keyframe Animations */
 @keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% { background-position-x: 0%; }
+  100% { background-position-x: 100%; }
 }
 
 @keyframes fadeInSlideUp {
@@ -441,6 +441,27 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+.ia-keywords-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.ia-keyword-tag {
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.ia-keyword-tag:hover {
+  background-color: var(--accent-2);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
 
 /* Tabs */
 .tabs-nav {
@@ -481,6 +502,17 @@ body {
 
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
+
+/* Fly to cart animation */
+.flying-image {
+  position: fixed;
+  z-index: 9999;
+  border-radius: 10%;
+  opacity: 1;
+  transition: all 0.8s cubic-bezier(0.5, -0.2, 0.8, 0.4);
+  pointer-events: none;
+  object-fit: cover;
+}
 
 /* Toast Notifications */
 #toast-container {
