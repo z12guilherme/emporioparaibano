@@ -235,6 +235,29 @@ window.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
+  // Adicionando a nova categoria dinamicamente
+  produtos.oleaginosas = [
+    { name: 'Amêndoas Crua sem Casca (100g)', price: 10.00, desc: 'As Amêndoas Cruas são ricas em fibras, proteínas, gorduras saudáveis, vitaminas e minerais, como magnésio, cálcio e vitamina E, que trazem vários benefícios à saúde.', img: 'img/oleaginosas/amendoas_cruas.jpg' },
+    { name: 'Amendoim com Sal (100g)', price: 3.00, desc: 'O amendoim oferece diversos benefícios para a saúde, quando consumido com moderação, incluindo a melhora da saúde cardiovascular, controle do colesterol, e fortalecimento muscular. Ideal para lanches e petiscos.', img: 'img/oleaginosas/amendoim_com_sal.jpg' },
+    { name: 'Amendoim sem Sal (100g)', price: 3.00, desc: 'Rico em gorduras saudáveis, proteínas e fibras. A opção "Sem Sal" é ideal para receitas e dietas para pessoas hipertensas.', img: 'img/oleaginosas/amendoim_sem_sal.jpg' },
+    { name: 'Amendoim Granulado (100g)', price: 3.00, desc: 'Alimento nutritivo e versátil, ideal para complementar receitas. Rico em proteínas, fibras e gorduras boas, oferece um sabor marcante e textura crocante.', img: 'img/oleaginosas/amendoim_granulado.jpg' },
+    { name: 'Amendoim Japonês Cebola e Salsa (100g)', price: 3.00, desc: 'Salgadinho de amendoim revestido com uma massa de farinha de trigo, frito ou torrado. Ideal para lanches e petiscos.', img: 'img/oleaginosas/amendoim_japones_cebola_salsa.jpg' },
+    { name: 'Amendoim Japonês Churrasco (100g)', price: 3.00, desc: 'Salgadinho de amendoim revestido com uma massa de farinha de trigo, frito ou torrado. Ideal para lanches e petiscos.', img: 'img/oleaginosas/amendoim_japones_churrasco.jpg' },
+    { name: 'Amendoim Japonês Pimenta (100g)', price: 3.00, desc: 'Salgadinho de amendoim revestido com uma massa de farinha de trigo, frito ou torrado. Ideal para lanches e petiscos.', img: 'img/oleaginosas/amendoim_japones_pimenta.jpg' },
+    { name: 'Amendoim Japonês Tradicional (100g)', price: 3.00, desc: 'Salgadinho de amendoim revestido com uma massa de farinha de trigo e depois frito ou torrado, ideal para lanches e petiscos.', img: 'img/oleaginosas/amendoim_japones_tradicional.jpg' },
+    { name: 'Amendoim Japonês Mostarda e Mel (100g)', price: 3.00, desc: 'Salgadinho de amendoim revestido com uma massa de farinha de trigo, frito ou torrado. Ideal para lanches e petiscos.', img: 'img/oleaginosas/amendoim_japones_mostarda_mel.jpg' },
+    { name: 'Amendoim Japonês Queijo (100g)', price: 3.00, desc: 'Salgadinho de amendoim revestido com uma massa de farinha de trigo, frito ou torrado. Ideal para lanches e petiscos.', img: 'img/oleaginosas/amendoim_japones_queijo.jpg' },
+    { name: 'Amendoim Torrado com Casca (100g)', price: 2.50, desc: 'Rico em nutrientes como proteínas e gorduras, capaz de suprir as necessidades diárias de vitamina E, B1, B3, enxofre, sódio, magnésio, cobre, ferro e fósforo.', img: 'img/oleaginosas/amendoim_torrado_com_casca.jpg' },
+    { name: 'Amendoim Doce (100g)', price: 3.80, desc: 'Amendoins confeitados, com deliciosa casquinha de açúcar colorida.', img: 'img/oleaginosas/amendoim_doce.jpg' },
+    { name: 'Amendoim Chocolate (100g)', price: 3.80, desc: 'Amendoins confeitados, com deliciosa casquinha sabor chocolate.', img: 'img/oleaginosas/amendoim_chocolate.jpg' },
+    { name: 'Castanha de Caju Granulada (100g)', price: 7.00, desc: 'Também conhecida como xerém, é perfeita para quem deseja praticidade e sabor. Versátil, pode ser usada em iogurtes, frutas, açaí, saladas e receitas doces ou salgadas.', img: 'img/oleaginosas/castanha_de_caju_granulada.jpg' },
+    { name: 'Castanha Frita com Sal (100g)', price: 8.00, desc: 'Pode ser consumida em lanches ou aperitivos, mas com moderação, devido à adição de gorduras e sal.', img: 'img/oleaginosas/castanha_frita_com_sal.jpg' },
+    { name: 'Castanha de Caju Tradicional (100g)', price: 8.00, desc: 'Beneficia o coração, fortalece o sistema imunológico e a saúde óssea. Pode melhorar o humor e a memória graças ao triptofano e magnésio.', img: 'img/oleaginosas/castanha_de_caju_tradicional.jpg' },
+    { name: 'Castanha Caramelizada (100g)', price: 7.50, desc: 'Snack crocante e nutritivo, feito com açúcar mascavo e gergelim. Combina o sabor da castanha com a crocância do gergelim.', img: 'img/oleaginosas/castanha_caramelizada.jpg' },
+    { name: 'Castanha do Pará (100g)', price: 18.00, desc: 'Beneficia a saúde cardiovascular, cerebral e imunológica devido ao seu alto teor de selênio. Recomenda-se um consumo moderado (2 a 3 unidades por dia).', img: 'img/oleaginosas/castanha_do_para.jpg' },
+    { name: 'Nozes Mariposa (100g)', price: 9.50, desc: 'Oferecem múltiplos benefícios à saúde, como a proteção cardiovascular e ação antioxidante devido à presença de ômega-3, vitaminas e minerais.', img: 'img/oleaginosas/nozes_mariposa.jpg' }
+  ];
+
   /* persistence */
   function loadCart() {
     try {
@@ -271,7 +294,7 @@ window.addEventListener('DOMContentLoaded', () => {
       </div>`;
   }
   function renderProdutos() {
-    ['temperos','chas','funcionais','sementesEgraos','diversos'].forEach(cat => {
+    ['temperos','chas','funcionais','sementesEgraos','oleaginosas','diversos'].forEach(cat => {
       const carousel = document.getElementById(`${cat}-carousel`);
       if (!carousel) return;
       carousel.innerHTML = '';
@@ -472,6 +495,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const funcionais = [];
     const sementesEgraos = [];
     const diversos = [];
+    const oleaginosas = [];
 
     cart.forEach(item => {
       // Verificar se é um chá
@@ -485,6 +509,10 @@ window.addEventListener('DOMContentLoaded', () => {
       // Verificar se é sementes e grãos
       else if (produtos.sementesEgraos.some(semente => semente.name === item.name)) {
         sementesEgraos.push(item);
+      }
+      // Verificar se é oleaginosa
+      else if (produtos.oleaginosas.some(oleo => oleo.name === item.name)) {
+        oleaginosas.push(item);
       }
       // Verificar se é diversos
       else if (produtos.diversos.some(diverso => diverso.name === item.name)) {
@@ -536,6 +564,16 @@ window.addEventListener('DOMContentLoaded', () => {
       });
       const subtotalSementes = sementesEgraos.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
       msg += `Subtotal Sementes e Grãos: R$ ${subtotalSementes}%0A%0A`;
+    }
+
+    // Adicionar oleaginosas
+    if (oleaginosas.length > 0) {
+      msg += '🥜 OLEAGINOSAS:%0A';
+      oleaginosas.forEach(item => {
+        msg += `- ${item.name} x${item.qty} = R$ ${(item.price * item.qty).toFixed(2)}%0A`;
+      });
+      const subtotalOleaginosas = oleaginosas.reduce((acc, i) => acc + i.price * i.qty, 0).toFixed(2);
+      msg += `Subtotal Oleaginosas: R$ ${subtotalOleaginosas}%0A%0A`;
     }
 
     // Adicionar diversos
@@ -1184,4 +1222,3 @@ setupKitBuilder();
 
   setupRoulette();
 });
-

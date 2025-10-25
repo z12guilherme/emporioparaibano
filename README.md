@@ -1,4 +1,3 @@
-```markdown
 # 🛍️ Empório Paraibano - E-commerce de Temperos
 
 Um e-commerce completo e moderno desenvolvido para o **Empório Paraibano**. O projeto foi construído do zero com foco em uma experiência de usuário rica, interativa e cheia de diferenciais, permitindo que o cliente monte seu pedido de forma intuitiva e o envie diretamente para o **WhatsApp** do vendedor.
@@ -65,7 +64,7 @@ Um e-commerce completo e moderno desenvolvido para o **Empório Paraibano**. O p
 1. Clone este repositório:
    ```bash
    git clone https://github.com/z12guilherme/emporioparaibano.git
-````
+   ```
 
 2. Entre na pasta do projeto:
 
