@@ -1,0 +1,10 @@
+Placeholder images for functional products will be created here.
+The JavaScript code expects these files:
+- placeholder-cha-verde-funcional.jpg
+- placeholder-cha-hibisco-premium.jpg  
+- placeholder-cha-detox-especial.jpg
+- placeholder-cha-termogenico.jpg
+- placeholder-cha-relaxante.jpg
+- placeholder-cha-digestivo.jpg
+- placeholder-cha-imunologico.jpg
+- placeholder-cha-energetico.jpg

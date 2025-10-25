@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empório Paraibano</title>
+  <link rel="icon" href="img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-container">
+      <a href="#" class="logo-link">
+        <img src="img/logo.jpg" alt="Empório Paraibano" class="nav-logo-img">
+        <span class="logo-text">Empório Paraibano</span>
+      </a>
+      <div class="nav-actions">
+        <a href="#product-list" class="nav-link">Produtos</a>
+        <button id="nav-favorites-button" class="nav-icon-button" aria-label="Abrir favoritos">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span id="nav-favorites-count" class="badge">0</span>
+        </button>
+        <button id="nav-cart-button" class="nav-cart-button" aria-label="Abrir carrinho">
+          <span id="nav-cart-count" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Bem-vindo ao Empório Paraibano</h1>
+    <p>Os melhores temperos para você!!!</p>
+  </header>
+
+  <main class="container" id="product-list">
+    <div class="tabs-nav">
+      <button class="tab-link active" data-tab="tab-products">Todos os Produtos</button>
+      <button class="tab-link" data-tab="tab-kit-builder">Monte seu Kit 🔥</button>
+    </div>
+
+    <div class="tabs-content">
+      <div id="tab-products" class="tab-panel active">
+        <div class="search-container">
+          <input type="search" id="search-input" placeholder="Buscar por nome ou ingrediente..." aria-label="Buscar produtos">
+        </div>
+
+        <div class="feature-explanation">
+          <p>✨ <strong>Compra Rápida:</strong> Digite seu pedido de uma vez e adicione tudo ao carrinho! Use o formato: <code>quantidade nome do produto</code>, separando os itens por "e" ou vírgula.
+          </p>
+        </div>
+
+        <div class="smart-input-container">
+          <input type="text" id="smart-input" placeholder="Ex: 2 tempero ana maria e 1 cha de camomila" aria-label="Adicionar itens rapidamente">
+          <button id="smart-add-btn" class="btn bg-yellow">Adicionar</button>
+        </div>
+
+        <section>
+          <h2>Temperos</h2>
+          <div class="carousel-wrapper">
+            <button class="carousel-btn left" aria-label="Scroll left" onclick="scrollCarousel('temperos-carousel', -300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="carousel" id="temperos-carousel" aria-live="polite"></div>
+            <button class="carousel-btn right" aria-label="Scroll right" onclick="scrollCarousel('temperos-carousel', 300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Chás</h2>
+          <div class="carousel-wrapper">
+            <button class="carousel-btn left" aria-label="Scroll left" onclick="scrollCarousel('chas-carousel', -300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="carousel" id="chas-carousel" aria-live="polite"></div>
+            <button class="carousel-btn right" aria-label="Scroll right" onclick="scrollCarousel('chas-carousel', 300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Funcionais</h2>
+          <div class="carousel-wrapper">
+            <button class="carousel-btn left" aria-label="Scroll left" onclick="scrollCarousel('funcionais-carousel', -300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="carousel" id="funcionais-carousel" aria-live="polite"></div>
+            <button class="carousel-btn right" aria-label="Scroll right" onclick="scrollCarousel('funcionais-carousel', 300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Sementes e Grãos</h2>
+          <div class="carousel-wrapper">
+            <button class="carousel-btn left" aria-label="Scroll left" onclick="scrollCarousel('sementesEgraos-carousel', -300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="carousel" id="sementesEgraos-carousel" aria-live="polite"></div>
+            <button class="carousel-btn right" aria-label="Scroll right" onclick="scrollCarousel('sementesEgraos-carousel', 300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          </div>
+        </section>
+
+        <section>
+          <h2>Diversos</h2>
+          <div class="carousel-wrapper">
+            <button class="carousel-btn left" aria-label="Scroll left" onclick="scrollCarousel('diversos-carousel', -300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+            <div class="carousel" id="diversos-carousel" aria-live="polite"></div>
+            <button class="carousel-btn right" aria-label="Scroll right" onclick="scrollCarousel('diversos-carousel', 300)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+          </div>
+        </section>
+      </div>
+      <div id="tab-kit-builder" class="tab-panel">
+        <div id="kit-selection-screen">
+          <h2 class="kit-selection-title">Escolha como montar seu kit:</h2>
+          <div class="kit-options-container">
+            <div class="kit-option-card" data-kit="churrasco">
+              <h3>🔥 Kit Churrasco</h3>
+              <p>Os melhores temperos para sua grelha. Selecione e ganhe 10% de desconto.</p>
+            </div>
+            <div class="kit-option-card" data-kit="essenciais">
+              <h3>🌿 Kit Temperos Essenciais</h3>
+              <p>Os temperos que não podem faltar na sua cozinha. Monte o seu com 10% de desconto.</p>
+            </div>
+            <div class="kit-option-card" data-kit="chas">
+              <h3>🍵 Kit de Chás</h3>
+              <p>Uma seleção de chás para relaxar e cuidar da saúde. Leve o kit completo com 10% OFF.</p>
+            </div>
+            <div class="kit-option-card" data-kit="funcionais">
+              <h3>💪 Kit Funcionais</h3>
+              <p>Turbine sua saúde e seus treinos com nossa seleção de funcionais. Desconto de 10% no kit.</p>
+            </div>
+            <div class="kit-option-card" data-kit="sementes">
+              <h3>🌱 Kit Sementes e Grãos</h3>
+              <p>Fibras, proteínas e saúde no seu dia a dia. Monte seu kit e ganhe 10% de desconto.</p>
+            </div>
+            <div class="kit-option-card" data-kit="diversos">
+              <h3>🍩 snacking Kit Snacks e Doces</h3>
+              <p>Deliciosas opções para lanches e sobremesas. Leve a seleção completa com 10% OFF.</p>
+            </div>
+            <div class="kit-option-card" data-kit="ia">
+              <h3>🤖 Kit Inteligente</h3>
+              <p>Nos diga o que você vai cozinhar (ex: carnes, peixes) e nós sugerimos um kit!</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="kit-builder-ui" class="kit-builder-section" style="display: none;">
+          <!-- O montador de kit específico será inserido aqui -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="cart" id="cart" aria-label="Carrinho de compras" role="region">
+    <div class="cart-head">
+      <h5>
+        Carrinho 
+        <span id="cart-count" class="badge">0</span>
+      </h5>
+      <button id="cart-toggle" class="cart-pin" aria-label="Abrir/Fechar carrinho"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+    </div>
+    <ul id="cart-items" class="list-unstyled" aria-live="polite"></ul>
+    <p class="fw-bold">Total: R$ <span id="cart-total">0.00</span></p>
+    <button class="btn finalize" onclick="sendToWhatsApp()">Finalizar Pedido</button>
+  </aside>
+
+  <footer class="site-footer">
+    <p>© Empório Paraibano | Desenvolvido por Marcos Guilherme</p>
+    <p>© Imagens Meramente Ilustrativas!</p>
+  </footer>
+
+  <div id="toast-container"></div>
+
+  <button id="roulette-trigger" class="floating-btn" aria-label="Gire a roleta e ganhe um prêmio!">🎁</button>
+
+  <div id="roulette-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-panel roulette-panel">
+      <div class="modal-header">
+        <h2>Roleta de Prêmios!</h2>
+        <button id="close-roulette-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
+      </div>
+      <div class="modal-content">
+        <div class="roulette-container">
+          <div class="roulette-pointer"></div>
+          <div class="roulette-wheel" id="roulette-wheel"></div>
+        </div>
+        <button id="spin-button" class="btn bg-yellow">Girar a Roleta!</button>
+        <p id="roulette-result" class="roulette-result-text"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="favorites-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2>Meus Favoritos</h2>
+        <button id="close-favorites-modal" class="modal-close-btn" aria-label="Fechar">&times;</button>
+      </div>
+      <div id="favorites-list" class="modal-content">
+        <!-- Favoritos serão inseridos aqui -->
+      </div>
+    </div>
+  </div>
+
+  <script defer src="js/script.js"></script>
+</body>
+</html>
+
