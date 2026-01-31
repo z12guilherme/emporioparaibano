@@ -88,6 +88,6 @@ Um e-commerce completo e moderno desenvolvido para o **Empório Paraibano**. O p
 
 🧑‍💻Programador: **Marcos Guilherme**
 🔗 [GitHub](https://github.com/z12guilherme)
-🌍 [Site](https://emporioparaibano.netlify.app)
+🌍 [Site](https://inovedev.com.br)
 
 ---
