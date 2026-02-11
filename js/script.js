@@ -279,15 +279,17 @@ window.addEventListener('DOMContentLoaded', () => {
     const id = slugify(prod.name);
     return `
       <div class="card" role="article" data-product-id="${id}">
-        <img src="${prod.img}" class="card-img-top" alt="${esc(prod.name)}" loading="lazy">
-        <div class="card-body">
-          <h5 class="card-title">${esc(prod.name)}</h5>
-          <p class="card-text">${esc(prod.desc)}</p>
-          <div class="card-actions">
-            <p class="fw-bold">R$ ${Number(prod.price).toFixed(2)}</p>
-            <div>
-              <button class="favorite-btn" data-action="favorite" data-id="${id}" aria-label="Adicionar aos Favoritos"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
-              <button class="btn bg-yellow" type="button" data-action="add" data-id="${id}" data-name="${esc(prod.name)}" data-price="${Number(prod.price)}">Adicionar</button>
+        <div class="card__image" style="background-image: url('${prod.img}');" role="img" aria-label="${esc(prod.name)}"></div>
+        <div class="card__content">
+          <div class="card__title">${esc(prod.name)}</div>
+          <p class="card__text">${esc(prod.desc)}</p>
+          <div class="card__bottom">
+            <div class="card__price">R$ ${Number(prod.price).toFixed(2)}</div>
+            <div class="card__actions">
+              <button class="favorite-btn" data-action="favorite" data-id="${id}" aria-label="Adicionar aos Favoritos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+              <button class="btn btn--block card__btn bg-yellow" type="button" data-action="add" data-id="${id}" data-name="${esc(prod.name)}" data-price="${Number(prod.price)}">Adicionar</button>
             </div>
           </div>
         </div>
@@ -312,34 +314,24 @@ window.addEventListener('DOMContentLoaded', () => {
     const cartEl = document.getElementById('cart');
     if (!cartItems || !cartEl) return;
 
-    const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
     cartItems.innerHTML = '';
     let total = 0;
 
-    if (!isMobile || cartEl.classList.contains('open')) {
-      // Modo desktop ou mobile expandido
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'cart-item';
-        li.innerHTML = `
-          <div class="name">${esc(item.name)}</div>
-          <div class="controls" aria-hidden="false">
-            <button class="qty-btn" data-action="dec" data-id="${item.id}" aria-label="Diminuir">−</button>
-            <div style="min-width:28px;text-align:center;" data-qty-for="${item.id}">${item.qty}</div>
-            <button class="qty-btn" data-action="inc" data-id="${item.id}" aria-label="Aumentar">+</button>
-          </div>
-          <div class="item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
-        `;
-        cartItems.appendChild(li);
-        total += item.price * item.qty;
-      });
-    } else {
-      // Mobile fechado: mostrar apenas resumo
+    cart.forEach(item => {
       const li = document.createElement('li');
-      li.textContent = `${cart.reduce((acc,i)=>acc+i.qty,0)} itens no carrinho`;
+      li.className = 'cart-item';
+      li.innerHTML = `
+        <div class="name">${esc(item.name)}</div>
+        <div class="controls" aria-hidden="false">
+          <button class="qty-btn" data-action="dec" data-id="${item.id}" aria-label="Diminuir">−</button>
+          <div style="min-width:28px;text-align:center;" data-qty-for="${item.id}">${item.qty}</div>
+          <button class="qty-btn" data-action="inc" data-id="${item.id}" aria-label="Aumentar">+</button>
+        </div>
+        <div class="item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
+      `;
       cartItems.appendChild(li);
-    }
+      total += item.price * item.qty;
+    });
 
     if (cartTotal) cartTotal.textContent = total.toFixed(2);
     if (cartCount) cartCount.textContent = cart.reduce((acc,i)=>acc+i.qty,0);
@@ -410,7 +402,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     else if (action==='add') {
       addToCart(id, name, Number(price));
-      const cardImage = btn.closest('.card')?.querySelector('.card-img-top');
+      const cardImage = btn.closest('.card')?.querySelector('.card__image');
       if (cardImage) {
         flyToCartAnimation(cardImage);
       }
@@ -432,58 +424,47 @@ window.addEventListener('DOMContentLoaded', () => {
     el.scrollBy({ left: delta, behavior: 'smooth' });
   }
 
-  /* cart drag functionality */
-  function setupCartDrag() {
+  /* Cart Sidebar Logic */
+  function setupCartSidebar() {
     const cartEl = document.getElementById('cart');
     if (!cartEl) return;
 
-    let isDragging = false;
-    let startX, startY, initialX, initialY;
+    // Create Overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'cart-overlay';
+    document.body.appendChild(overlay);
 
-    cartEl.addEventListener('mousedown', (e) => {
-      if (window.innerWidth <= 768) return;
-      isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      initialX = cartEl.offsetLeft;
-      initialY = cartEl.offsetTop;
-      cartEl.style.cursor = 'grabbing';
-      e.preventDefault();
-    });
+    // Toggle Function
+    function toggleCart(forceClose = false) {
+      if (forceClose) {
+        cartEl.classList.remove('open');
+        overlay.classList.remove('open');
+      } else {
+        cartEl.classList.toggle('open');
+        overlay.classList.toggle('open');
+      }
+      if (cartEl.classList.contains('open')) renderCart();
+    }
 
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      cartEl.style.left = `${initialX + dx}px`;
-      cartEl.style.top = `${initialY + dy}px`;
-      cartEl.style.right = 'auto';
-      cartEl.style.bottom = 'auto';
-    });
+    // Attach to buttons
+    const cartToggle = document.getElementById('cart-toggle');
+    if (cartToggle) cartToggle.addEventListener('click', () => toggleCart());
 
-    document.addEventListener('mouseup', () => {
-      if (isDragging) { isDragging = false; cartEl.style.cursor = 'grab'; }
-    });
+    const navCartButton = document.getElementById('nav-cart-button');
+    if (navCartButton) navCartButton.addEventListener('click', () => toggleCart());
+
+    // Close on overlay click
+    overlay.addEventListener('click', () => toggleCart(true));
+
+    // Close on "Pin" button click (repurposed as Close button)
+    const closeBtn = cartEl.querySelector('.cart-pin');
+    if (closeBtn) {
+      closeBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+      closeBtn.setAttribute('aria-label', 'Fechar Carrinho');
+      closeBtn.addEventListener('click', () => toggleCart(true));
+    }
   }
-  setupCartDrag();
-
-  /* cart toggle mobile */
-  const cartToggle = document.getElementById('cart-toggle');
-  if (cartToggle){
-    cartToggle.addEventListener('click', ()=>{
-      const cartEl = document.getElementById('cart');
-      cartEl.classList.toggle('open');
-      renderCart();
-    });
-  }
-  const navCartButton = document.getElementById('nav-cart-button');
-  if (navCartButton) {
-    navCartButton.addEventListener('click', () => {
-      const cartEl = document.getElementById('cart');
-      cartEl.classList.toggle('open');
-      renderCart();
-    });
-  }
+  setupCartSidebar();
 
   /* send to WhatsApp */
   window.sendToWhatsApp = function(){
@@ -608,8 +589,8 @@ window.addEventListener('DOMContentLoaded', () => {
         let hasVisibleCards = false;
 
         cards.forEach(card => {
-          const title = card.querySelector('.card-title')?.textContent.toLowerCase() || '';
-          const desc = card.querySelector('.card-text')?.textContent.toLowerCase() || '';
+          const title = card.querySelector('.card__title')?.textContent.toLowerCase() || '';
+          const desc = card.querySelector('.card__text')?.textContent.toLowerCase() || '';
           const matches = title.includes(searchTerm) || desc.includes(searchTerm);
 
           if (matches) {
@@ -1075,7 +1056,7 @@ setupKitBuilder();
       itemEl.innerHTML = `
         <img src="${fav.img}" alt="${esc(fav.name)}" loading="lazy">
         <div class="favorite-item-info">
-          <h5 class="card-title">${esc(fav.name)}</h5>
+          <h5>${esc(fav.name)}</h5>
           <p class="fw-bold">R$ ${fav.price.toFixed(2)}</p>
         </div>
         <button class="btn bg-yellow" data-action="add" data-id="${fav.id}" data-name="${esc(fav.name)}" data-price="${fav.price}">Adicionar</button>
@@ -1222,4 +1203,3 @@ setupKitBuilder();
 
   setupRoulette();
 });
-
