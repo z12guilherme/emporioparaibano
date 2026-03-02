@@ -175,7 +175,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Marapuama em Pó (100g)', desc: 'A marapuama em pó é usada como auxiliar natural para a saúde sexual e libido, com propriedades estimulantes do sistema nervoso central, além de benefícios contra fadiga, estresse, depressão e problemas de memória. Também é utilizada como tônico para circulação e disposição física.', price: 4.50, img: 'img/funcionais/marapuama.jpg' },
       { name: 'Moringa em Pó (100g)', desc: 'A moringa em pó auxilia a saúde cardiovascular por suas propriedades antioxidantes, pode reduzir pressão arterial e colesterol ruim, fortalecer o sistema imunológico, combater estresse oxidativo e inflamação, promover a saúde digestiva e fornecer nutrientes importantes para pele e cabelo.', price: 8.00, img: 'img/funcionais/moringa.jpg' },
       { name: 'Multimistura (Pote 150g)', desc: 'Composição de farinhas e grãos que, inserida na dieta diária, ajuda a controlar taxas glicêmicas e de colesterol, além de fortalecer o sistema imunológico. Pode ser acrescentada a vitaminas, sucos, iogurtes ou frutas.', price: 10.00, img: 'img/funcionais/multimistura.jpg' },
-      { name: 'Psyllium (100g)', desc: 'O psyllium é uma fibra solúvel extraída da casca da semente Plantago ovata, conhecida por benefícios para saúde digestiva, equilíbrio do colesterol e controle glicêmico. Em contato com água forma gel viscoso que auxilia regularidade intestinal e promove saciedade.', price: 12.50, img: 'img/funcionais/psyllium.jpg' },
+      { name: 'Psyllium (100g)', desc: 'O psyllium é uma fibra solúvel extraída da casca da semente Plantago ovata, conhecida por benefícios para saúde digestiva, equilíbrio do colesterol e controle glicêmico. Em contato com água forma gel viscoso que auxilia regularidade intestinal e promove saciedade.', price: 9.00, img: 'img/funcionais/psyllium.jpg' },
       { name: 'Tribulus Terrestris (100g)', desc: 'O tribulus terrestris em pó possui propriedades antioxidantes e anti-inflamatórias, podendo ajudar na função sexual, fertilidade, bem-estar na menopausa e alívio da TPM. Estudos sobre aumento de testosterona e ganho de massa muscular ainda são inconsistentes.', price: 9.80, img: 'img/funcionais/germen_de_trigo.jpg' },
       { name: 'Gérmen de trigo (100g)', desc: 'O Gérmen de Trigo auxilia na melhora da saúde da pele e dos cabelos, fortalecer o sistema imunológico, regular o intestino e a pressão arterial, auxiliar no controle do colesterol e do açúcar no sangue, e também pode ter um papel importante na redução dos sintomas da menopausa.', price: 4.50, img: 'img/funcionais/germen_de_trigo.jpg' }
     ],
@@ -1203,4 +1203,5 @@ setupKitBuilder();
 
   setupRoulette();
 });
+
 
