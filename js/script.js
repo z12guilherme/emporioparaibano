@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Sal Marinho (100g)', desc: 'Extraído da evaporação da água do mar, preserva minerais e nutrientes.', price: 2.00, img: 'img/temperos/sal_marinho.jpg' },
       { name: 'Tempero Fit Frango (100g)', desc: 'Mix sem sódio com páprica, alho, cebola, cúrcuma, chas e especiarias.', price: 5.00, img: 'img/temperos/tempero_fit_frango.jpg' },
       { name: 'Tempero Fit Completo (100g)', desc: 'Mix saudável sem conservantes, ideal para carnes, legumes, peixes e sopas.', price: 5.00, img: 'img/temperos/tempero_fit_completo.jpg' },
-      { name: 'Tempero Realce (100g)', desc: 'Ideal para carnes, arroz, legumes e ensopados.', price: 4.50, img: 'img/temperos/tempero_realce.jpg' },
+      { name: 'Tempero Realce (100g)', desc: 'Ideal para carnes, arroz, legumes e ensopados.', price: 5.00, img: 'img/temperos/tempero_realce.jpg' },
       { name: 'Caldo de Carne em Pó (100g)', desc: 'Prático e saboroso, substitui o caldo em cubos em sopas e carnes.', price: 3.00, img: 'img/temperos/caldo_de_carne_em_po.jpg' },
       { name: 'Caldo de Costela em Pó (100g)', desc: 'Versátil para sopas, caldos, molhos e carnes.', price: 3.00, img: 'img/temperos/caldo_de_costela_em_po.jpg' },
       { name: 'Bacon Desidratado (100g)', desc: 'Sabor defumado autêntico, ótimo em feijão, sopas, farofas e hambúrgueres.', price: 5.50, img: 'img/temperos/bacon_desidratado.jpg' },
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Pimenta do Reino Preta Moída (100g)', desc: 'Versátil, dá toque picante e marcante em carnes, molhos e sopas.', price: 8.00, img: 'img/temperos/pimenta_do_reino_preta_moida.jpg' },
       { name: 'Mostarda em Grãos (100g)', desc: 'Sementes amarelas com sabor marcante, usadas em molhos, carnes e chás.', price: 7.00, img: 'img/temperos/mostarda_em_graos.jpg' },
       { name: 'Tempero Master Chef (100g)', desc: 'Seleção de especiarias para sabor intenso e gourmet.', price: 5.50, img: 'img/temperos/masterchef.jpg' },
-      { name: 'Tempero Molho Tártaro (100g)', desc: 'Blend com cebola, cenoura, pimentão e chas, ótimo para molhos e peixes.', price: 4.50, img: 'img/temperos/molho_tartaro.jpg' },
+      { name: 'Tempero Molho Tártaro (100g)', desc: 'Blend com cebola, cenoura, pimentão e chas, ótimo para molhos e peixes.', price: 5.00, img: 'img/temperos/molho_tartaro.jpg' },
       { name: 'Orégano (100g)', desc: 'Erva aromática clássica para massas, pizzas, carnes e molhos.', price: 6.00, img: 'img/temperos/oregano.jpg' },
       { name: 'Tempero Cebola, Alho e Salsa (100g)', desc: 'Combinação versátil para carnes, aves, arroz, feijão e sopas.', price: 5.00, img: 'img/temperos/alho_salsa_cebola.jpg' },
       { name: 'Salsa Desidratada (100g)', desc: 'Prática para sopas, molhos, carnes, saladas e peixes.', price: 4.00, img: 'img/temperos/salsa_desidratada.jpg' },
@@ -254,7 +254,7 @@ window.addEventListener('DOMContentLoaded', () => {
     { name: 'Castanha Frita com Sal (100g)', price: 8.00, desc: 'Pode ser consumida em lanches ou aperitivos, mas com moderação, devido à adição de gorduras e sal.', img: 'img/oleaginosas/castanha_frita_com_sal.jpg' },
     { name: 'Castanha de Caju Tradicional (100g)', price: 9.50, desc: 'Beneficia o coração, fortalece o sistema imunológico e a saúde óssea. Pode melhorar o humor e a memória graças ao triptofano e magnésio.', img: 'img/oleaginosas/castanha_de_caju_tradicional.jpg' },
     { name: 'Castanha Caramelizada (100g)', price: 7.50, desc: 'Snack crocante e nutritivo, feito com açúcar mascavo e gergelim. Combina o sabor da castanha com a crocância do gergelim.', img: 'img/oleaginosas/castanha_caramelizada.jpg' },
-    { name: 'Castanha do Pará (100g)', price: 18.00, desc: 'Beneficia a saúde cardiovascular, cerebral e imunológica devido ao seu alto teor de selênio. Recomenda-se um consumo moderado (2 a 3 unidades por dia).', img: 'img/oleaginosas/castanha_do_para.jpg' },
+    { name: 'Castanha do Pará (100g)', price: 15.00, desc: 'Beneficia a saúde cardiovascular, cerebral e imunológica devido ao seu alto teor de selênio. Recomenda-se um consumo moderado (2 a 3 unidades por dia).', img: 'img/oleaginosas/castanha_do_para.jpg' },
     { name: 'Nozes Mariposa (100g)', price: 9.50, desc: 'Oferecem múltiplos benefícios à saúde, como a proteção cardiovascular e ação antioxidante devido à presença de ômega-3, vitaminas e minerais.', img: 'img/oleaginosas/nozes_mariposa.jpg' }
   ];
 
@@ -1203,3 +1203,4 @@ setupKitBuilder();
 
   setupRoulette();
 });
+
