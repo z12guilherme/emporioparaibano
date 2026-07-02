@@ -1,4 +1,4 @@
-  // script.js — versão completa com lista de temperos atualizada
+// script.js — versão completa com lista de temperos atualizada
 // persistência localStorage
 // carrinho sem bug (identificação por id, delegação, proteção contra cliques duplos)
 // carrinho arrastável com pin
@@ -81,35 +81,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
     chas: [
       { name: 'Alcachofra (50g)', desc: 'A alcachofra auxilia na melhora da digestão, auxilia na regulação do colesterol, atua como diurético e fonte de fibras, também é tradicionalmente usada como hepatoprotetor.', price: 3.50, img: 'img/chas/alcachofra.jpg' },
-      { name: 'Alecrim (50g)', desc: 'O alecrim serve para temperar alimentos, atuar como repelente de insetos, além de ter benefícios para a saúde, como melhorar a digestão e a memória, aliviar dores de cabeça, ter ação antioxidante e ajudar a reduzir inflamações e gases.', price: 2.50, img: 'img/chas/alecrim.jpg' },
-      { name: 'Alfazema (50g)', desc: 'A alfazema (ou lavanda) ajuda a acalmar a mente, reduzir a ansiedade e a insônia, e aliviar dores e tensões musculares devido às suas propriedades relaxantes, sedativas, analgésicas e anti-inflamatórias.', price: 4.00, img: 'img/chas/alfazema.jpg' },
-      { name: 'Amora Folhas (50g)', desc: 'A folha de amora é utilizada para auxiliar a regular as taxas hormonais, combater os sintomas da menopausa e TPM, fortalecer o sistema imunológico, melhorar a saúde digestiva e da pele, e ajudar no controle do peso corporal.', price: 3.00, img: 'img/chas/amora.jpg' },
+      { name: 'Alecrim (50g)', desc: 'O alecrim serve para temperar alimentos, atuar como repelente de insetos, além de ter benefícios para a saúde, como melhorar a digestão e a memória, aliviar dores de cabeça, ter ação antioxidante e ajudar a reduzir inflamações e gases.', price: 3.00, img: 'img/chas/alecrim.jpg' },
+      { name: 'Alfazema (50g)', desc: 'A alfazema (ou lavanda) ajuda a acalmar a mente, reduzir a ansiedade e a insônia, e aliviar dores e tensões musculares devido às suas propriedades relaxantes, sedativas, analgésicas e anti-inflamatórias.', price: 5.00, img: 'img/chas/alfazema.jpg' },
+      { name: 'Amora Folhas (50g)', desc: 'A folha de amora é utilizada para auxiliar a regular as taxas hormonais, combater os sintomas da menopausa e TPM, fortalecer o sistema imunológico, melhorar a saúde digestiva e da pele, e ajudar no controle do peso corporal.', price: 3.50, img: 'img/chas/amora.jpg' },
       { name: 'Anis-Estrelado (50g)', desc: 'O anis-estrelado serve para diversas finalidades: é usado na culinária como especiaria e para aromatizar alimentos e bebidas, como chás, licores e gin; na medicina popular, tem propriedades digestivas, expectorantes e antibacterianas.', price: 5.00, img: 'img/chas/anis_estrelado.jpg' },
       { name: 'Aroeira Casca (50g)', desc: 'A aroeira é usada na medicina popular pelas suas propriedades anti-inflamatórias, antimicrobianas e cicatrizantes, sendo indicada para tratar problemas urinários (como cistite), inflamações gerais e reumatismo.', price: 3.50, img: 'img/chas/casca_de_aroeira.jpg' },
       { name: 'Barbatimão Rasurado (50g)', desc: 'O barbatimão é muito utilizado para acelerar a cicatrização de feridas, cortes, queimaduras, e úlceras na pele devido às suas propriedades cicatrizantes, adstringentes, antibacterianas e anti-inflamatórias.', price: 3.00, img: 'img/chas/barbatimao.jpg' },
       { name: 'Boldo (50g)', desc: 'O chá de Boldo auxilia na melhora da digestão, no tratamento de problemas hepáticos, ajuda o funcionamento adequado do fígado e alivia desconfortos gastrointestinais, reduzindo sintomas como inchaço abdominal, gases e azia.', price: 4.50, img: 'img/chas/cha_boldo.jpg' },
-      { name: 'Camomila (50g)', desc: 'A camomila ajuda a acalmar, melhorar o sono e aliviar a ansiedade, devido aos seus efeitos sedativos e ansiolíticos. Também é usada para reduzir a inflamação e aliviar sintomas digestivos como indigestão e cólicas.', price: 4.00, img: 'img/chas/camomila.jpg' },
-      { name: 'Canela em Pau (50g)', desc: 'A canela em pau serve como um ingrediente saboroso e versátil na culinária, sendo adicionada a doces, pães, bolos, café, chás e até a pratos salgados, para realçar o sabor.', price: 4.80, img: 'img/chas/canela_em_pau.jpg' },
+      { name: 'Camomila (50g)', desc: 'A camomila ajuda a acalmar, melhorar o sono e aliviar a ansiedade, devido aos seus efeitos sedativos e ansiolíticos. Também é usada para reduzir a inflamação e aliviar sintomas digestivos como indigestão e cólicas.', price: 4.50, img: 'img/chas/camomila.jpg' },
+      { name: 'Canela em Pau (50g)', desc: 'A canela em pau serve como um ingrediente saboroso e versátil na culinária, sendo adicionada a doces, pães, bolos, café, chás e até a pratos salgados, para realçar o sabor.', price: 5.00, img: 'img/chas/canela_em_pau.jpg' },
       { name: 'Canela-de-Velho (50g)', desc: 'A canela-de-velho é uma planta medicinal usada para aliviar dores nas articulações, como artrite e artrose, devido às suas propriedades anti-inflamatórias e analgésicas.', price: 2.50, img: 'img/chas/canela_de_velho.jpg' },
       { name: 'Capim-Limão (50g)', desc: 'O Capim-santo, também conhecido como capim-limão ou capim-cidreira, é uma planta medicinal com propriedades calmantes, digestivas, antioxidantes e antimicrobianas.', price: 3.50, img: 'img/chas/capim_limao.jpg' },
       { name: 'Cardo-Mariano (50g)', desc: 'O cardo mariano é uma planta de flores roxas cujo principal componente ativo é a silimarina, um poderoso antioxidante e hepatoprotetor.', price: 3.50, img: 'img/chas/cardo_mariano.jpg' },
-      { name: 'Carqueja (50g)', desc: 'A carqueja é muito utilizada para auxiliar em problemas de digestão e do fígado, como azia e gastrite, além de atuar como diurético, ajudando a reduzir a retenção de líquidos.', price: 2.50, img: 'img/chas/carqueja.jpg' },
+      { name: 'Carqueja (50g)', desc: 'A carqueja é muito utilizada para auxiliar em problemas de digestão e do fígado, como azia e gastrite, além de atuar como diurético, ajudando a reduzir a retenção de líquidos.', price: 3.00, img: 'img/chas/carqueja.jpg' },
       { name: 'Cavalinha (50g)', desc: 'A cavalinha serve como um agente diurético natural, ajudando o corpo a eliminar o excesso de líquidos e combatendo o inchaço, e é um excelente remineralizante.', price: 5.00, img: 'img/chas/cavalinha.jpg' },
       { name: 'Chá Mate (50g)', desc: 'O chá mate verde serve para dar mais energia e melhorar o foco devido à sua cafeína e outras substâncias stimulantes, além de ser um potente diurético e antioxidante.', price: 2.50, img: 'img/chas/mate.jpg' },
       { name: 'Chá Preto (50g)', desc: 'O chá preto serve para aumentar a energia e o foco, graças à cafeína e à L-teanina, além de contribuir para a saúde do coração e do cérebro por ser rico em antioxidantes.', price: 3.50, img: 'img/chas/cha_preto.jpg' },
-      { name: 'Chá-Seca-Barriga (50g)', desc: 'O chá "seca barriga", refere-se a misturas de ervas comumente associadas à perda de peso e redução da gordura abdominal.', price: 3.50, img: 'img/chas/cha_seca_barriga.jpg' },
+      { name: 'Chá-Seca-Barriga (50g)', desc: 'O chá "seca barriga", refere-se a misturas de ervas comumente associadas à perda de peso e redução da gordura abdominal.', price: 4.00, img: 'img/chas/cha_seca_barriga.jpg' },
       { name: 'Chá Verde (50g)', desc: 'O chá verde oferece uma variedade de benefícios para a saúde, como sua ação antioxidante, que combate o envelhecimento precoce, ele também pode ajudar no processo de emagrecimento ao acelerar o metabolismo.', price: 3.00, img: 'img/chas/cha_verde.jpg' },
       { name: 'Chambá (50g)', desc: 'O Chambá é uma planta medicinal popularmente utilizada como expectorante, broncodilatador, antitussígeno e para tratar problemas respiratórios como asma, bronquite, tosse e chiado no peito.', price: 3.00, img: 'img/chas/chamba.jpg' },
       { name: 'Chapéu-de-Couro (50g)', desc: 'O chapéu-de-couro pode auxiliar no tratamento de problemas no sistema urinário, como infecções, devido às suas propriedades diuréticas, anti-inflamatórias e depurativas.', price: 3.50, img: 'img/chas/chapeu_de_couro.jpg' },
       { name: 'Cravo-da-India (50g)', desc: 'O cravo-da-índia, além de muito utilizado na culinária para a preparação de diversos pratos, também possui ação antioxidante, anti-inflamatória e antimicrobiana.', price: 6.00, img: 'img/chas/cravo_da_india.jpg' },
       { name: 'Dente-de-Leão (50g)', desc: 'O dente-de-leão é usado para diversas finalidades na medicina popular e pode ser consumido como chá, devido às suas propriedades diuréticas, depurativas e hepatoprotetoras.', price: 4.00, img: 'img/chas/dente_de_leao.jpg' },
-      { name: 'Desinchá (50g)', desc: 'O chá Desinchá é utilizado para auxiliar na redução do inchaço corporal, promover a saciedade, dar mais energia e acelerar o metabolismo, contribuindo para um processo de emagrecimento saudável.', price: 3.50, img: 'img/chas/desincha.jpg' },
+      { name: 'Desinchá (50g)', desc: 'O chá Desinchá é utilizado para auxiliar na redução do inchaço corporal, promover a saciedade, dar mais energia e acelerar o metabolismo, contribuindo para um processo de emagrecimento saudável.', price: 4.00, img: 'img/chas/desincha.jpg' },
       { name: 'Endro (50g)', desc: 'O endro oferece vários benefícios, principalmente por suas propriedades digestivas, ajudando a aliviar gases, inchaço, cólicas, constipação e náuseas.', price: 2.50, img: 'img/chas/cha_endro.jpg' },
       { name: 'Erva-Baleeira (50g)', desc: 'A Erva-baleeira é muito utilizada para aliviar dores e inflamações, sendo recomendada para condições como artrite, reumatismo, dores musculares e na coluna, contusões e torções.', price: 3.50, img: 'img/chas/erva_baleeira.jpg' },
       { name: 'Erva-Cidreira (50g)', desc: 'A Erva-cidreira é muito utilizada para acalmar, reduzir a ansiedade e melhorar o sono, atuando como um calmante natural no sistema nervoso central.', price: 3.50, img: 'img/chas/erva_cidreira.jpg' },
       { name: 'Erva-Doce Argentina (50g)', desc: 'A Erva-doce argentina serve para diversos fins, principalmente para a melhora da digestão, alívio de gases e cólicas, mas também tem propriedades que a tornam benéfica para a saúde dos fígado.', price: 4.00, img: 'img/chas/erva_doce_argentina.jpg' },
       { name: 'Erva-Doce Tradicional (50g)', desc: 'A Erva-doce tradicional é muito utilizada na culinária e na medicina popular devido ao seu sabor adocicado e propriedades digestivas e anti-inflamatórias.', price: 2.50, img: 'img/chas/erva_doce.jpg' },
-      { name: 'Espinheira-Santa (50g)', desc: 'A Espinheira-santa é utilizada para aliviar problemas digestivos, como gastrite, úlceras, azia, má digestão e gases, atuando como protetor da mucosa gástrica e redutor da acidez estomacal.', price: 3.80, img: 'img/chas/espinheira_santa.jpg' },
+      { name: 'Espinheira-Santa (40g)', desc: 'A Espinheira-santa é utilizada para aliviar problemas digestivos, como gastrite, úlceras, azia, má digestão e gases, atuando como protetor da mucosa gástrica e redutor da acidez estomacal.', price: 4.00, img: 'img/chas/espinheira_santa.jpg' },
       { name: 'Eucalipto (50g)', desc: 'O eucalipto oferece uma variedade de benefícios, para a saúde com suas propriedades expectorantes e descongestionantes ajudam a aliviar problemas respiratórios como gripes, resfriados e sinusites.', price: 2.50, img: 'img/chas/cha_eucalipto.jpg' },
       { name: 'Folha de Abacateiro (50g)', desc: 'A folha de abacate serve para preparar um chá com propriedades diuréticas, antioxidantes e anti-inflamatórias, que podem auxiliar no controle da diabetes e da pressão alta.', price: 3.00, img: 'img/chas/folha_de_abacate.jpg' },
       { name: 'Ginkgo-Biloba (50g)', desc: 'O Ginkgo Biloba é uma planta comumente usada para melhorar a memória e outras funções cognitivas, além de auxiliar na circulação sanguínea e no tratamento de zumbidos e vertigens.', price: 4.00, img: 'img/chas/ginkgo_biloba.jpg' },
@@ -158,10 +158,10 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Farinha de Berinjela (100g)', desc: 'A farinha de berinjela auxilia na perda de peso e no controle do colesterol e da glicemia por ser rica em fibras. Ela também é uma boa fonte de vitaminas e minerais, como as vitaminas do complexo B, C e A, e magnésio, que contribuem para a saciedade, a função intestinal e a saúde do coração, além de ter propriedades antioxidantes que protegem as células.', price: 6.00, img: 'img/funcionais/farinha_berinjela.jpg' },
       { name: 'Farinha de Beterraba (100g)', desc: 'A farinha de beterraba é um suplemento nutritivo que serve para melhorar o desempenho físico, ajudar na saúde cardiovascular (reduzindo a pressão arterial), fortalecer a imunidade, auxiliar no controle do nível de açúcar no sangue, combater a anemia e melhorar o funcionamento do intestino.', price: 10.00, img: 'img/funcionais/farinha_de_beterraba.jpg' },
       { name: 'Farinha de Castanha de Caju (100g)', desc: 'A farinha de castanha de caju é um alimento nutritivo rico em fibras, gorduras boas e proteínas, que oferece vários benefícios à saúde, como: regulação da glicose no sangue, redução do colesterol LDL e aumento do HDL, fortalecimento do sistema imunológico e dos ossos, além de propriedades antioxidantes que protegem as células. É também uma excelente alternativa sem glúten e com baixo teor de carboidratos, ideal para quem busca uma alimentação mais saudável.', price: 6.00, img: 'img/funcionais/castanha_de_caju.jpg' },
-      { name: 'Farinha de Chia (100g)', desc: 'A farinha de chia serve para melhorar a digestão, promover a perda de peso, reforçar a saúde óssea e dos ossos, e reduzir o risco de doenças cardíacas e diabetes, devido à sua riqueza em fibras, proteínas, ômega-3, cálcio, fósforo e magnésio. Também atua como antioxidante, protegendo as células e fortalecimento do sistema imunológico.', price: 4.00, img: 'img/funcionais/chia.jpg' },
+      { name: 'Farinha de Chia (100g)', desc: 'A farinha de chia serve para melhorar a digestão, promover a perda de peso, reforçar a saúde óssea e dos ossos, e reduzir o risco de doenças cardíacas e diabetes, devido à sua riqueza em fibras, proteínas, ômega-3, cálcio, fósforo e magnésio. Também atua como antioxidante, protegendo as células e fortalecimento do sistema imunológico.', price: 6.00, img: 'img/funcionais/chia.jpg' },
       { name: 'Farinha de Coco Branca (100g)', desc: 'É uma excelente alternativa para quem busca uma dieta sem glúten e rica em fibras, é indicada para celíacos, veganos e pessoas com restrições alimentares. A farinha de coco é rica em proteínas e fibras alimentares, contribuindo para o controle glicêmico, redução do colesterol, aumento da saciedade e suas gorduras boas ajudam no funcionamento do organismo.', price: 4.00, img: 'img/funcionais/farinha_branca_coco.jpg' },
-      { name: 'Farinha de Linhaça Dourada (100g)', desc: 'A farinha de linhaça dourada serve para promover a saúde cardiovascular, auxiliar no controle do peso e diabetes, melhorar o funcionamento do intestino e combater a inflamação, devido ao seu alto teor de fibras, ômega-3, antioxidantes e minerais como cálcio, magnésio e potássio. É um alimento versátil que pode ser adicionado a sucos, iogurtes, sopas e massas para enriquecer a dieta.', price: 4.00, img: 'img/funcionais/farinha_de_linhaca_dourada.jpg' },
-      { name: 'Farinha de Linhaça Marrom (100g)', desc: 'A farinha de linhaça marrom é benéfica por ser rica em fibras, que auxiliam a saúde digestiva e controlam o colesterol, e em ômega-3, importante para o coração e cérebro. Contém minerais como magnésio e ferro, e lignanas com ação antioxidante, que podem ajudar na prevenção de doenças, controle de peso e na stabilização do açúcar no sangue.', price: 4.00, img: 'img/funcionais/farinha_de_linhaca_marrom.jpg' },
+      { name: 'Farinha de Linhaça Dourada (100g)', desc: 'A farinha de linhaça dourada serve para promover a saúde cardiovascular, auxiliar no controle do peso e diabetes, melhorar o funcionamento do intestino e combater a inflamação, devido ao seu alto teor de fibras, ômega-3, antioxidantes e minerais como cálcio, magnésio e potássio. É um alimento versátil que pode ser adicionado a sucos, iogurtes, sopas e massas para enriquecer a dieta.', price: 5.00, img: 'img/funcionais/farinha_de_linhaca_dourada.jpg' },
+      { name: 'Farinha de Linhaça Marrom (100g)', desc: 'A farinha de linhaça marrom é benéfica por ser rica em fibras, que auxiliam a saúde digestiva e controlam o colesterol, e em ômega-3, importante para o coração e cérebro. Contém minerais como magnésio e ferro, e lignanas com ação antioxidante, que podem ajudar na prevenção de doenças, controle de peso e na stabilização do açúcar no sangue.', price: 5.00, img: 'img/funcionais/farinha_de_linhaca_marrom.jpg' },
       { name: 'Farinha de Maracujá (100g)', desc: 'A farinha de maracujá oferece benefícios como auxílio no emagrecimento e no controle da glicose devido à fibra pectina, que reduz a absorção de gorduras e carboidratos e promove saciedade. Além disso, contribui para a saúde digestiva, melhora os níveis de colesterol, e fornece minerais como ferro e cálcio, além da vitamina B3.', price: 4.00, img: 'img/funcionais/farinha_de_maracuja.jpg' },
       { name: 'Farinha de Uva Roxa (100g)', desc: 'A farinha de uva oferece vários benefícios para a saúde devido ao seu alto teor de antioxidantes (como resveratrol e antocianinas) e fibras, que ajudam a combater os radicais livres, proteger o coração e regular o intestino. Ela também é uma boa fonte de minerais e pode melhorar a circulação sanguínea, auxiliando no desempenho físico e na recuperação muscular.', price: 7.00, img: 'img/funcionais/farinha_uva_roxa.jpg' },
       { name: 'Feno-Grego Granulado (100g)', desc: 'O Feno-Grego granulado serve como suplemento para controlar o açúcar no sangue e o colesterol, melhorar a libido, aumentar os níveis de testosterona, a saúde da pele e do cabelo, além de auxiliar na produção de leite materno em lactantes e potencializar o ganho de massa muscular e resistência física, além disso, suas sementes contêm vitaminas, minerais e fibras.', price: 6.00, img: 'img/funcionais/feno_grego.jpg' },
@@ -180,7 +180,7 @@ window.addEventListener('DOMContentLoaded', () => {
     ],
 
     sementesEgraos: [
-      { name: 'Chia (100g)', desc: 'A chia serve para promover a saciedade e auxiliar na perda de peso, por ser rica em fibras, além de controlar o nível de açúcar no sangue e melhorar a saúde intestinal. Também contribui para a saúde cardiovascular devido ao seu teor de ômega-3, fortalece ossos e dentes por ser fonte de cálcio e minerais, e pode até aumentar a imunidade. A semente pode ser consumida em iogurtes, saladas, sucos ou hidratada em água.', price: 5.00, img: 'img/sementeseGraos/chia.jpg' },
+      { name: 'Chia (100g)', desc: 'A chia serve para promover a saciedade e auxiliar na perda de peso, por ser rica em fibras, além de controlar o nível de açúcar no sangue e melhorar a saúde intestinal. Também contribui para a saúde cardiovascular devido ao seu teor de ômega-3, fortalece ossos e dentes por ser fonte de cálcio e minerais, e pode até aumentar a imunidade. A semente pode ser consumida em iogurtes, saladas, sucos ou hidratada em água.', price: 6.00, img: 'img/sementeseGraos/chia.jpg' },
       { name: 'Gergelim Branco (100g)', desc: 'O Gergelim Branco serve como um superalimento rico em nutrientes, fornecendo proteínas, gorduras saudáveis, fibras, cálcio, magnésio e outros minerais que contribuem para a saúde óssea e o bom funcionamento do organismo. Além disso, auxilia na melhora do colesterol e da digestão, e suas propriedades antioxidantes e o teor de fitoestrogênios podem beneficiar a saúde da pele, aliviar sintomas da menopausa e regular hormônios da tireoide.', price: 6.00, img: 'img/sementeseGraos/gergelim.jpg' },
       { name: 'Gergelim Preto (100g)', desc: 'Assim como o Gergelim Branco, o Gergelim Preto serve para a saúde devido ao seu alto teor de nutrientes, como cálcio, ferro, fibras e antioxidantes, sendo útil para a saúde óssea, digestiva e do coração, além de possuir propriedades anti-inflamatórias e poder ser usado como ingrediente em diversos pratos culinários, incluindo pães, saladas e pastas.', price: 6.00, img: 'img/sementeseGraos/gergelimpreto.jpg' },
       { name: 'Granola Diet a granel (100g)', desc: 'A granola diet é uma combinação nutricional benéfica que fornece energia, ajuda na saciedade devido às fibras e carboidratos, melhora a saúde digestiva, e fornece vitaminas, minerais e gorduras saudáveis essenciais para o bom funcionamento do organismo e para a vitalidade diária, a versão diet, é ideal para dieta com restrições de açúcares,pois não altera os índices glicêmicos.', price: 3.00, img: 'img/sementeseGraos/granoladiet.jpg' },
@@ -188,11 +188,11 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Granola Banana a granel (100g)', desc: 'A granola com banana é uma combinação nutricional benéfica que fornece energia, ajuda na saciedade devido às fibras e carboidratos, melhora a saúde digestiva, e fornece vitaminas, minerais e gorduras saudáveis essenciais para o bom funcionamento do organismo e para a vitalidade diária,com um toque especial, sabor banana.', price: 3.00, img: 'img/sementeseGraos/granola_banana.jpg' },
       { name: 'Grão-de-Bico (100g)', desc: 'O Grão-de-bico é uma leguminosa rica em proteínas vegetais, fibras, vitaminas e minerais, conhecida pela sua versatilidade culinária e benefícios para a saúde, como o auxílio à digestão e ao humor. Pode ser consumido de diversas formas, incluindo em saladas, pastas, sopas, guisados, e até em farinha para pães e bolos.', price: 4.00, img: 'img/sementeseGraos/grao_de_bico.jpg' },
       { name: 'Lentilha (100g)', desc: 'A Lentilha oferece inúmeros benefícios, como melhorar a saúde do coração (controlando pressão e colesterol), auxiliar na prevenção e tratamento da anemia, ajudar no controle da diabetes e do peso, por ser rica em fibras e ter baixo índice glicêmico. Também contribui para a saúde óssea e o sistema imunológico, e é uma ótima fonte de proteína vegetal, ideal para vegetarianos e veganos.', price: 3.00, img: 'img/sementeseGraos/lentilha.jpg' },
-      { name: 'Linhaça Dourada (100g)', desc: 'A linhaça dourada oferece benefícios como a melhora da saúde intestinal e do controle do peso, devido ao seu alto teor de fibras. É também uma fonte de ômega 3, que auxilia na redução do colesterol e na prevenção de doenças cardiovasculares. Além disso, a linhaça dourada tem propriedades antioxidantes e anti-inflamatórias que fortalecem o sistema imunológico e auxiliam na saúde da pele e cabelo.', price: 4.00, img: 'img/sementeseGraos/linhaca_dourada.jpg' },
-      { name: 'Linhaça Marrom (100g)', desc: 'A Linhaça Marrom oferece benefícios como a melhora da saúde intestinal e do coração, ajuda no controle de peso e da glicemia, e possui propriedades antioxidantes e anti-inflamatórias devido ao seu alto teor de fibras, ômega 3 e lignanas, também contribui para a saúde da pele e pode aliviar sintomas da TPM e menopausa. É recomendável consumir a linhaça moída para melhor absorção dos nutrientes.', price: 4.00, img: 'img/sementeseGraos/linhaca_marrom.jpg' },
+      { name: 'Linhaça Dourada (100g)', desc: 'A linhaça dourada oferece benefícios como a melhora da saúde intestinal e do controle do peso, devido ao seu alto teor de fibras. É também uma fonte de ômega 3, que auxilia na redução do colesterol e na prevenção de doenças cardiovasculares. Além disso, a linhaça dourada tem propriedades antioxidantes e anti-inflamatórias que fortalecem o sistema imunológico e auxiliam na saúde da pele e cabelo.', price: 5.00, img: 'img/sementeseGraos/linhaca_dourada.jpg' },
+      { name: 'Linhaça Marrom (100g)', desc: 'A Linhaça Marrom oferece benefícios como a melhora da saúde intestinal e do coração, ajuda no controle de peso e da glicemia, e possui propriedades antioxidantes e anti-inflamatórias devido ao seu alto teor de fibras, ômega 3 e lignanas, também contribui para a saúde da pele e pode aliviar sintomas da TPM e menopausa. É recomendável consumir a linhaça moída para melhor absorção dos nutrientes.', price: 5.00, img: 'img/sementeseGraos/linhaca_marrom.jpg' },
       { name: 'Mix de Quinoa em grãos (100g)', desc: 'O Mix de Quinoa oferece vários benefícios, como alto teor de proteínas e fibras, que auxiliam na digestão, saciedade e controle do peso; é uma fonte de vitaminas (complexo B, A, C, E) e minerais (ferro, cálcio, magnésio, zinco), importantes para ossos, músculos e o sistema imunológico, e contém antioxidantes, ômega 3 e 6 que protegem contra o envelhecimento precoce e doenças cardiovasculares. Por ser sem glúten, é uma ótima opção para celíacos e intolerantes.', price: 5.00, img: 'img/sementeseGraos/mix_de_quinoa.jpg' },
-      { name: 'Pepita de Girassol (100g)', desc: 'As pepitas de girassol (ou sementes de girassol sem casca), oferecem múltiplos benefícios à saúde, incluindo a melhoria da saúde cardiovascular devido ao seu teor de gorduras saudáveis e fibras, a proteção da pele e cabelos devido às vitaminas e antioxidantes, o fortalecimento dos ossos e músculos por serem ricas em minerais, o auxílio na regulação do colesterol, a potencial melhoria do sistema imunológico e o auxílio na gestão do peso e controle da diabetes.', price: 5.00, img: 'img/sementeseGraos/pepita_girassol.jpg' },
-      { name: 'Semente de Abóbora (100g)', desc: 'As Sementes de Abóbora oferecem múltiplos benefícios à saúde devido ao seu conteúdo de magnésio, zinco, fibras, antioxidantes e proteínas, incluindo a melhoria da saúde cardiovascular, o controle do açúcar no sangue, o reforço do sistema imunológico, a promoção da qualidade do sono e o auxílio à digestão e saciedade. Elas também podem contribuir para a saúde da próstata e ajudar a aumentar a massa muscular.', price: 8.00, img: 'img/sementeseGraos/abobora.jpg' },
+      { name: 'Pepita de Girassol (100g)', desc: 'As pepitas de girassol (ou sementes de girassol sem casca), oferecem múltiplos benefícios à saúde, incluindo a melhoria da saúde cardiovascular devido ao seu teor de gorduras saudáveis e fibras, a proteção da pele e cabelos devido às vitaminas e antioxidantes, o fortalecimento dos ossos e músculos por serem ricas em minerais, o auxílio na regulação do colesterol, a potencial melhoria do sistema imunológico e o auxílio na gestão do peso e controle da diabetes.', price: 6.00, img: 'img/sementeseGraos/pepita_girassol.jpg' },
+      { name: 'Semente de Abóbora (100g)', desc: 'As Sementes de Abóbora oferecem múltiplos benefícios à saúde devido ao seu conteúdo de magnésio, zinco, fibras, antioxidantes e proteínas, incluindo a melhoria da saúde cardiovascular, o controle do açúcar no sangue, o reforço do sistema imunológico, a promoção da qualidade do sono e o auxílio à digestão e saciedade. Elas também podem contribuir para a saúde da próstata e ajudar a aumentar a massa muscular.', price: 9.00, img: 'img/sementeseGraos/abobora.jpg' },
       { name: 'Semente de Girassol - com casca (100g)', desc: 'A Semente de Girassol com Casca pode ser consumida de diversas formas: Como lanche entre as refeições, basta quebrar a casca com os dentes e consumir a semente interna. Adicionada a mixes de sementes e oleaginosas, para um snack nutritivo, torrada com um pouco de sal ou temperos naturais. Pode também ser usada para alimentar aves ornamentais ou animais de estimação, sob orientação adequada.', price: 2.50, img: 'img/sementeseGraos/girassol_com_casca.jpg' },
       { name: 'Soja em Grãos (100g)', desc: 'A Soja em Grãos é um superalimento que oferece múltiplos benefícios à saúde, como a redução do colesterol LDL, a prevenção de doenças cardiovasculares, a melhora do funcionamento intestinal e o auxílio na perda de peso devido à sua alta quantidade de fibras e proteínas. Além disso, é rica em minerais como cálcio e magnésio, importantes para a saúde óssea, e isoflavonas, que aliviam os sintomas da menopausa.', price: 3.50, img: 'img/sementeseGraos/sojagraos.jpg' }
     ],
@@ -208,7 +208,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Chips de Batata Doce e Chimichurri (100g)', desc: 'O Chips de Batata Doce e Chimichurri é feito a partir de fatias bem fininhas de batata doce, bem crocantes e sequinhas, depois temperadas com sal e o delicioso Tempero Chimichurri, podendo ser consumidas como um petisco ou lanchinho entre as refeições e até como pré ou pós treino.', price: 8.00, img: 'img/diversos/chips_batata_doce_chimichurri.jpg' },
       { name: 'Chips de Batata Doce e Lemon Pepper (100g)', desc: 'O Chips de Batata Doce e Lemon Pepper é feito a partir de fatias bem fininhas de batata doce, bem crocantes e sequinhas, depois temperadas com o delicioso Tempero Lemon Pepper, podendo ser consumidas como um petisco ou lanchinho entre as refeições e até como pré ou pós treino.', price: 8.00, img: 'img/diversos/chips_batata_doce_lemon_pepper.jpg' },
       { name: 'Chips de Macaxeira Tradicional (100g)', desc: 'O Chips de Macaxeira Tradicional é uma opção perfeita para seus lanches, um petisco crocante, leve e sequinho, além de ser prático e saboroso, e com valores menores em gordura e sódio, comparando com as chips comuns.', price: 8.00, img: 'img/diversos/chips_macaxeira_tradicional.jpg' },
-      { name: 'Chips de Macaxeira e Lemon Pepper (100g)', desc: 'O Chips de Macaxeira e Lemon Pepper é uma opção perfeita para seus lanches, um petisco crocante, leve e sequinho, com um toque especial do tempero Lemon Pepper, para deixá-lo ainda mais saboroso.', price: 8.00, img: 'img/diversos/chips_macaxeira_lemon_pepper.jpg'},
+      { name: 'Chips de Macaxeira e Lemon Pepper (100g)', desc: 'O Chips de Macaxeira e Lemon Pepper é uma opção perfeita para seus lanches, um petisco crocante, leve e sequinho, com um toque especial do tempero Lemon Pepper, para deixá-lo ainda mais saboroso.', price: 8.00, img: 'img/diversos/chips_macaxeira_lemon_pepper.jpg' },
       { name: 'Cranberry (100g)', desc: 'Cranberry é uma fruta vermelha rica em antioxidantes e vitamina C, usada principalmente para prevenir infecções do trato urinário, pois suas proantocianidinas impedem as bactérias de se fixarem nas paredes da bexiga. Também serve para fortalecer o sistema imunológico e a saúde celular.', price: 7.50, img: 'img/diversos/cranberry.jpg' },
       { name: 'Damasco (100g)', desc: 'O Damasco Seco é rico em fibras, que melhoram o trânsito intestinal e ajudam a controlar o colesterol e a glicemia, além de ser fonte de potássio, importante para a saúde do coração e do controle da pressão arterial. Contém ainda ferro, que previne a anemia, e antioxidantes, como o betacaroteno, que combatem os radicais livres e auxiliam na prevenção de doenças crônicas e envelhecimento precoce.', price: 14.00, img: 'img/diversos/damasco.jpg' },
       { name: 'Lambedor Artesanal (200g)', desc: 'O Lambedor pode funcionar como um tratamento paliativo para aliviar a tosse e a congestão nasal, pois contém ingredientes com propriedades expectorantes e fluidificantes, como o mel e ervas medicinais que podem ajudar na remoção do catarro e aliviar o desconforto. No entanto, é crucial buscar orientação médica para se tratar de maneira mais eficaz.', price: 4.00, img: 'img/diversos/lambedor.jpg' },
@@ -259,8 +259,8 @@ window.addEventListener('DOMContentLoaded', () => {
   function saveCart() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); } catch (e) { console.warn('Erro ao salvar carrinho', e); } }
 
   /* utils */
-  function slugify(str) { return String(str||'').toLowerCase().normalize?.('NFD').replace(/\p{Diacritic}/gu,'').replace(/[^\w\s-]/g,'').trim().replace(/\s+/g,'-'); }
-  function esc(s){ return String(s).replace(/"/g,'&quot;'); }
+  function slugify(str) { return String(str || '').toLowerCase().normalize?.('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-'); }
+  function esc(s) { return String(s).replace(/"/g, '&quot;'); }
 
   /* render produtos */
   function gerarCard(prod) {
@@ -284,7 +284,7 @@ window.addEventListener('DOMContentLoaded', () => {
       </div>`;
   }
   function renderProdutos() {
-    ['temperos','chas','funcionais','sementesEgraos','oleaginosas','diversos'].forEach(cat => {
+    ['temperos', 'chas', 'funcionais', 'sementesEgraos', 'oleaginosas', 'diversos'].forEach(cat => {
       const carousel = document.getElementById(`${cat}-carousel`);
       if (!carousel) return;
       carousel.innerHTML = '';
@@ -322,9 +322,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     if (cartTotal) cartTotal.textContent = total.toFixed(2);
-    if (cartCount) cartCount.textContent = cart.reduce((acc,i)=>acc+i.qty,0);
+    if (cartCount) cartCount.textContent = cart.reduce((acc, i) => acc + i.qty, 0);
     saveCart();
-    document.getElementById('nav-cart-count').textContent = cart.reduce((acc,i)=>acc+i.qty,0);
+    document.getElementById('nav-cart-count').textContent = cart.reduce((acc, i) => acc + i.qty, 0);
   }
 
   function addToCart(id, name, price) {
@@ -340,7 +340,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const idx = cart.findIndex(i => i.id === id);
     if (idx === -1) return;
     cart[idx].qty += delta;
-    if (cart[idx].qty <= 0) cart.splice(idx,1);
+    if (cart[idx].qty <= 0) cart.splice(idx, 1);
     renderCart();
   }
 
@@ -383,12 +383,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const btn = e.target.closest('button[data-action]');
     if (!btn) return;
     const { id, name, price, action } = btn.dataset;
-    if (action==='inc') changeQty(id,1);
-    else if (action==='dec') changeQty(id,-1);
-    else if (action==='favorite') {
+    if (action === 'inc') changeQty(id, 1);
+    else if (action === 'dec') changeQty(id, -1);
+    else if (action === 'favorite') {
       toggleFavorite(id);
     }
-    else if (action==='add') {
+    else if (action === 'add') {
       addToCart(id, name, Number(price));
       const cardImage = btn.closest('.card')?.querySelector('.card__image');
       if (cardImage) {
@@ -406,7 +406,7 @@ window.addEventListener('DOMContentLoaded', () => {
   renderCart();
 
   /* scroll carousel */
-  window.scrollCarousel = function(carouselId, delta){
+  window.scrollCarousel = function (carouselId, delta) {
     const el = document.getElementById(carouselId);
     if (!el) return;
     el.scrollBy({ left: delta, behavior: 'smooth' });
@@ -455,7 +455,7 @@ window.addEventListener('DOMContentLoaded', () => {
   setupCartSidebar();
 
   /* send to WhatsApp */
-  window.sendToWhatsApp = function(){
+  window.sendToWhatsApp = function () {
     if (!cart.length) return showToast('Seu carrinho está vazio!', 'warning');
 
     // Separar produtos por categoria
@@ -634,7 +634,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // 2. Split user input by "e" or ","
       const requests = text.toLowerCase().split(/\s+e\s+|\s*,\s*/);
-      
+
       let itemsAddedCount = 0;
       let notFound = [];
 
@@ -700,77 +700,77 @@ window.addEventListener('DOMContentLoaded', () => {
   setupSmartInput();
 
   /* Kit Builder Functionality */
-function setupKitBuilder() {
-  const selectionScreen = document.getElementById('kit-selection-screen');
-  const builderUI = document.getElementById('kit-builder-ui');
-  const allProducts = Object.values(produtos).flat();
+  function setupKitBuilder() {
+    const selectionScreen = document.getElementById('kit-selection-screen');
+    const builderUI = document.getElementById('kit-builder-ui');
+    const allProducts = Object.values(produtos).flat();
 
-  const kitDefinitions = {
-    churrasco: {
-      title: '🔥 Monte seu Kit Churrasco!',
-      products: ['Sal de Parrilla (100g)', 'Tempero Chimichurri tradicional (100g)', 'Fumaça em pó (100g)', 'Pimenta Calabresa (100g)', 'Alho Frito Granulado (100g)', 'Tempero para Churrasco sem Pimenta (100g)', 'Sal Rosa Grosso do Himalaia (100g)', 'Tempero Beef Ribs (100g)']
-    },
-    essenciais: {
-      title: '🌿 Monte seu Kit de Temperos Essenciais!',
-      products: ['Tempero Ana Maria (100g)', 'Tempero Edu Guedes tradicional (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Cominho Moído (100g)', 'Orégano (100g)', 'Tempero Cebola, Alho e Salsa (100g)', 'Pimenta do Reino Preta Moída (100g)']
-    },
-    chas: {
-      title: '🍵 Monte seu Kit de Chás!',
-      products: ['Camomila (50g)', 'Erva-Doce Tradicional (50g)', 'Hortelã (50g)', 'Capim-Limão (50g)', 'Chá Verde (50g)', 'Hibisco (50g)', 'Erva-Cidreira (50g)', 'Boldo (50g)']
-    },
-    funcionais: {
-      title: '💪 Monte seu Kit Funcional!',
-      products: ['Maca Peruana (100g)', 'Psyllium (100g)', 'Creatina Monohidratada (100g)', 'Colágeno em Pó Hidrolisado (100g)', 'Farinha de Linhaça Dourada (100g)', 'Cacau em Pó 100% (100g)', 'Gengibre em Pó (100g)', 'Guaraná em Pó (100g)']
-    },
-    sementes: {
-      title: '🌱 Monte seu Kit de Sementes e Grãos!',
-      products: ['Chia (100g)', 'Linhaça Dourada (100g)', 'Gergelim Branco (100g)', 'Semente de Abóbora (100g)', 'Pepita de Girassol (100g)', 'Granola Tradicional a granel (100g)', 'Aveia em Flocos Finos (100g)', 'Grão-de-Bico (100g)']
-    },
-    diversos: {
-      title: '🍩 snacking Monte seu Kit de Snacks e Doces!',
-      products: [
-        'Açúcar Mascavo (100g)',
-        'Ameixa Seca sem Caroço (100g)',
-        'Uva Passa Preta (100g)',
-        'Damasco (100g)',
-        'Tâmara sem Caroço (100g)',
-        'Milho Torrado Mostarda e Mel (100g)',
-        'Chips de Batata Doce e Lemon Pepper (100g)',
-        'Biscoito de Arroz sabor Queijo (100g)'
-      ]
-    },
-    ia: {
-      title: '🤖 Kit Inteligente',
-      keywords: {
-        'carnes': ['Sal de Parrilla (100g)', 'Tempero Chimichurri tradicional (100g)', 'Fumaça em pó (100g)', 'Pimenta do Reino Preta Moída (100g)', 'Tempero Beef Ribs (100g)'],
-        'aves': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
-        'frango': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
-        'peixes': ['Lemon Pepper (100g)', 'Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Endro (50g)', 'Gengibre em Pó (100g)'],
-        'saladas': ['Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Gergelim Branco (100g)', 'Pepita de Girassol (100g)'],
-        'feijão': ['Tempero Feijãozinho (100g)', 'Cominho Moído (100g)', 'Louro Folhas (30g)', 'Bacon Desidratado (100g)'],
-        'massas': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
-        'molhos': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
-        'sopas': ['Caldo de Legumes em Pó (100g)', 'Caldo de Galinha em Pó (menos sódio) (100g)', 'Creme de Cebola (100g)', 'Mix para Arroz (100g)'],
-        'legumes': ['Tempero Edu Guedes tradicional (100g)', 'Tempero Limão e Ervas Finas (100g)', 'Orégano (100g)', 'Alho Frito Granulado (100g)'],
-        'doces': ['Canela em Pó (100g)', 'Cravo-da-India (50g)', 'Anis-Estrelado (50g)', 'Nozes Moscada Inteiro (und)', 'Açúcar Mascavo (100g)'],
-        'saudável': ['Tempero Fit Completo (100g)', 'Sal Rosa Fino do Himalaia (100g)', 'Chia (100g)', 'Farinha de Linhaça Dourada (100g)', 'Psyllium (100g)']
+    const kitDefinitions = {
+      churrasco: {
+        title: '🔥 Monte seu Kit Churrasco!',
+        products: ['Sal de Parrilla (100g)', 'Tempero Chimichurri tradicional (100g)', 'Fumaça em pó (100g)', 'Pimenta Calabresa (100g)', 'Alho Frito Granulado (100g)', 'Tempero para Churrasco sem Pimenta (100g)', 'Sal Rosa Grosso do Himalaia (100g)', 'Tempero Beef Ribs (100g)']
+      },
+      essenciais: {
+        title: '🌿 Monte seu Kit de Temperos Essenciais!',
+        products: ['Tempero Ana Maria (100g)', 'Tempero Edu Guedes tradicional (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Cominho Moído (100g)', 'Orégano (100g)', 'Tempero Cebola, Alho e Salsa (100g)', 'Pimenta do Reino Preta Moída (100g)']
+      },
+      chas: {
+        title: '🍵 Monte seu Kit de Chás!',
+        products: ['Camomila (50g)', 'Erva-Doce Tradicional (50g)', 'Hortelã (50g)', 'Capim-Limão (50g)', 'Chá Verde (50g)', 'Hibisco (50g)', 'Erva-Cidreira (50g)', 'Boldo (50g)']
+      },
+      funcionais: {
+        title: '💪 Monte seu Kit Funcional!',
+        products: ['Maca Peruana (100g)', 'Psyllium (100g)', 'Creatina Monohidratada (100g)', 'Colágeno em Pó Hidrolisado (100g)', 'Farinha de Linhaça Dourada (100g)', 'Cacau em Pó 100% (100g)', 'Gengibre em Pó (100g)', 'Guaraná em Pó (100g)']
+      },
+      sementes: {
+        title: '🌱 Monte seu Kit de Sementes e Grãos!',
+        products: ['Chia (100g)', 'Linhaça Dourada (100g)', 'Gergelim Branco (100g)', 'Semente de Abóbora (100g)', 'Pepita de Girassol (100g)', 'Granola Tradicional a granel (100g)', 'Aveia em Flocos Finos (100g)', 'Grão-de-Bico (100g)']
+      },
+      diversos: {
+        title: '🍩 snacking Monte seu Kit de Snacks e Doces!',
+        products: [
+          'Açúcar Mascavo (100g)',
+          'Ameixa Seca sem Caroço (100g)',
+          'Uva Passa Preta (100g)',
+          'Damasco (100g)',
+          'Tâmara sem Caroço (100g)',
+          'Milho Torrado Mostarda e Mel (100g)',
+          'Chips de Batata Doce e Lemon Pepper (100g)',
+          'Biscoito de Arroz sabor Queijo (100g)'
+        ]
+      },
+      ia: {
+        title: '🤖 Kit Inteligente',
+        keywords: {
+          'carnes': ['Sal de Parrilla (100g)', 'Tempero Chimichurri tradicional (100g)', 'Fumaça em pó (100g)', 'Pimenta do Reino Preta Moída (100g)', 'Tempero Beef Ribs (100g)'],
+          'aves': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
+          'frango': ['Tempero Fit Frango (100g)', 'Lemon Pepper (100g)', 'Páprica Doce (100g)', 'Açafrão (100g)', 'Alho em pó (100g)'],
+          'peixes': ['Lemon Pepper (100g)', 'Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Endro (50g)', 'Gengibre em Pó (100g)'],
+          'saladas': ['Tempero Limão e Ervas Finas (100g)', 'Pimenta Rosa (100g)', 'Gergelim Branco (100g)', 'Pepita de Girassol (100g)'],
+          'feijão': ['Tempero Feijãozinho (100g)', 'Cominho Moído (100g)', 'Louro Folhas (30g)', 'Bacon Desidratado (100g)'],
+          'massas': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
+          'molhos': ['Orégano (100g)', 'Manjericão (100g)', 'Tempero Molho Tártaro (100g)', 'Páprica Doce (100g)'],
+          'sopas': ['Caldo de Legumes em Pó (100g)', 'Caldo de Galinha em Pó (menos sódio) (100g)', 'Creme de Cebola (100g)', 'Mix para Arroz (100g)'],
+          'legumes': ['Tempero Edu Guedes tradicional (100g)', 'Tempero Limão e Ervas Finas (100g)', 'Orégano (100g)', 'Alho Frito Granulado (100g)'],
+          'doces': ['Canela em Pó (100g)', 'Cravo-da-India (50g)', 'Anis-Estrelado (50g)', 'Nozes Moscada Inteiro (und)', 'Açúcar Mascavo (100g)'],
+          'saudável': ['Tempero Fit Completo (100g)', 'Sal Rosa Fino do Himalaia (100g)', 'Chia (100g)', 'Farinha de Linhaça Dourada (100g)', 'Psyllium (100g)']
+        }
       }
+    };
+
+    function showSelectionScreen() {
+      selectionScreen.style.display = 'block';
+      builderUI.style.display = 'none';
+      builderUI.innerHTML = '';
     }
-  };
 
-  function showSelectionScreen() {
-    selectionScreen.style.display = 'block';
-    builderUI.style.display = 'none';
-    builderUI.innerHTML = '';
-  }
+    function renderKitBuilder(kitName, productNames) {
+      selectionScreen.style.display = 'none';
+      builderUI.style.display = 'block';
 
-  function renderKitBuilder(kitName, productNames) {
-    selectionScreen.style.display = 'none';
-    builderUI.style.display = 'block';
+      const kitProducts = allProducts.filter(p => productNames.includes(p.name));
 
-    const kitProducts = allProducts.filter(p => productNames.includes(p.name));
-    
-    builderUI.innerHTML = `
+      builderUI.innerHTML = `
       <button class="kit-builder-back-btn" id="back-to-kits">← Voltar para seleção de kits</button>
       <div class="kit-builder-header">
         <h2>${kitDefinitions[kitName].title}</h2>
@@ -780,92 +780,92 @@ function setupKitBuilder() {
       <div id="kit-summary-container" class="kit-summary"></div>
     `;
 
-    const kitItemsContainer = document.getElementById('kit-items-container');
-    kitProducts.forEach(product => {
-      const itemEl = document.createElement('div');
-      itemEl.className = 'kit-item';
-      itemEl.dataset.id = slugify(product.name);
-      itemEl.dataset.price = product.price;
-      itemEl.dataset.name = product.name;
-      itemEl.innerHTML = `
+      const kitItemsContainer = document.getElementById('kit-items-container');
+      kitProducts.forEach(product => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'kit-item';
+        itemEl.dataset.id = slugify(product.name);
+        itemEl.dataset.price = product.price;
+        itemEl.dataset.name = product.name;
+        itemEl.innerHTML = `
         <img src="${product.img}" alt="${esc(product.name)}" class="kit-item-img" loading="lazy">
         <p class="kit-item-name">${esc(product.name)}</p>
         <p class="fw-bold">R$ ${product.price.toFixed(2)}</p>
       `;
-      itemEl.addEventListener('click', () => {
-        itemEl.classList.toggle('selected');
-        updateKitSummary(kitName);
+        itemEl.addEventListener('click', () => {
+          itemEl.classList.toggle('selected');
+          updateKitSummary(kitName);
+        });
+        kitItemsContainer.appendChild(itemEl);
       });
-      kitItemsContainer.appendChild(itemEl);
-    });
 
-    document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
-  }
-
-  function updateKitSummary(kitName) {
-    const kitSummaryContainer = document.getElementById('kit-summary-container');
-    const allKitItems = builderUI.querySelectorAll('.kit-item');
-    const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
-    let total = 0;
-    selectedItems.forEach(item => total += parseFloat(item.dataset.price));
-
-    if (total === 0) {
-      kitSummaryContainer.innerHTML = '';
-      return;
+      document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
     }
-    
-    const isCompleteKit = selectedItems.length === allKitItems.length && allKitItems.length > 0;
-    let summaryHTML = `<p>Total dos itens: R$ ${total.toFixed(2)}</p>`;
 
-    if (isCompleteKit) {
-      const discount = total * 0.10;
-      const finalTotal = total - discount;
-      summaryHTML += `
+    function updateKitSummary(kitName) {
+      const kitSummaryContainer = document.getElementById('kit-summary-container');
+      const allKitItems = builderUI.querySelectorAll('.kit-item');
+      const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
+      let total = 0;
+      selectedItems.forEach(item => total += parseFloat(item.dataset.price));
+
+      if (total === 0) {
+        kitSummaryContainer.innerHTML = '';
+        return;
+      }
+
+      const isCompleteKit = selectedItems.length === allKitItems.length && allKitItems.length > 0;
+      let summaryHTML = `<p>Total dos itens: R$ ${total.toFixed(2)}</p>`;
+
+      if (isCompleteKit) {
+        const discount = total * 0.10;
+        const finalTotal = total - discount;
+        summaryHTML += `
         <p class="discount">Desconto Kit Completo (10%): - R$ ${discount.toFixed(2)}</p>
         <p class="fw-bold">Total do Kit: R$ ${finalTotal.toFixed(2)}</p>
       `;
-    } else {
-      summaryHTML += `<p style="font-size: 0.85rem; color: #555;">Selecione todos os itens para ganhar 10% de desconto!</p>`;
+      } else {
+        summaryHTML += `<p style="font-size: 0.85rem; color: #555;">Selecione todos os itens para ganhar 10% de desconto!</p>`;
+      }
+
+      summaryHTML += `<button id="add-kit-btn" class="btn bg-yellow" style="margin-top: 16px;">Adicionar Itens ao Carrinho</button>`;
+      kitSummaryContainer.innerHTML = summaryHTML;
+
+      document.getElementById('add-kit-btn').addEventListener('click', () => addKitToCart(kitName));
     }
 
-    summaryHTML += `<button id="add-kit-btn" class="btn bg-yellow" style="margin-top: 16px;">Adicionar Itens ao Carrinho</button>`;
-    kitSummaryContainer.innerHTML = summaryHTML;
+    function addKitToCart(kitName) {
+      const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
+      if (selectedItems.length === 0) return showToast('Selecione pelo menos um item para o seu kit!', 'warning');
+      const allKitItems = builderUI.querySelectorAll('.kit-item');
 
-    document.getElementById('add-kit-btn').addEventListener('click', () => addKitToCart(kitName));
-  }
-
-  function addKitToCart(kitName) {
-    const selectedItems = builderUI.querySelectorAll('.kit-item.selected');
-    if (selectedItems.length === 0) return showToast('Selecione pelo menos um item para o seu kit!', 'warning');
-    const allKitItems = builderUI.querySelectorAll('.kit-item');
-
-    let kitTotal = 0;
-    selectedItems.forEach(item => {
-      const { id, name, price } = item.dataset;
-      addToCart(id, name, parseFloat(price));
-      kitTotal += parseFloat(price);
-    });
-
-    const isCompleteKit = selectedItems.length === allKitItems.length && allKitItems.length > 0;
-    if (isCompleteKit) {
-      const discountValue = kitTotal * 0.10;
-      cart.push({
-        id: `desconto-kit-${slugify(kitName)}`,
-        name: `Desconto Kit Completo (10%)`,
-        price: -discountValue,
-        qty: 1
+      let kitTotal = 0;
+      selectedItems.forEach(item => {
+        const { id, name, price } = item.dataset;
+        addToCart(id, name, parseFloat(price));
+        kitTotal += parseFloat(price);
       });
+
+      const isCompleteKit = selectedItems.length === allKitItems.length && allKitItems.length > 0;
+      if (isCompleteKit) {
+        const discountValue = kitTotal * 0.10;
+        cart.push({
+          id: `desconto-kit-${slugify(kitName)}`,
+          name: `Desconto Kit Completo (10%)`,
+          price: -discountValue,
+          qty: 1
+        });
+      }
+
+      renderCart();
+      showToast(`${selectedItems.length} ite${selectedItems.length > 1 ? 'ns' : 'm'} adicionado${selectedItems.length > 1 ? 's' : ''} ao carrinho!`, 'success');
+      showSelectionScreen();
     }
 
-    renderCart();
-    showToast(`${selectedItems.length} ite${selectedItems.length > 1 ? 'ns' : 'm'} adicionado${selectedItems.length > 1 ? 's' : ''} ao carrinho!`, 'success');
-    showSelectionScreen();
-  }
-
-  function renderIaBuilder() {
-    selectionScreen.style.display = 'none';
-    builderUI.style.display = 'block';
-    builderUI.innerHTML = `
+    function renderIaBuilder() {
+      selectionScreen.style.display = 'none';
+      builderUI.style.display = 'block';
+      builderUI.innerHTML = `
       <button class="kit-builder-back-btn" id="back-to-kits">← Voltar para seleção de kits</button>
       <div class="kit-builder-header">
         <h2>${kitDefinitions.ia.title}</h2>
@@ -877,31 +877,31 @@ function setupKitBuilder() {
       <div id="ia-results-container"></div>
     `;
 
-    const keywordsContainer = document.getElementById('ia-keywords-container');
-    const keywords = Object.keys(kitDefinitions.ia.keywords);
-    keywords.forEach(kw => {
-      const tag = document.createElement('button');
-      tag.className = 'ia-keyword-tag';
-      tag.textContent = kw.charAt(0).toUpperCase() + kw.slice(1); // Capitalize
-      tag.dataset.keyword = kw;
-      tag.addEventListener('click', () => generateIaKit(kw));
-      keywordsContainer.appendChild(tag);
-    });
+      const keywordsContainer = document.getElementById('ia-keywords-container');
+      const keywords = Object.keys(kitDefinitions.ia.keywords);
+      keywords.forEach(kw => {
+        const tag = document.createElement('button');
+        tag.className = 'ia-keyword-tag';
+        tag.textContent = kw.charAt(0).toUpperCase() + kw.slice(1); // Capitalize
+        tag.dataset.keyword = kw;
+        tag.addEventListener('click', () => generateIaKit(kw));
+        keywordsContainer.appendChild(tag);
+      });
 
-    document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
-  }
-
-  function generateIaKit(keyword) {
-    const resultsContainer = document.getElementById('ia-results-container');
-    if (!keyword) {
-      showToast(`Categoria inválida.`, 'warning');
-      return;
+      document.getElementById('back-to-kits').addEventListener('click', showSelectionScreen);
     }
 
-    const productNames = kitDefinitions.ia.keywords[keyword];
-    const kitProducts = allProducts.filter(p => productNames.includes(p.name));
+    function generateIaKit(keyword) {
+      const resultsContainer = document.getElementById('ia-results-container');
+      if (!keyword) {
+        showToast(`Categoria inválida.`, 'warning');
+        return;
+      }
 
-    resultsContainer.innerHTML = `
+      const productNames = kitDefinitions.ia.keywords[keyword];
+      const kitProducts = allProducts.filter(p => productNames.includes(p.name));
+
+      resultsContainer.innerHTML = `
       <div class="kit-builder-header" style="margin-top: 24px;">
         <h4>Sugestão para "${keyword.charAt(0).toUpperCase() + keyword.slice(1)}":</h4>
       </div>
@@ -909,38 +909,38 @@ function setupKitBuilder() {
       <div id="kit-summary-container" class="kit-summary"></div>
     `;
 
-    const kitItemsContainer = document.getElementById('kit-items-container');
-    kitProducts.forEach(product => {
-      const itemEl = document.createElement('div');
-      itemEl.className = 'kit-item';
-      itemEl.dataset.id = slugify(product.name);
-      itemEl.dataset.price = product.price;
-      itemEl.dataset.name = product.name;
-      itemEl.innerHTML = `
+      const kitItemsContainer = document.getElementById('kit-items-container');
+      kitProducts.forEach(product => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'kit-item';
+        itemEl.dataset.id = slugify(product.name);
+        itemEl.dataset.price = product.price;
+        itemEl.dataset.name = product.name;
+        itemEl.innerHTML = `
         <img src="${product.img}" alt="${esc(product.name)}" class="kit-item-img" loading="lazy">
         <p class="kit-item-name">${esc(product.name)}</p>
         <p class="fw-bold">R$ ${product.price.toFixed(2)}</p>
       `;
-      itemEl.addEventListener('click', () => {
-        itemEl.classList.toggle('selected');
-        updateKitSummary('ia');
+        itemEl.addEventListener('click', () => {
+          itemEl.classList.toggle('selected');
+          updateKitSummary('ia');
+        });
+        kitItemsContainer.appendChild(itemEl);
       });
-      kitItemsContainer.appendChild(itemEl);
+    }
+
+    document.querySelectorAll('.kit-option-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const kitName = card.dataset.kit;
+        if (kitName === 'ia') {
+          renderIaBuilder();
+        } else {
+          renderKitBuilder(kitName, kitDefinitions[kitName].products);
+        }
+      });
     });
   }
-
-  document.querySelectorAll('.kit-option-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const kitName = card.dataset.kit;
-      if (kitName === 'ia') {
-        renderIaBuilder();
-      } else {
-        renderKitBuilder(kitName, kitDefinitions[kitName].products);
-      }
-    });
-  });
-}
-setupKitBuilder();
+  setupKitBuilder();
 
   /* Tabs Functionality */
   function setupTabs() {
@@ -1191,5 +1191,3 @@ setupKitBuilder();
 
   setupRoulette();
 });
-
-
