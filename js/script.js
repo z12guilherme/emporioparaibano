@@ -192,7 +192,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { name: 'Linhaça Marrom (100g)', desc: 'A Linhaça Marrom oferece benefícios como a melhora da saúde intestinal e do coração, ajuda no controle de peso e da glicemia, e possui propriedades antioxidantes e anti-inflamatórias devido ao seu alto teor de fibras, ômega 3 e lignanas, também contribui para a saúde da pele e pode aliviar sintomas da TPM e menopausa. É recomendável consumir a linhaça moída para melhor absorção dos nutrientes.', price: 5.00, img: 'img/sementeseGraos/linhaca_marrom.jpg' },
       { name: 'Mix de Quinoa em grãos (100g)', desc: 'O Mix de Quinoa oferece vários benefícios, como alto teor de proteínas e fibras, que auxiliam na digestão, saciedade e controle do peso; é uma fonte de vitaminas (complexo B, A, C, E) e minerais (ferro, cálcio, magnésio, zinco), importantes para ossos, músculos e o sistema imunológico, e contém antioxidantes, ômega 3 e 6 que protegem contra o envelhecimento precoce e doenças cardiovasculares. Por ser sem glúten, é uma ótima opção para celíacos e intolerantes.', price: 5.00, img: 'img/sementeseGraos/mix_de_quinoa.jpg' },
       { name: 'Pepita de Girassol (100g)', desc: 'As pepitas de girassol (ou sementes de girassol sem casca), oferecem múltiplos benefícios à saúde, incluindo a melhoria da saúde cardiovascular devido ao seu teor de gorduras saudáveis e fibras, a proteção da pele e cabelos devido às vitaminas e antioxidantes, o fortalecimento dos ossos e músculos por serem ricas em minerais, o auxílio na regulação do colesterol, a potencial melhoria do sistema imunológico e o auxílio na gestão do peso e controle da diabetes.', price: 6.00, img: 'img/sementeseGraos/pepita_girassol.jpg' },
-      { name: 'Semente de Abóbora (100g)', desc: 'As Sementes de Abóbora oferecem múltiplos benefícios à saúde devido ao seu conteúdo de magnésio, zinco, fibras, antioxidantes e proteínas, incluindo a melhoria da saúde cardiovascular, o controle do açúcar no sangue, o reforço do sistema imunológico, a promoção da qualidade do sono e o auxílio à digestão e saciedade. Elas também podem contribuir para a saúde da próstata e ajudar a aumentar a massa muscular.', price: 9.00, img: 'img/sementeseGraos/abobora.jpg' },
+      { name: 'Semente de Abóbora (100g)', desc: 'As Sementes de Abóbora oferecem múltiplos benefícios à saúde devido ao seu conteúdo de magnésio, zinco, fibras, antioxidantes e proteínas, incluindo a melhoria da saúde cardiovascular, o controle do açúcar no sangue, o reforço do sistema imunológico, a promoção da qualidade do sono e o auxílio à digestão e saciedade. Elas também podem contribuir para a saúde da próstata e ajudar a aumentar a massa muscular.', price: 11.00, img: 'img/sementeseGraos/abobora.jpg' },
       { name: 'Semente de Girassol - com casca (100g)', desc: 'A Semente de Girassol com Casca pode ser consumida de diversas formas: Como lanche entre as refeições, basta quebrar a casca com os dentes e consumir a semente interna. Adicionada a mixes de sementes e oleaginosas, para um snack nutritivo, torrada com um pouco de sal ou temperos naturais. Pode também ser usada para alimentar aves ornamentais ou animais de estimação, sob orientação adequada.', price: 2.50, img: 'img/sementeseGraos/girassol_com_casca.jpg' },
       { name: 'Soja em Grãos (100g)', desc: 'A Soja em Grãos é um superalimento que oferece múltiplos benefícios à saúde, como a redução do colesterol LDL, a prevenção de doenças cardiovasculares, a melhora do funcionamento intestinal e o auxílio na perda de peso devido à sua alta quantidade de fibras e proteínas. Além disso, é rica em minerais como cálcio e magnésio, importantes para a saúde óssea, e isoflavonas, que aliviam os sintomas da menopausa.', price: 3.50, img: 'img/sementeseGraos/sojagraos.jpg' }
     ],
@@ -567,9 +567,15 @@ window.addEventListener('DOMContentLoaded', () => {
   function setupSearch() {
     const searchInput = document.getElementById('search-input');
     if (!searchInput) return;
+    const normalizeText = (str) =>
+      String(str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/\p{Diacritic}/gu, '');
 
     searchInput.addEventListener('input', (e) => {
       const searchTerm = e.target.value.toLowerCase().trim();
+      const searchTerms = normalizeText(e.target.value.trim()).split(/\s+/).filter(Boolean);
       const sections = document.querySelectorAll('#product-list > section');
 
       sections.forEach(section => {
@@ -580,6 +586,10 @@ window.addEventListener('DOMContentLoaded', () => {
           const title = card.querySelector('.card__title')?.textContent.toLowerCase() || '';
           const desc = card.querySelector('.card__text')?.textContent.toLowerCase() || '';
           const matches = title.includes(searchTerm) || desc.includes(searchTerm);
+          const title = normalizeText(card.querySelector('.card__title')?.textContent || '');
+          const desc = normalizeText(card.querySelector('.card__text')?.textContent || '');
+          const productText = `${title} ${desc}`;
+          const matches = searchTerms.every(term => productText.includes(term));
 
           if (matches) {
             card.style.display = 'flex';
